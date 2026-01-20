@@ -1,0 +1,2762 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Protection contre l'indexation - Document confidentiel -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <title>Sage AI Studio - Présentation Partenaires Revendeurs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            /* Sage AI Gradient - Official Colors */
+            --sage-ai-green: #00D639;
+            --sage-ai-cyan: #00D6DE;
+            --sage-ai-purple: #9D60FF;
+            /* Legacy colors */
+            --sage-ai-start: #0891B2;
+            --sage-ai-mid: #0D9488;
+            --sage-ai-end: #059669;
+            --sage-teal: #14B8A6;
+            --sage-cyan-alt: #06B6D4;
+            --sage-emerald: #10B981;
+            /* Neutrals */
+            --slate-50: #F8FAFC;
+            --slate-100: #F1F5F9;
+            --slate-200: #E2E8F0;
+            --slate-300: #CBD5E1;
+            --slate-400: #94A3B8;
+            --slate-500: #64748B;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1E293B;
+            --slate-900: #0F172A;
+            /* Accents */
+            --amber-500: #F59E0B;
+            --rose-500: #F43F5E;
+            --violet-500: #8B5CF6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--slate-900);
+            color: var(--slate-100);
+            line-height: 1.6;
+        }
+
+        /* Full Width Sections */
+        .section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-inner {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-logo-text {
+            font-weight: 800;
+            font-size: 1.25rem;
+            background: linear-gradient(90deg, var(--sage-ai-green), var(--sage-ai-cyan), var(--sage-ai-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--slate-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--sage-teal);
+        }
+
+        .nav-badge {
+            background: linear-gradient(135deg, var(--sage-ai-start), var(--sage-ai-end));
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+            position: relative;
+            padding-top: 6rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(8, 145, 178, 0.15), transparent),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(5, 150, 105, 0.15), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 214, 57, 0.15);
+            border: 1px solid rgba(0, 214, 222, 0.3);
+            color: var(--sage-ai-cyan);
+            padding: 0.4rem 1.25rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--sage-ai-green) 0%, var(--sage-ai-cyan) 50%, var(--sage-ai-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--slate-300);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 2rem;
+            flex-wrap: nowrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--sage-ai-green), var(--sage-ai-cyan), var(--sage-ai-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-stat-label {
+            color: var(--slate-400);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Context Section */
+        .context {
+            background: var(--slate-800);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--sage-ai-start), var(--sage-ai-end));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--slate-400);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .cards-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-stats { flex-direction: column; gap: 2rem; }
+        }
+
+        .card {
+            background: var(--slate-700);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--sage-teal);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--sage-ai-start), var(--sage-ai-end));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            color: var(--slate-400);
+            font-size: 0.95rem;
+        }
+
+        /* Product Sections */
+        .product-section {
+            background: var(--slate-900);
+            position: relative;
+        }
+
+        .product-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.5;
+        }
+
+        .product-section.ask::before {
+            background: radial-gradient(ellipse 100% 70% at 0% 50%, rgba(6, 182, 212, 0.1), transparent);
+        }
+
+        .product-section.builder::before {
+            background: radial-gradient(ellipse 100% 70% at 100% 50%, rgba(16, 185, 129, 0.1), transparent);
+        }
+
+        .product-section.workflow::before {
+            background: radial-gradient(ellipse 100% 70% at 50% 0%, rgba(139, 92, 246, 0.1), transparent);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .product-grid.reverse {
+            direction: rtl;
+        }
+
+        .product-grid.reverse > * {
+            direction: ltr;
+        }
+
+        .product-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-badge.ask { color: var(--sage-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+        .product-badge.builder { color: var(--sage-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .product-badge.workflow { color: var(--violet-500); border: 1px solid rgba(139, 92, 246, 0.3); }
+
+        .product-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            color: var(--slate-300);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .product-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            color: var(--slate-300);
+            font-size: 1rem;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            color: var(--sage-teal);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Demo Preview */
+        .demo-preview {
+            background: var(--slate-800);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .demo-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .demo-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .demo-dot.red { background: #EF4444; }
+        .demo-dot.yellow { background: #F59E0B; }
+        .demo-dot.green { background: #10B981; }
+
+        .demo-content {
+            background: var(--slate-900);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 300px;
+        }
+
+        .demo-chat {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .demo-message {
+            max-width: 85%;
+            padding: 1rem 1.25rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+        }
+
+        .demo-message.user {
+            background: linear-gradient(135deg, var(--sage-ai-start), var(--sage-ai-end));
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .demo-message.ai {
+            background: var(--slate-700);
+            color: var(--slate-200);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .demo-code {
+            background: var(--slate-950, #020617);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.8rem;
+            color: var(--sage-teal);
+            overflow-x: auto;
+        }
+
+        /* Demo Slider */
+        .demo-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-slides {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .demo-slide {
+            min-width: 100%;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .demo-slide.active {
+            opacity: 1;
+        }
+
+        .demo-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .demo-nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--slate-600);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-nav-dot.active {
+            background: linear-gradient(135deg, var(--sage-ai-green), var(--sage-ai-cyan));
+            transform: scale(1.2);
+        }
+
+        .demo-nav-dot:hover {
+            background: var(--sage-ai-cyan);
+        }
+
+        /* Mobile Mockup */
+        .mobile-mockup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .phone-frame {
+            width: 220px;
+            height: 440px;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 24px;
+            background: #000;
+            border-radius: 12px;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--slate-900);
+            border-radius: 28px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phone-header {
+            background: linear-gradient(135deg, var(--sage-ai-green), var(--sage-ai-cyan));
+            padding: 2.5rem 1rem 0.75rem;
+            text-align: center;
+        }
+
+        .phone-header-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .phone-chat {
+            flex: 1;
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            overflow: hidden;
+        }
+
+        .phone-message {
+            padding: 0.5rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.65rem;
+            line-height: 1.4;
+        }
+
+        .phone-message.user {
+            background: linear-gradient(135deg, var(--sage-ai-green), var(--sage-ai-cyan));
+            color: white;
+            align-self: flex-end;
+            max-width: 80%;
+        }
+
+        .phone-message.ai {
+            background: var(--slate-700);
+            color: var(--slate-200);
+            align-self: flex-start;
+            max-width: 85%;
+        }
+
+        .phone-input {
+            padding: 0.5rem;
+            border-top: 1px solid var(--slate-700);
+        }
+
+        .phone-input-field {
+            background: var(--slate-800);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.6rem;
+            color: var(--slate-400);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .phone-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .phone-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: var(--slate-700);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--slate-300);
+        }
+
+        /* Workflow Visual Nodes (N8N/Make style) */
+        .workflow-canvas {
+            background: var(--slate-800);
+            border-radius: 8px;
+            padding: 1rem;
+            position: relative;
+            min-height: 280px;
+            overflow: hidden;
+        }
+
+        .workflow-canvas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle, var(--slate-600) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+
+        .workflow-nodes {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .workflow-node {
+            background: var(--slate-700);
+            border: 2px solid var(--slate-500);
+            border-radius: 12px;
+            padding: 0.6rem 0.8rem;
+            min-width: 90px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .workflow-node.trigger {
+            border-color: var(--sage-ai-green);
+            background: linear-gradient(135deg, rgba(0, 214, 57, 0.2), rgba(0, 214, 57, 0.05));
+        }
+
+        .workflow-node.condition {
+            border-color: var(--sage-ai-cyan);
+            background: linear-gradient(135deg, rgba(0, 214, 222, 0.2), rgba(0, 214, 222, 0.05));
+            transform: rotate(0deg);
+        }
+
+        .workflow-node.action {
+            border-color: var(--sage-ai-purple);
+            background: linear-gradient(135deg, rgba(157, 96, 255, 0.2), rgba(157, 96, 255, 0.05));
+        }
+
+        .workflow-node.active {
+            box-shadow: 0 0 20px rgba(0, 214, 57, 0.5);
+            animation: nodePulse 2s infinite;
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 214, 57, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(0, 214, 57, 0.6); }
+        }
+
+        .workflow-node-icon {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .workflow-node-label {
+            font-size: 0.65rem;
+            color: var(--slate-300);
+            font-weight: 500;
+        }
+
+        .workflow-connector {
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--sage-ai-green), var(--sage-ai-cyan));
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .workflow-connector::after {
+            content: '→';
+            position: absolute;
+            right: -5px;
+            top: -8px;
+            color: var(--sage-ai-cyan);
+            font-size: 0.9rem;
+        }
+
+        .workflow-branch {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-start;
+        }
+
+        .workflow-status {
+            margin-top: 1rem;
+            padding: 0.5rem 0.75rem;
+            background: rgba(0, 214, 57, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            color: var(--sage-ai-green);
+        }
+
+        .workflow-status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--sage-ai-green);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Use Cases */
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .use-case {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--slate-300);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+
+        .use-case:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--sage-teal);
+        }
+
+        /* Product CTA Button */
+        .product-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 0.875rem 1.5rem;
+            background: linear-gradient(90deg, var(--sage-ai-green), var(--sage-ai-cyan));
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 214, 57, 0.3);
+        }
+
+        .product-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 214, 57, 0.4);
+            background: linear-gradient(90deg, var(--sage-ai-cyan), var(--sage-ai-purple));
+        }
+
+        .use-case-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            background: linear-gradient(180deg, var(--slate-800) 0%, var(--slate-900) 100%);
+        }
+
+        .advantage-card {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(5, 150, 105, 0.1));
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .advantage-card:hover {
+            transform: scale(1.02);
+            border-color: var(--sage-teal);
+        }
+
+        .advantage-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--sage-ai-start), var(--sage-ai-end));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .advantage-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .advantage-text {
+            color: var(--slate-400);
+            margin-bottom: 1.5rem;
+        }
+
+        .advantage-highlight {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--sage-cyan), var(--sage-emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Barriers Section */
+        .barriers {
+            background: var(--slate-900);
+        }
+
+        .barriers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .barrier-card {
+            background: var(--slate-800);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .barrier-header {
+            background: linear-gradient(135deg, var(--rose-500), var(--amber-500));
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .barrier-header.solved {
+            background: linear-gradient(135deg, var(--sage-ai-start), var(--sage-ai-end));
+        }
+
+        .barrier-header-icon {
+            font-size: 1.5rem;
+        }
+
+        .barrier-header-text {
+            font-weight: 700;
+            color: white;
+        }
+
+        .barrier-content {
+            padding: 2rem;
+        }
+
+        .barrier-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .barrier-item:last-child {
+            border-bottom: none;
+        }
+
+        .barrier-item-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(244, 63, 94, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rose-500);
+            flex-shrink: 0;
+        }
+
+        .barrier-item-icon.solved {
+            background: rgba(20, 184, 166, 0.2);
+            color: var(--sage-teal);
+        }
+
+        .barrier-item-text {
+            color: var(--slate-300);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--slate-800);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--slate-700);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sage-teal);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(5, 150, 105, 0.2));
+            border-color: var(--sage-teal);
+        }
+
+        .pricing-card.featured::before {
+            content: 'POPULAIRE';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--sage-ai-start), var(--sage-ai-end));
+            color: white;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .pricing-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-description {
+            color: var(--slate-400);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-price {
+            margin-bottom: 2rem;
+        }
+
+        .pricing-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .pricing-period {
+            color: var(--slate-400);
+            font-size: 0.9rem;
+        }
+
+        .pricing-margin {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .pricing-margin-label {
+            color: var(--sage-emerald);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-margin-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--sage-emerald);
+        }
+
+        .pricing-features {
+            list-style: none;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            color: var(--slate-300);
+            font-size: 0.9rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--sage-teal);
+            font-weight: bold;
+        }
+
+        /* Business Potential */
+        .potential {
+            background: var(--slate-900);
+        }
+
+        .potential-highlight {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.15), rgba(5, 150, 105, 0.15));
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .potential-title {
+            font-size: 1.25rem;
+            color: var(--slate-400);
+            margin-bottom: 1rem;
+        }
+
+        .potential-value {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--sage-cyan), var(--sage-emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .potential-subtitle {
+            color: var(--slate-400);
+            margin-top: 0.5rem;
+        }
+
+        .potential-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .potential-card {
+            background: var(--slate-800);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .potential-card-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .potential-card-label {
+            color: var(--slate-400);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            background: var(--slate-800);
+        }
+
+        .roadmap-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(180deg, var(--sage-ai-start), var(--sage-ai-end));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .roadmap-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .roadmap-content {
+            width: calc(50% - 3rem);
+            background: var(--slate-700);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            position: relative;
+        }
+
+        .roadmap-item:nth-child(odd) .roadmap-content {
+            text-align: right;
+        }
+
+        .roadmap-dot {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--sage-ai-start), var(--sage-ai-end));
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid var(--slate-800);
+        }
+
+        .roadmap-date {
+            color: var(--sage-teal);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-title {
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-text {
+            color: var(--slate-400);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--sage-ai-start), var(--sage-ai-mid), var(--sage-ai-end));
+            text-align: center;
+            min-height: auto;
+            padding: 6rem 0;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--slate-900);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background: var(--slate-800);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--slate-950, #020617);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--slate-500);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--slate-500);
+            font-size: 0.8rem;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--slate-600);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 4px;
+            height: 8px;
+            background: var(--sage-teal);
+            border-radius: 2px;
+            position: absolute;
+            bottom: 2.5rem;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-logo">
+                <span class="nav-logo-text">Sage AI Studio</span>
+            </div>
+            <div class="nav-links">
+                <a href="#context" class="nav-link">Contexte</a>
+                <a href="#products" class="nav-link">Produits</a>
+                <a href="#advantages" class="nav-link">Avantages</a>
+                <a href="#pricing" class="nav-link">Tarifs</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+            </div>
+            <span class="nav-badge">Programme Partenaires 2026</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section hero" id="hero">
+        <div class="section-inner">
+            <div class="hero-content">
+                <div class="hero-badge">Nouveau Tech Partner Sage</div>
+                <h1>Sage AI Studio</h1>
+                <p class="hero-subtitle">L'IA pour l'écosystème Sage</p>
+                <p style="color: var(--slate-400); font-size: 0.95rem; max-width: 700px; margin: 0 auto;">
+                    Transformez votre activité de consultant Sage avec la première suite d'outils IA spécialement conçue pour l'écosystème Sage. Nouveaux revenus, nouvelles compétences, nouveaux services.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">35%</span>
+                        <span class="hero-stat-label">Marge Partenaire</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">17,500</span>
+                        <span class="hero-stat-label">Clients S100 Adressables</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">3</span>
+                        <span class="hero-stat-label">Modules IA</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">x3</span>
+                        <span class="hero-stat-label">Productivité Consultant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">Découvrir</div>
+    </section>
+
+    <!-- Context Section -->
+    <section class="section context" id="context">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">Contexte Marché</span>
+                <h2 class="section-title">L'IA révolutionne le métier de consultant ERP</h2>
+                <p class="section-subtitle">
+                    Vos clients attendent des solutions modernes. L'IA n'est plus une option, c'est une nécessité compétitive.
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Demande Client Croissante</h3>
+                    <p class="card-text">
+                        73% des PME recherchent activement des solutions IA pour leur gestion.
+                        Vos clients demandent des innovations que vous ne pouvez pas encore leur offrir.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⏱️</div>
+                    <h3 class="card-title">Pression sur les Délais</h3>
+                    <p class="card-text">
+                        Les projets de personnalisation prennent trop de temps. Les clients veulent
+                        des résultats en jours, pas en semaines. L'IA accélère tout.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3 class="card-title">Évolution du Métier</h3>
+                    <p class="card-text">
+                        Le consultant ERP de demain est un expert augmenté par l'IA. Ceux qui
+                        n'évoluent pas perdront face à la concurrence.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <h3 class="card-title">Nouveaux Revenus</h3>
+                    <p class="card-text">
+                        Vendez des développements légers réalisés en quelques minutes
+                        au lieu de plusieurs jours. Multipliez votre rentabilité.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3 class="card-title">Migration SPC</h3>
+                    <p class="card-text">
+                        Les outils full web facilitent la migration vers Sage Cloud Partner.
+                        Accompagnez vos clients dans leur transformation digitale.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3 class="card-title">Avantage Concurrentiel</h3>
+                    <p class="card-text">
+                        Démarquez Sage face à Odoo, Pennylane ou Cegid grâce à l'IA native.
+                        Vos clients bénéficient de fonctionnalités que la concurrence n'offre pas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product: Ask.AI -->
+    <section class="section product-section ask" id="products">
+        <div class="section-inner">
+            <div class="product-grid">
+                <div class="product-content">
+                    <div class="product-badge ask">
+                        <span>💬</span> Module 1
+                    </div>
+                    <h2 class="product-title">Sage Ask.AI</h2>
+                    <p class="product-description">
+                        L'assistant conversationnel qui comprend Sage. Vos clients posent leurs questions
+                        en langage naturel et obtiennent des réponses contextualisées instantanément.
+                    </p>
+                    <ul class="product-features">
+                        <li>Requêtes en langage naturel sur toutes les données Sage</li>
+                        <li>Analyses financières instantanées</li>
+                        <li>🔗 <strong>APIs Premium</strong> : intégrable dans tout système tiers (CRM, BI, etc.)</li>
+                        <li>🌍 <strong>Multilingue</strong> : disponible en FR, EN, ES, DE, IT</li>
+                        <li>📊 <strong>Multi-Produits</strong> : interrogez Sage 100, Paie, Immos simultanément</li>
+                    </ul>
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <div class="use-case-icon">📊</div>
+                            "Montre-moi le CA par commercial ce trimestre"
+                        </div>
+                        <div class="use-case">
+                            <div class="use-case-icon">⚠️</div>
+                            "Quels clients ont dépassé leur encours ?"
+                        </div>
+                        <div class="use-case">
+                            <div class="use-case-icon">📈</div>
+                            "Compare mes ventes 2025 vs 2024"
+                        </div>
+                    </div>
+                    <a href="https://sage-ai-studio.webexpr.dev/" target="_blank" class="product-cta">
+                        <span>🚀</span> Tester Ask.AI en démo
+                    </a>
+                </div>
+                <div class="demo-preview float demo-slider">
+                    <!-- Slide 1: Desktop Chat -->
+                    <div class="demo-slide active" id="askSlide1">
+                        <div class="demo-header">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                            <span style="margin-left: auto; color: var(--slate-400); font-size: 0.8rem;">Sage Ask.AI - Desktop</span>
+                        </div>
+                        <div class="demo-content">
+                            <div class="demo-chat">
+                                <div class="demo-message user">
+                                    Quels sont mes 5 meilleurs clients ce mois-ci ?
+                                </div>
+                                <div class="demo-message ai">
+                                    Voici vos 5 meilleurs clients en janvier 2026 :<br><br>
+                                    1. <strong>ACME Corp</strong> - 45 230 €<br>
+                                    2. <strong>TechnoPlus</strong> - 38 750 €<br>
+                                    3. <strong>IndustriePro</strong> - 32 100 €<br>
+                                    4. <strong>ServiceMax</strong> - 28 900 €<br>
+                                    5. <strong>LogiSmart</strong> - 24 650 €<br><br>
+                                    📈 +12% vs décembre. ACME Corp a augmenté de 23%.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Mobile App -->
+                    <div class="demo-slide" id="askSlide2" style="display: none;">
+                        <div class="demo-header">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                            <span style="margin-left: auto; color: var(--slate-400); font-size: 0.8rem;">📱 iOS & Android - Version Standard</span>
+                        </div>
+                        <div class="demo-content" style="min-height: 380px;">
+                            <div class="mobile-mockup">
+                                <div class="phone-frame">
+                                    <div class="phone-screen">
+                                        <div class="phone-header">
+                                            <div class="phone-header-title">💬 Sage Ask.AI</div>
+                                        </div>
+                                        <div class="phone-chat">
+                                            <div class="phone-message user">
+                                                Mon CA du mois ?
+                                            </div>
+                                            <div class="phone-message ai">
+                                                📊 <strong>CA Janvier 2026</strong><br>
+                                                Total : 127 450 €<br>
+                                                vs Dec : +8,3%<br>
+                                                Objectif : 94% atteint
+                                            </div>
+                                            <div class="phone-message user">
+                                                Factures en retard ?
+                                            </div>
+                                            <div class="phone-message ai">
+                                                ⚠️ <strong>3 factures</strong> en retard<br>
+                                                Total : 12 340 €<br>
+                                                → Relancer ACME Corp
+                                            </div>
+                                        </div>
+                                        <div class="phone-input">
+                                            <div class="phone-input-field">
+                                                <span>Posez votre question...</span>
+                                                <span>🎤</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-badges">
+                                <div class="phone-badge">🍎 iOS</div>
+                                <div class="phone-badge">🤖 Android</div>
+                                <div class="phone-badge">✅ Dès Standard</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Use Case Alertes -->
+                    <div class="demo-slide" id="askSlide3" style="display: none;">
+                        <div class="demo-header">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                            <span style="margin-left: auto; color: var(--slate-400); font-size: 0.8rem;">Sage Ask.AI - Alertes & Insights</span>
+                        </div>
+                        <div class="demo-content">
+                            <div class="demo-chat">
+                                <div class="demo-message user">
+                                    Y a-t-il des anomalies dans mes comptes ce mois ?
+                                </div>
+                                <div class="demo-message ai">
+                                    🔍 <strong>3 anomalies détectées :</strong><br><br>
+                                    ⚠️ <strong>Doublon potentiel</strong> - Facture #2024-0892 et #2024-0894 semblent identiques (même montant, même fournisseur)<br><br>
+                                    ⚠️ <strong>Écart de marge</strong> - Client TechnoPlus : marge à 12% vs 28% habituel<br><br>
+                                    ⚠️ <strong>Dépassement budget</strong> - Compte 6251 "Voyages" : +34% vs budget prévu<br><br>
+                                    Voulez-vous que je détaille l'une de ces anomalies ?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Dots -->
+                    <div class="demo-nav">
+                        <button class="demo-nav-dot active" onclick="showAskSlide(1)" title="Desktop"></button>
+                        <button class="demo-nav-dot" onclick="showAskSlide(2)" title="Mobile App"></button>
+                        <button class="demo-nav-dot" onclick="showAskSlide(3)" title="Alertes"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product: Builder.AI -->
+    <section class="section product-section builder">
+        <div class="section-inner">
+            <div class="product-grid reverse">
+                <div class="product-content">
+                    <div class="product-badge builder">
+                        <span>🎨</span> Module 2
+                    </div>
+                    <h2 class="product-title">Sage Builder.AI</h2>
+                    <p class="product-description">
+                        Créez des interfaces personnalisées en décrivant simplement ce que vous voulez.
+                        L'IA génère le code, vous validez et déployez. Fin des développements longs et coûteux.
+                    </p>
+                    <ul class="product-features">
+                        <li>Génération d'interfaces par prompt en langage naturel</li>
+                        <li>Mode vibeCoding : Visualiser la vue en temps réel</li>
+                        <li>🔗 <strong>APIs Premium</strong> : intégrable dans tout système tiers</li>
+                        <li>🌍 <strong>Multilingue</strong> : FR, EN, ES, DE, IT disponibles</li>
+                        <li>📊 <strong>Multi-Produits</strong> : interrogez plusieurs bases Sage simultanément</li>
+                        <li>Full web compatible SPC et On-Premise</li>
+                    </ul>
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <div class="use-case-icon">📋</div>
+                            "Dashboard directeur financier avec KPIs"
+                        </div>
+                        <div class="use-case">
+                            <div class="use-case-icon">📱</div>
+                            "Portail mobile pour les commerciaux"
+                        </div>
+                        <div class="use-case">
+                            <div class="use-case-icon">📦</div>
+                            "Interface de saisie pour l'entrepôt"
+                        </div>
+                    </div>
+                    <a href="https://sage-ai-studio.webexpr.dev/" target="_blank" class="product-cta">
+                        <span>🎨</span> Tester Builder.AI en démo
+                    </a>
+                </div>
+                <div class="demo-preview float demo-slider" style="animation-delay: 0.5s;">
+                    <!-- Slide 1: Dashboard RH -->
+                    <div class="demo-slide active" id="builderSlide1">
+                        <div class="demo-header">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                            <span style="margin-left: auto; color: var(--slate-400); font-size: 0.8rem;">Dashboard RH - vibeCoding</span>
+                        </div>
+                        <div class="demo-content">
+                            <div class="demo-chat" style="margin-bottom: 0.75rem;">
+                                <div class="demo-message user" style="font-size: 0.85rem; padding: 0.5rem 0.75rem;">
+                                    Crée un dashboard RH avec effectifs par service et masse salariale
+                                </div>
+                            </div>
+                            <div style="background: var(--slate-800); border-radius: 8px; padding: 0.75rem; border: 1px solid var(--slate-600);">
+                                <div style="font-size: 0.7rem; color: var(--sage-ai-cyan); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="width: 8px; height: 8px; background: var(--sage-ai-green); border-radius: 50%; animation: pulse 1s infinite;"></span>
+                                    Construction en cours...
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <div style="background: linear-gradient(135deg, var(--sage-ai-green), var(--sage-ai-cyan)); border-radius: 6px; padding: 0.5rem; text-align: center;">
+                                        <div style="font-size: 1.1rem; font-weight: 800; color: white;">47</div>
+                                        <div style="font-size: 0.6rem; color: rgba(255,255,255,0.8);">Effectifs</div>
+                                    </div>
+                                    <div style="background: linear-gradient(135deg, var(--sage-ai-cyan), var(--sage-ai-purple)); border-radius: 6px; padding: 0.5rem; text-align: center;">
+                                        <div style="font-size: 1.1rem; font-weight: 800; color: white;">€185K</div>
+                                        <div style="font-size: 0.6rem; color: rgba(255,255,255,0.8);">Masse Sal.</div>
+                                    </div>
+                                </div>
+                                <div style="background: var(--slate-700); border-radius: 4px; padding: 0.5rem;">
+                                    <div style="font-size: 0.6rem; color: var(--slate-400); margin-bottom: 0.3rem;">Effectifs par service</div>
+                                    <div style="display: flex; align-items: flex-end; gap: 0.25rem; height: 40px;">
+                                        <div style="flex: 1; background: var(--sage-ai-green); height: 70%; border-radius: 2px;"></div>
+                                        <div style="flex: 1; background: var(--sage-ai-cyan); height: 100%; border-radius: 2px;"></div>
+                                        <div style="flex: 1; background: var(--sage-ai-purple); height: 50%; border-radius: 2px;"></div>
+                                        <div style="flex: 1; background: var(--sage-ai-green); height: 80%; border-radius: 2px;"></div>
+                                        <div style="flex: 1; background: var(--sage-ai-cyan); height: 35%; border-radius: 2px;"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 0.5rem; display: flex; gap: 0.3rem; font-size: 0.65rem; color: var(--sage-ai-green);">
+                                    ✅ KPIs ✅ Graphique ✅ Filtres ⏳ Export
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Tableau Commercial -->
+                    <div class="demo-slide" id="builderSlide2" style="display: none;">
+                        <div class="demo-header">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                            <span style="margin-left: auto; color: var(--slate-400); font-size: 0.8rem;">Suivi Commercial - vibeCoding</span>
+                        </div>
+                        <div class="demo-content">
+                            <div class="demo-chat" style="margin-bottom: 0.75rem;">
+                                <div class="demo-message user" style="font-size: 0.85rem; padding: 0.5rem 0.75rem;">
+                                    Un tableau des ventes par commercial avec objectifs et écarts
+                                </div>
+                            </div>
+                            <div style="background: var(--slate-800); border-radius: 8px; padding: 0.75rem; border: 1px solid var(--slate-600);">
+                                <div style="font-size: 0.7rem; color: var(--sage-ai-green); margin-bottom: 0.5rem;">✅ Vue générée</div>
+                                <!-- Mini Table -->
+                                <div style="background: var(--slate-700); border-radius: 4px; overflow: hidden; font-size: 0.6rem;">
+                                    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; background: var(--slate-600); padding: 0.4rem; color: var(--slate-300); font-weight: 600;">
+                                        <div>Commercial</div>
+                                        <div>CA</div>
+                                        <div>Obj.</div>
+                                        <div>Écart</div>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 0.35rem 0.4rem; color: var(--slate-300); border-bottom: 1px solid var(--slate-600);">
+                                        <div>M. Dupont</div>
+                                        <div>€48K</div>
+                                        <div>€45K</div>
+                                        <div style="color: var(--sage-ai-green);">+7%</div>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 0.35rem 0.4rem; color: var(--slate-300); border-bottom: 1px solid var(--slate-600);">
+                                        <div>S. Martin</div>
+                                        <div>€52K</div>
+                                        <div>€50K</div>
+                                        <div style="color: var(--sage-ai-green);">+4%</div>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 0.35rem 0.4rem; color: var(--slate-300);">
+                                        <div>L. Bernard</div>
+                                        <div>€38K</div>
+                                        <div>€45K</div>
+                                        <div style="color: #EF4444;">-16%</div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 0.5rem; display: flex; gap: 0.3rem; font-size: 0.65rem; color: var(--sage-ai-green);">
+                                    ✅ Tableau ✅ Calculs ✅ Mise en forme ✅ Export PDF
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Interface Tiers (Dataven) -->
+                    <div class="demo-slide" id="builderSlide3" style="display: none;">
+                        <div class="demo-header">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                            <span style="margin-left: auto; color: var(--slate-400); font-size: 0.8rem;">🔗 Intégration API Tiers</span>
+                        </div>
+                        <div class="demo-content">
+                            <div class="demo-chat" style="margin-bottom: 0.75rem;">
+                                <div class="demo-message user" style="font-size: 0.85rem; padding: 0.5rem 0.75rem;">
+                                    Intègre cette vue dans Dataven avec nos couleurs corporate
+                                </div>
+                            </div>
+                            <div style="background: var(--slate-800); border-radius: 8px; padding: 0.75rem; border: 1px solid var(--slate-600);">
+                                <div style="font-size: 0.7rem; color: var(--sage-ai-cyan); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                    🔗 Export API vers Dataven
+                                </div>
+                                <!-- API Preview -->
+                                <div style="background: var(--slate-900); border-radius: 4px; padding: 0.5rem; font-family: monospace; font-size: 0.6rem; color: var(--sage-ai-cyan); margin-bottom: 0.5rem;">
+                                    <div style="color: var(--slate-500);">// Endpoint généré</div>
+                                    <div>POST /api/v1/views/dashboard-rh</div>
+                                    <div style="color: var(--sage-ai-green); margin-top: 0.25rem;">{</div>
+                                    <div style="padding-left: 0.5rem;">"theme": "corporate",</div>
+                                    <div style="padding-left: 0.5rem;">"colors": ["#1E40AF", "#3B82F6"],</div>
+                                    <div style="padding-left: 0.5rem;">"embed": true</div>
+                                    <div style="color: var(--sage-ai-green);">}</div>
+                                </div>
+                                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                    <div style="background: var(--slate-700); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.6rem; color: var(--slate-300);">📊 Dataven</div>
+                                    <div style="background: var(--slate-700); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.6rem; color: var(--slate-300);">📈 Sensaas</div>
+                                    <div style="background: var(--slate-700); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.6rem; color: var(--slate-300);">🔄 Power BI</div>
+                                </div>
+                                <div style="margin-top: 0.5rem; display: flex; gap: 0.3rem; font-size: 0.65rem; color: var(--sage-ai-green);">
+                                    ✅ API REST ✅ Webhook ✅ iFrame ✅ SSO
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Dots -->
+                    <div class="demo-nav">
+                        <button class="demo-nav-dot active" onclick="showBuilderSlide(1)" title="Dashboard RH"></button>
+                        <button class="demo-nav-dot" onclick="showBuilderSlide(2)" title="Suivi Commercial"></button>
+                        <button class="demo-nav-dot" onclick="showBuilderSlide(3)" title="API Tiers"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product: Workflow.AI -->
+    <section class="section product-section workflow">
+        <div class="section-inner">
+            <div class="product-grid">
+                <div class="product-content">
+                    <div class="product-badge workflow">
+                        <span>⚡</span> Module 3
+                    </div>
+                    <h2 class="product-title">Sage Workflow.AI</h2>
+                    <p class="product-description">
+                        Automatisez les processus métier sans coder. Décrivez le workflow souhaité,
+                        l'IA le construit et l'exécute. Gagnez des heures de travail répétitif chaque semaine.
+                    </p>
+                    <ul class="product-features">
+                        <li>Création de workflows par description en langage naturel</li>
+                        <li>Triggers automatiques (horaires, événements, conditions)</li>
+                        <li>Intégration email, webhooks, API tierces</li>
+                        <li>Monitoring et logs détaillés</li>
+                        <li>Alertes intelligentes et escalades</li>
+                    </ul>
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <div class="use-case-icon">📧</div>
+                            "Alerte si facture impayée > 30 jours"
+                        </div>
+                        <div class="use-case">
+                            <div class="use-case-icon">🔄</div>
+                            "Rapport hebdo auto aux managers"
+                        </div>
+                        <div class="use-case">
+                            <div class="use-case-icon">✅</div>
+                            "Validation commandes > 10K€"
+                        </div>
+                    </div>
+                    <a href="https://sage-ai-studio.webexpr.dev/" target="_blank" class="product-cta">
+                        <span>⚡</span> Tester Workflow.AI en démo
+                    </a>
+                </div>
+                <div class="demo-preview float demo-slider" style="animation-delay: 1s;">
+                    <!-- Slide 1: Alerte Encours -->
+                    <div class="demo-slide active" id="workflowSlide1">
+                        <div class="demo-header">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                            <span style="margin-left: auto; color: var(--slate-400); font-size: 0.8rem;">⚡ Alerte Encours Client</span>
+                        </div>
+                        <div class="demo-content" style="padding: 1rem;">
+                            <div class="workflow-canvas">
+                                <div class="workflow-nodes">
+                                    <div class="workflow-node trigger active">
+                                        <div class="workflow-node-icon">📄</div>
+                                        <div class="workflow-node-label">Nouvelle<br>Facture</div>
+                                    </div>
+                                    <div class="workflow-connector"></div>
+                                    <div class="workflow-node condition">
+                                        <div class="workflow-node-icon">⚖️</div>
+                                        <div class="workflow-node-label">Encours<br>> Limite ?</div>
+                                    </div>
+                                    <div class="workflow-connector"></div>
+                                    <div class="workflow-branch">
+                                        <div class="workflow-node action">
+                                            <div class="workflow-node-icon">📧</div>
+                                            <div class="workflow-node-label">Email DAF</div>
+                                        </div>
+                                        <div class="workflow-node action" style="margin-left: 1rem;">
+                                            <div class="workflow-node-icon">🚫</div>
+                                            <div class="workflow-node-label">Bloquer Cde</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="workflow-status">
+                                    <span class="workflow-status-dot"></span>
+                                    Workflow actif • 12 exécutions aujourd'hui
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Relance Automatique -->
+                    <div class="demo-slide" id="workflowSlide2" style="display: none;">
+                        <div class="demo-header">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                            <span style="margin-left: auto; color: var(--slate-400); font-size: 0.8rem;">⚡ Relance Automatique</span>
+                        </div>
+                        <div class="demo-content" style="padding: 1rem;">
+                            <div class="workflow-canvas">
+                                <div class="workflow-nodes">
+                                    <div class="workflow-node trigger active">
+                                        <div class="workflow-node-icon">⏰</div>
+                                        <div class="workflow-node-label">Chaque<br>Lundi 9h</div>
+                                    </div>
+                                    <div class="workflow-connector"></div>
+                                    <div class="workflow-node condition">
+                                        <div class="workflow-node-icon">🔍</div>
+                                        <div class="workflow-node-label">Factures<br>> 30 jours</div>
+                                    </div>
+                                    <div class="workflow-connector"></div>
+                                    <div class="workflow-node action">
+                                        <div class="workflow-node-icon">📨</div>
+                                        <div class="workflow-node-label">Relance<br>Email</div>
+                                    </div>
+                                    <div class="workflow-connector"></div>
+                                    <div class="workflow-node action">
+                                        <div class="workflow-node-icon">📋</div>
+                                        <div class="workflow-node-label">Log CRM</div>
+                                    </div>
+                                </div>
+                                <div class="workflow-status">
+                                    <span class="workflow-status-dot"></span>
+                                    Workflow actif • Prochaine exécution : Lundi 9h00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Validation Devis -->
+                    <div class="demo-slide" id="workflowSlide3" style="display: none;">
+                        <div class="demo-header">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                            <span style="margin-left: auto; color: var(--slate-400); font-size: 0.8rem;">⚡ Circuit Validation Devis</span>
+                        </div>
+                        <div class="demo-content" style="padding: 1rem;">
+                            <div class="workflow-canvas">
+                                <div class="workflow-nodes" style="flex-wrap: nowrap;">
+                                    <div class="workflow-node trigger active">
+                                        <div class="workflow-node-icon">📝</div>
+                                        <div class="workflow-node-label">Nouveau<br>Devis</div>
+                                    </div>
+                                    <div class="workflow-connector"></div>
+                                    <div class="workflow-node condition">
+                                        <div class="workflow-node-icon">💰</div>
+                                        <div class="workflow-node-label">> 10K€ ?</div>
+                                    </div>
+                                    <div class="workflow-connector"></div>
+                                    <div class="workflow-branch">
+                                        <div style="display: flex; align-items: center; gap: 0.3rem;">
+                                            <div style="font-size: 0.55rem; color: var(--sage-ai-green);">Oui →</div>
+                                            <div class="workflow-node action">
+                                                <div class="workflow-node-icon">👔</div>
+                                                <div class="workflow-node-label">Dir. Comm.</div>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 0.3rem;">
+                                            <div style="font-size: 0.55rem; color: var(--sage-ai-cyan);">Non →</div>
+                                            <div class="workflow-node action">
+                                                <div class="workflow-node-icon">✅</div>
+                                                <div class="workflow-node-label">Auto-valid</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="workflow-status">
+                                    <span class="workflow-status-dot"></span>
+                                    Workflow actif • 3 devis en attente de validation
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Dots -->
+                    <div class="demo-nav">
+                        <button class="demo-nav-dot active" onclick="showWorkflowSlide(1)" title="Alerte Encours"></button>
+                        <button class="demo-nav-dot" onclick="showWorkflowSlide(2)" title="Relance Auto"></button>
+                        <button class="demo-nav-dot" onclick="showWorkflowSlide(3)" title="Validation Devis"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="section advantages" id="advantages">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">Avantages Partenaires</span>
+                <h2 class="section-title">Pourquoi intégrer Sage AI Studio ?</h2>
+                <p class="section-subtitle">
+                    Des bénéfices concrets pour votre activité d'intégrateur Sage
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">📈</div>
+                    <h3 class="advantage-title">Nouveau Relais de Revenus</h3>
+                    <p class="advantage-text">
+                        Diversifiez vos sources de revenus avec l'IA. 35% de marge
+                        sur chaque abonnement, sans investissement initial.
+                    </p>
+                    <div class="advantage-highlight">+35% marge récurrente</div>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3 class="advantage-title">Productivité x3 = Marge x3</h3>
+                    <p class="advantage-text">
+                        Facturez des journées de développement produites en quelques minutes.
+                        Maximisez votre marge prestation EN PLUS des revenus récurrents.
+                    </p>
+                    <div class="advantage-highlight">Marge prestation + MRR</div>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🎓</div>
+                    <h3 class="advantage-title">Montée en Compétences</h3>
+                    <p class="advantage-text">
+                        Vos consultants peuvent réaliser les petits développements en autonomie
+                        et maximiser vos marges. Formation complète incluse.
+                    </p>
+                    <div class="advantage-highlight">Autonomie consultants</div>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🎨</div>
+                    <h3 class="advantage-title">Vues Personnalisables</h3>
+                    <p class="advantage-text">
+                        Créez des interfaces adaptées aux outils tiers de vos clients :
+                        couleurs, polices, styles entièrement personnalisables.
+                    </p>
+                    <div class="advantage-highlight">White-label ready</div>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🧩</div>
+                    <h3 class="advantage-title">Offre Modulaire</h3>
+                    <p class="advantage-text">
+                        3 produits combinables selon les besoins : 💬 Ask seul, 🎨 Builder seul,
+                        ou ⚡ Suite complète. Adaptez l'offre à chaque client.
+                    </p>
+                    <div class="advantage-highlight">Ask • Builder • Workflow</div>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🏆</div>
+                    <h3 class="advantage-title">Différenciation Marché</h3>
+                    <p class="advantage-text">
+                        Positionnez Sage face à Odoo, Pennylane et Cegid grâce
+                        à l'IA native que ces concurrents n'offrent pas encore.
+                    </p>
+                    <div class="advantage-highlight">vs Odoo/Pennylane/Cegid</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bibliothèque Partenaire Section -->
+    <section class="section" style="background: var(--slate-800);">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">Exclusif Partenaires</span>
+                <h2 class="section-title">📚 Bibliothèque Partenaire</h2>
+                <p class="section-subtitle">
+                    Industrialisez vos développements et maximisez votre marge
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch;">
+                <div style="display: flex;">
+                    <div style="background: var(--slate-700); border-radius: 16px; padding: 2rem; border: 1px solid var(--sage-ai-cyan); flex: 1; display: flex; flex-direction: column;">
+                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">🔄 Transposez vos vues "stars"</h3>
+                        <p style="color: var(--slate-300); margin-bottom: 1.5rem;">
+                            Une vue construite pour un client peut être transposée à un autre en quelques minutes.
+                            Industrialisez vos développements à succès.
+                        </p>
+                        <ul style="list-style: none; padding: 0; flex: 1;">
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-green);">✓</span>
+                                Dashboard financier CFO → Déployable chez 10 clients en 1h
+                            </li>
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-green);">✓</span>
+                                Portail commercial mobile → Copier/adapter en 15 min
+                            </li>
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-green);">✓</span>
+                                Interface saisie entrepôt → Template réutilisable
+                            </li>
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-green);">✓</span>
+                                Workflow relance clients → Duplicable en 5 min
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div style="background: linear-gradient(135deg, var(--sage-ai-green), var(--sage-ai-purple)); border-radius: 16px; padding: 2rem; text-align: center;">
+                        <div style="font-size: 4rem; font-weight: 900; color: white;">x10</div>
+                        <div style="color: rgba(255,255,255,0.9); font-size: 1.25rem; margin-bottom: 1.5rem;">Multiplicateur de marge</div>
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 12px; padding: 1.5rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left;">
+                                <div>
+                                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">Temps dev initial</div>
+                                    <div style="font-size: 1.25rem; font-weight: 700; color: white;">2 jours</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">Temps transposition</div>
+                                    <div style="font-size: 1.25rem; font-weight: 700; color: var(--sage-ai-cyan);">15 min</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                                <div style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">
+                                    💰 Facturez une journée, produisez en 15 min = <strong>Marge maximale</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sécurité & Conformité Section -->
+    <section class="section" style="background: var(--slate-900);" id="security">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">Sécurité & Conformité</span>
+                <h2 class="section-title">🔒 Vos données protégées</h2>
+                <p class="section-subtitle">
+                    Une infrastructure pensée pour les exigences des PME françaises
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+                <div style="background: var(--slate-700); border-radius: 16px; padding: 1.5rem; text-align: center; border: 1px solid rgba(0, 214, 57, 0.3);">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🇫🇷</div>
+                    <div style="font-weight: 700; color: white; margin-bottom: 0.5rem;">Hébergement France</div>
+                    <div style="font-size: 0.85rem; color: var(--slate-400);">Hébergement 100% France/Europe. Données souveraines.</div>
+                </div>
+                <div style="background: var(--slate-700); border-radius: 16px; padding: 1.5rem; text-align: center; border: 1px solid rgba(0, 214, 222, 0.3);">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🛡️</div>
+                    <div style="font-weight: 700; color: white; margin-bottom: 0.5rem;">RGPD Compliant</div>
+                    <div style="font-size: 0.85rem; color: var(--slate-400);">Conformité totale RGPD. DPO désigné. Registre des traitements.</div>
+                </div>
+                <div style="background: var(--slate-700); border-radius: 16px; padding: 1.5rem; text-align: center; border: 1px solid rgba(157, 96, 255, 0.3);">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🔐</div>
+                    <div style="font-weight: 700; color: white; margin-bottom: 0.5rem;">Chiffrement AES-256</div>
+                    <div style="font-size: 0.85rem; color: var(--slate-400);">Données chiffrées au repos et en transit. TLS 1.3.</div>
+                </div>
+                <div style="background: var(--slate-700); border-radius: 16px; padding: 1.5rem; text-align: center; border: 1px solid rgba(0, 214, 57, 0.3);">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🚫</div>
+                    <div style="font-weight: 700; color: white; margin-bottom: 0.5rem;">Zero Data Retention</div>
+                    <div style="font-size: 0.85rem; color: var(--slate-400);">Aucune donnée Sage stockée par l'IA. Traitement en temps réel.</div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(0, 214, 57, 0.1), rgba(0, 214, 222, 0.1)); border-radius: 16px; padding: 2rem; border: 1px solid var(--sage-ai-green);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h3 style="color: white; font-size: 1.25rem; margin-bottom: 1rem;">✅ Engagements contractuels</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-green);">✓</span>
+                                Clause de confidentialité renforcée
+                            </li>
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-green);">✓</span>
+                                SLA 99.9% disponibilité garantie
+                            </li>
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-green);">✓</span>
+                                Audit de sécurité annuel (rapport disponible)
+                            </li>
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-green);">✓</span>
+                                Assurance cyber €2M incluse
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: white; font-size: 1.25rem; margin-bottom: 1rem;">🔗 Architecture technique</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-cyan);">→</span>
+                                Connexion Sage avec l'API de votre choix
+                            </li>
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-cyan);">→</span>
+                                Pas d'accès direct aux bases de données
+                            </li>
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-cyan);">→</span>
+                                Tokens d'authentification révocables
+                            </li>
+                            <li style="color: var(--slate-200); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: var(--sage-ai-cyan);">→</span>
+                                Logs d'accès conservés 12 mois
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barriers Section -->
+    <section class="section barriers" id="barriers">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">Levée des Freins</span>
+                <h2 class="section-title">Les problèmes que Sage AI Studio adresse</h2>
+                <p class="section-subtitle">
+                    Nous comprenons vos défis quotidiens d'intégrateur
+                </p>
+            </div>
+
+            <div class="barriers-grid">
+                <div class="barrier-card">
+                    <div class="barrier-header">
+                        <span class="barrier-header-icon">😓</span>
+                        <span class="barrier-header-text">Vos Freins Actuels</span>
+                    </div>
+                    <div class="barrier-content">
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon">✗</div>
+                            <div class="barrier-item-text">
+                                <strong>Développements longs et coûteux</strong><br>
+                                Les personnalisations prennent des semaines et grèvent votre rentabilité
+                            </div>
+                        </div>
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon">✗</div>
+                            <div class="barrier-item-text">
+                                <strong>Compétences techniques rares</strong><br>
+                                Difficile de recruter des développeurs Sage expérimentés
+                            </div>
+                        </div>
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon">✗</div>
+                            <div class="barrier-item-text">
+                                <strong>Prestations chronophages</strong><br>
+                                Les développements spécifiques prennent des jours au lieu de minutes
+                            </div>
+                        </div>
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon">✗</div>
+                            <div class="barrier-item-text">
+                                <strong>Migration SPC complexe</strong><br>
+                                Difficile de convaincre les clients de passer au cloud
+                            </div>
+                        </div>
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon">✗</div>
+                            <div class="barrier-item-text">
+                                <strong>Concurrence croissante</strong><br>
+                                Difficulté à se différencier des autres partenaires
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="barrier-card">
+                    <div class="barrier-header solved">
+                        <span class="barrier-header-icon">✨</span>
+                        <span class="barrier-header-text">Avec Sage AI Studio</span>
+                    </div>
+                    <div class="barrier-content">
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon solved">✓</div>
+                            <div class="barrier-item-text">
+                                <strong>Développements en heures, pas en semaines</strong><br>
+                                L'IA génère le code, vous validez et facturez
+                            </div>
+                        </div>
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon solved">✓</div>
+                            <div class="barrier-item-text">
+                                <strong>Accessibilité des compétences</strong><br>
+                                Vos consultants réalisent les petits développements en autonomie. Les développeurs restent pour les gros projets (5-20 jours).
+                            </div>
+                        </div>
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon solved">✓</div>
+                            <div class="barrier-item-text">
+                                <strong>Abonnements mensuels récurrents</strong><br>
+                                35% de marge chaque mois, année après année
+                            </div>
+                        </div>
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon solved">✓</div>
+                            <div class="barrier-item-text">
+                                <strong>Full web = migration SPC naturelle</strong><br>
+                                Vos clients découvrent les avantages du cloud progressivement
+                            </div>
+                        </div>
+                        <div class="barrier-item">
+                            <div class="barrier-item-icon solved">✓</div>
+                            <div class="barrier-item-text">
+                                <strong>Avantage face à la concurrence</strong><br>
+                                Différenciez Sage face à Odoo, Pennylane et Cegid
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing" id="pricing">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">Tarification</span>
+                <h2 class="section-title">Grille tarifaire complète</h2>
+                <p class="section-subtitle">
+                    Prix d'achat partenaire (-35%) vs Prix client final
+                </p>
+            </div>
+
+            <!-- Pricing Table -->
+            <div style="background: var(--slate-700); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; color: var(--slate-100); font-size: 0.9rem;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--sage-ai-cyan);">
+                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Module</th>
+                            <th style="padding: 1rem; text-align: left;">Tier</th>
+                            <th style="padding: 1rem; text-align: center;">Prix Client</th>
+                            <th style="padding: 1rem; text-align: center; background: rgba(0, 214, 57, 0.15); border-radius: 8px 8px 0 0;">
+                                <span style="color: var(--sage-ai-green); font-weight: 800;">Prix Partenaire</span><br>
+                                <span style="font-size: 0.7rem; color: var(--slate-400);">(-35%)</span>
+                            </th>
+                            <th style="padding: 1rem; text-align: center;">Votre Marge</th>
+                            <th style="padding: 1rem; text-align: left;">Utilisateurs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Ask.AI -->
+                        <tr style="border-bottom: 1px solid var(--slate-600);">
+                            <td style="padding: 0.75rem 1rem; font-weight: 600;" rowspan="3">💬 Ask.AI</td>
+                            <td style="padding: 0.75rem 1rem;">Standard</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center;">€89</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.1); font-weight: 700; color: var(--sage-ai-green);">€57.85</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; color: var(--sage-ai-cyan);">€31.15</td>
+                            <td style="padding: 0.75rem 1rem;">5 users</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--slate-600);">
+                            <td style="padding: 0.75rem 1rem;">Premium</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center;">€159</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.1); font-weight: 700; color: var(--sage-ai-green);">€103.35</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; color: var(--sage-ai-cyan);">€55.65</td>
+                            <td style="padding: 0.75rem 1rem;">15 users</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--slate-600);">
+                            <td style="padding: 0.75rem 1rem;">Enterprise</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center;">€299</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.1); font-weight: 700; color: var(--sage-ai-green);">€194.35</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; color: var(--sage-ai-cyan);">€104.65</td>
+                            <td style="padding: 0.75rem 1rem;">50 users</td>
+                        </tr>
+                        <!-- Builder.AI -->
+                        <tr style="border-bottom: 1px solid var(--slate-600);">
+                            <td style="padding: 0.75rem 1rem; font-weight: 600;" rowspan="3">🎨 Builder.AI</td>
+                            <td style="padding: 0.75rem 1rem;">Standard</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center;">€249</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.1); font-weight: 700; color: var(--sage-ai-green);">€161.85</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; color: var(--sage-ai-cyan);">€87.15</td>
+                            <td style="padding: 0.75rem 1rem;">3 users</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--slate-600);">
+                            <td style="padding: 0.75rem 1rem;">Premium</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center;">€449</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.1); font-weight: 700; color: var(--sage-ai-green);">€291.85</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; color: var(--sage-ai-cyan);">€157.15</td>
+                            <td style="padding: 0.75rem 1rem;">8 users</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--slate-600);">
+                            <td style="padding: 0.75rem 1rem;">Enterprise</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center;">€799</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.1); font-weight: 700; color: var(--sage-ai-green);">€519.35</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; color: var(--sage-ai-cyan);">€279.65</td>
+                            <td style="padding: 0.75rem 1rem;">20 users</td>
+                        </tr>
+                        <!-- Workflow.AI -->
+                        <tr style="border-bottom: 1px solid var(--slate-600);">
+                            <td style="padding: 0.75rem 1rem; font-weight: 600;" rowspan="2">⚡ Workflow.AI</td>
+                            <td style="padding: 0.75rem 1rem;">Standard</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center;">€149</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.1); font-weight: 700; color: var(--sage-ai-green);">€96.85</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; color: var(--sage-ai-cyan);">€52.15</td>
+                            <td style="padding: 0.75rem 1rem;">3 workflows</td>
+                        </tr>
+                        <tr style="border-bottom: 2px solid var(--sage-ai-purple);">
+                            <td style="padding: 0.75rem 1rem;">Premium</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center;">€279</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.1); font-weight: 700; color: var(--sage-ai-green);">€181.35</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; color: var(--sage-ai-cyan);">€97.65</td>
+                            <td style="padding: 0.75rem 1rem;">8 workflows</td>
+                        </tr>
+                        <!-- Bundles avec marge maximisée 45% -->
+                        <tr style="background: var(--slate-600);">
+                            <td style="padding: 0.75rem 1rem; font-weight: 800; color: var(--sage-ai-green);" colspan="6">
+                                🎁 BUNDLES PARTENAIRES — Marge maximisée 45% (+10% bonus)
+                            </td>
+                        </tr>
+                        <!-- Suite Standard Bundle -->
+                        <tr style="background: linear-gradient(90deg, rgba(0, 214, 57, 0.05), rgba(0, 214, 222, 0.05));">
+                            <td style="padding: 0.75rem 1rem; font-weight: 700; color: white;" colspan="2">📦 Suite Standard (Ask + Builder + Workflow)</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; font-weight: 600;">€487</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.15); font-weight: 700; color: var(--sage-ai-green);">€267.85</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; font-weight: 700; color: var(--sage-ai-cyan);">€219.15 <span style="font-size: 0.7rem; background: var(--sage-ai-green); color: white; padding: 0.15rem 0.4rem; border-radius: 4px; margin-left: 0.25rem;">45%</span></td>
+                            <td style="padding: 0.75rem 1rem;">10 users • 5 workflows</td>
+                        </tr>
+                        <!-- Suite Premium Bundle -->
+                        <tr style="background: linear-gradient(90deg, rgba(0, 214, 222, 0.05), rgba(157, 96, 255, 0.05));">
+                            <td style="padding: 0.75rem 1rem; font-weight: 700; color: white;" colspan="2">📦 Suite Premium (Ask + Builder + Workflow)</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; font-weight: 600;">€957</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; background: rgba(0, 214, 57, 0.15); font-weight: 700; color: var(--sage-ai-green);">€526.35</td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; font-weight: 700; color: var(--sage-ai-cyan);">€430.65 <span style="font-size: 0.7rem; background: var(--sage-ai-green); color: white; padding: 0.15rem 0.4rem; border-radius: 4px; margin-left: 0.25rem;">45%</span></td>
+                            <td style="padding: 0.75rem 1rem;">25 users • 8 workflows</td>
+                        </tr>
+                        <!-- Suite Enterprise Bundle -->
+                        <tr style="background: linear-gradient(90deg, rgba(0, 214, 57, 0.1), rgba(157, 96, 255, 0.1));">
+                            <td style="padding: 1rem; font-weight: 800; color: white;" colspan="2">🏆 Suite Enterprise (Ask + Builder + Workflow)</td>
+                            <td style="padding: 1rem; text-align: center; font-weight: 700;">€1,299</td>
+                            <td style="padding: 1rem; text-align: center; background: rgba(0, 214, 57, 0.2); font-weight: 800; font-size: 1.1rem; color: var(--sage-ai-green);">€714.45</td>
+                            <td style="padding: 1rem; text-align: center; font-weight: 800; color: var(--sage-ai-cyan);">€584.55 <span style="font-size: 0.7rem; background: var(--sage-ai-green); color: white; padding: 0.15rem 0.4rem; border-radius: 4px; margin-left: 0.25rem;">45%</span></td>
+                            <td style="padding: 1rem;">50 users • illimité</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Interactive Revenue Calculator -->
+            <div class="chart-container" id="calculator">
+                <h3 style="color: white; margin-bottom: 1.5rem; text-align: center;">💰 Calculateur de Revenus Partenaire</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+                    <!-- Calculator Inputs -->
+                    <div style="background: var(--slate-700); border-radius: 16px; padding: 2rem;">
+                        <h4 style="color: white; margin-bottom: 1.5rem; font-size: 1.1rem;">Configurez votre projection</h4>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="color: var(--slate-300); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">
+                                Nombre de clients équipés
+                            </label>
+                            <input type="range" id="clientSlider" min="1" max="100" value="10"
+                                   style="width: 100%; accent-color: var(--sage-ai-green);">
+                            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                                <span style="color: var(--slate-400); font-size: 0.8rem;">1</span>
+                                <span id="clientCount" style="color: var(--sage-ai-cyan); font-weight: 700; font-size: 1.25rem;">10 clients</span>
+                                <span style="color: var(--slate-400); font-size: 0.8rem;">100</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1rem;">
+                            <label style="color: var(--slate-300); font-size: 0.9rem; display: block; margin-bottom: 0.75rem;">
+                                Modules vendus (versions Standard)
+                            </label>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <label style="display: flex; align-items: center; gap: 0.75rem; color: var(--slate-200); cursor: pointer;">
+                                    <input type="checkbox" id="checkAsk" checked style="width: 20px; height: 20px; accent-color: var(--sage-ai-green);">
+                                    <span>💬 Ask.AI Standard</span>
+                                    <span style="margin-left: auto; color: var(--sage-ai-cyan);">+€31.15/mois</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.75rem; color: var(--slate-200); cursor: pointer;">
+                                    <input type="checkbox" id="checkBuilder" checked style="width: 20px; height: 20px; accent-color: var(--sage-ai-green);">
+                                    <span>🎨 Builder.AI Standard</span>
+                                    <span style="margin-left: auto; color: var(--sage-ai-cyan);">+€87.15/mois</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.75rem; color: var(--slate-200); cursor: pointer;">
+                                    <input type="checkbox" id="checkWorkflow" checked style="width: 20px; height: 20px; accent-color: var(--sage-ai-green);">
+                                    <span>⚡ Workflow.AI Standard</span>
+                                    <span style="margin-left: auto; color: var(--sage-ai-cyan);">+€52.15/mois</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator Results -->
+                    <div>
+                        <div style="background: linear-gradient(135deg, var(--sage-ai-green), var(--sage-ai-purple)); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Votre marge annuelle estimée</div>
+                            <div id="annualMargin" style="font-size: 3.5rem; font-weight: 900; color: white;">€20,454</div>
+                            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">
+                                soit <span id="monthlyMargin" style="font-weight: 700;">€1,704.50</span>/mois
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="background: var(--slate-700); border-radius: 12px; padding: 1.25rem; text-align: center;">
+                                <div id="marginPerClient" style="font-size: 1.5rem; font-weight: 800; color: var(--sage-ai-cyan);">€170.45</div>
+                                <div style="font-size: 0.8rem; color: var(--slate-400);">Marge/client/mois</div>
+                            </div>
+                            <div style="background: var(--slate-700); border-radius: 12px; padding: 1.25rem; text-align: center;">
+                                <div id="marginYear3" style="font-size: 1.5rem; font-weight: 800; color: var(--sage-ai-purple);">€61,362</div>
+                                <div style="font-size: 0.8rem; color: var(--slate-400);">Cumulé sur 3 ans</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1rem; padding: 1rem; background: rgba(0, 214, 57, 0.1); border-radius: 8px; border: 1px solid rgba(0, 214, 57, 0.3);">
+                            <div style="font-size: 0.85rem; color: var(--slate-300);">
+                                💡 <strong>Astuce :</strong> Avec l'upsell vers Premium, votre marge double !
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="section roadmap" id="roadmap">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">Roadmap</span>
+                <h2 class="section-title">Notre feuille de route</h2>
+                <p class="section-subtitle">
+                    Visibilité sur les évolutions à venir de Sage AI Studio
+                </p>
+            </div>
+
+            <div class="roadmap-timeline">
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">Avril 2026</div>
+                        <div class="roadmap-title">🚀 Lancement Officiel</div>
+                        <div class="roadmap-text">
+                            <strong>Ask.AI + Builder.AI</strong> disponibles.<br>
+                            Programme partenaires ouvert. Formation certifiante.
+                        </div>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">Juin 2026</div>
+                        <div class="roadmap-title">📊 Multi-Produits</div>
+                        <div class="roadmap-text">
+                            Interrogez <strong>plusieurs bases Sage simultanément</strong>.<br>
+                            Sage 100, Paie, Immobilisations connectés.
+                        </div>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">Juillet 2026</div>
+                        <div class="roadmap-title">⚡ Workflow.AI</div>
+                        <div class="roadmap-text">
+                            Sortie du <strong>constructeur de Workflows</strong>.<br>
+                            Automatisations par description en langage naturel.
+                        </div>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">Septembre 2026</div>
+                        <div class="roadmap-title">🌍 Multilingue</div>
+                        <div class="roadmap-text">
+                            Support <strong>FR, EN, ES, DE, IT</strong>.<br>
+                            Interface et réponses dans la langue du client.
+                        </div>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">Q4 2026</div>
+                        <div class="roadmap-title">📱 Application Mobile Ask</div>
+                        <div class="roadmap-text">
+                            Ask.AI sur <strong>iOS et Android</strong>.<br>
+                            Notifications push, accès offline aux KPIs.
+                        </div>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">2027</div>
+                        <div class="roadmap-title">🔗 APIs Ouvertes</div>
+                        <div class="roadmap-text">
+                            <strong>Intégrable par APIs</strong> dans tout système tiers.<br>
+                            CRM, BI, ERP concurrents, applications métier.
+                        </div>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="section-inner">
+            <h2>Prêt à transformer votre activité ?</h2>
+            <p>
+                Rejoignez les premiers partenaires Sage AI Studio et prenez une longueur
+                d'avance sur le marché de l'IA pour ERP.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">
+                    <span>📅</span> Demander une démo
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <span>📄</span> Télécharger la plaquette
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">
+            Sage AI Studio - Programme Partenaires 2026<br>
+            Genysia Technologies × Sage | Confidentiel
+        </p>
+    </footer>
+
+    <script>
+        // Ask.AI Demo Slider
+        function showAskSlide(slideNum) {
+            // Hide all slides
+            for (let i = 1; i <= 3; i++) {
+                const slide = document.getElementById('askSlide' + i);
+                if (slide) {
+                    slide.style.display = 'none';
+                    slide.classList.remove('active');
+                }
+            }
+            // Show selected slide
+            const activeSlide = document.getElementById('askSlide' + slideNum);
+            if (activeSlide) {
+                activeSlide.style.display = 'block';
+                activeSlide.classList.add('active');
+            }
+            // Update nav dots
+            document.querySelectorAll('.demo-slider .demo-nav-dot').forEach((dot, index) => {
+                if (index === slideNum - 1) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto-rotate Ask.AI slider
+        let askSlideIndex = 1;
+        setInterval(() => {
+            askSlideIndex = askSlideIndex >= 3 ? 1 : askSlideIndex + 1;
+            showAskSlide(askSlideIndex);
+        }, 5000);
+
+        // Builder.AI Demo Slider
+        function showBuilderSlide(slideNum) {
+            for (let i = 1; i <= 3; i++) {
+                const slide = document.getElementById('builderSlide' + i);
+                if (slide) {
+                    slide.style.display = 'none';
+                    slide.classList.remove('active');
+                }
+            }
+            const activeSlide = document.getElementById('builderSlide' + slideNum);
+            if (activeSlide) {
+                activeSlide.style.display = 'block';
+                activeSlide.classList.add('active');
+            }
+            // Update nav dots for Builder slider
+            const builderSlider = document.querySelector('.product-section.builder .demo-slider');
+            if (builderSlider) {
+                builderSlider.querySelectorAll('.demo-nav-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === slideNum - 1);
+                });
+            }
+        }
+
+        // Auto-rotate Builder.AI slider
+        let builderSlideIndex = 1;
+        setInterval(() => {
+            builderSlideIndex = builderSlideIndex >= 3 ? 1 : builderSlideIndex + 1;
+            showBuilderSlide(builderSlideIndex);
+        }, 6000);
+
+        // Workflow.AI Demo Slider
+        function showWorkflowSlide(slideNum) {
+            for (let i = 1; i <= 3; i++) {
+                const slide = document.getElementById('workflowSlide' + i);
+                if (slide) {
+                    slide.style.display = 'none';
+                    slide.classList.remove('active');
+                }
+            }
+            const activeSlide = document.getElementById('workflowSlide' + slideNum);
+            if (activeSlide) {
+                activeSlide.style.display = 'block';
+                activeSlide.classList.add('active');
+            }
+            // Update nav dots for Workflow slider
+            const workflowSlider = document.querySelector('.product-section.workflow .demo-slider');
+            if (workflowSlider) {
+                workflowSlider.querySelectorAll('.demo-nav-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === slideNum - 1);
+                });
+            }
+        }
+
+        // Auto-rotate Workflow.AI slider
+        let workflowSlideIndex = 1;
+        setInterval(() => {
+            workflowSlideIndex = workflowSlideIndex >= 3 ? 1 : workflowSlideIndex + 1;
+            showWorkflowSlide(workflowSlideIndex);
+        }, 7000);
+
+        // Interactive Revenue Calculator
+        const MARGINS = {
+            ask: 31.15,
+            builder: 87.15,
+            workflow: 52.15
+        };
+
+        function updateCalculator() {
+            const clients = parseInt(document.getElementById('clientSlider').value);
+            const askChecked = document.getElementById('checkAsk').checked;
+            const builderChecked = document.getElementById('checkBuilder').checked;
+            const workflowChecked = document.getElementById('checkWorkflow').checked;
+
+            // Calculate margin per client per month
+            let marginPerClient = 0;
+            if (askChecked) marginPerClient += MARGINS.ask;
+            if (builderChecked) marginPerClient += MARGINS.builder;
+            if (workflowChecked) marginPerClient += MARGINS.workflow;
+
+            // Calculate totals
+            const monthlyTotal = marginPerClient * clients;
+            const annualTotal = monthlyTotal * 12;
+            const threeYearTotal = annualTotal * 3;
+
+            // Update display
+            document.getElementById('clientCount').textContent = clients + ' client' + (clients > 1 ? 's' : '');
+            document.getElementById('marginPerClient').textContent = '€' + marginPerClient.toFixed(2);
+            document.getElementById('monthlyMargin').textContent = '€' + monthlyTotal.toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('annualMargin').textContent = '€' + Math.round(annualTotal).toLocaleString('fr-FR');
+            document.getElementById('marginYear3').textContent = '€' + Math.round(threeYearTotal).toLocaleString('fr-FR');
+        }
+
+        // Add event listeners
+        document.getElementById('clientSlider').addEventListener('input', updateCalculator);
+        document.getElementById('checkAsk').addEventListener('change', updateCalculator);
+        document.getElementById('checkBuilder').addEventListener('change', updateCalculator);
+        document.getElementById('checkWorkflow').addEventListener('change', updateCalculator);
+
+        // Initialize calculator
+        updateCalculator();
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Nav background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>

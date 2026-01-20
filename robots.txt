@@ -1,0 +1,37 @@
+# robots.txt - Sage AI Studio Business Model
+# Document confidentiel - Indexation interdite
+
+# Bloquer tous les robots
+User-agent: *
+Disallow: /
+
+# Bloquer specifiquement les principaux moteurs
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: facebookexternalhit
+Disallow: /
+
+User-agent: Twitterbot
+Disallow: /
+
+User-agent: LinkedInBot
+Disallow: /
+
+# Pas de sitemap - contenu prive
+# Sitemap: none

@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Protection contre l'indexation - Document confidentiel -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <title>Sage AI Studio - Business Model | Genysia Technologies</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Sage Brand Colors */
+            --sage-green: #00D639;
+            --sage-green-dark: #00A651;
+            --sage-green-light: #E8F5ED;
+            /* Sage AI Gradient Colors - Official */
+            --sage-ai-green: #00D639;
+            --sage-ai-cyan: #00D6DE;
+            --sage-ai-purple: #9D60FF;
+            /* Alternative AI gradient */
+            --sage-ai-green-alt: #13A038;
+            --sage-ai-blue: #0092DB;
+            --sage-ai-violet: #8F49FE;
+            /* Genysia Brand Colors */
+            --genysia-dark: #293E4D;
+            --genysia-teal: #4BBECF;
+            --genysia-teal-light: rgba(75, 190, 207, 0.1);
+            /* Neutrals */
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        /* Header with Sage AI Gradient */
+        .header {
+            background: linear-gradient(90deg, var(--genysia-dark) 0%, #1a2a36 40%, var(--sage-ai-purple) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logos {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo-sage svg {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-sage svg path {
+            fill: var(--sage-green);
+        }
+
+        .logo-separator {
+            color: rgba(255,255,255,0.4);
+            font-size: 1.5rem;
+        }
+
+        .logo-genysia svg {
+            height: 36px;
+            width: auto;
+        }
+
+        .partnership-badge {
+            background: linear-gradient(30deg, var(--sage-ai-green), var(--sage-ai-cyan), var(--sage-ai-purple));
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section with Sage AI Gradient - Darker version */
+        .hero {
+            background: linear-gradient(135deg, #007A20 0%, #006B7A 40%, #5A2D99 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -25%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-quote {
+            background: rgba(0,0,0,0.25);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .hero-metric {
+            text-align: center;
+        }
+
+        .hero-metric-value {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        .nav-section {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 58px;
+            z-index: 90;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+        }
+
+        .nav-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--sage-ai-purple);
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(30deg, var(--sage-ai-green), var(--sage-ai-cyan), var(--sage-ai-purple));
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--gray-500);
+            font-size: 1.1rem;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1), 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+        @media (max-width: 1024px) {
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+        }
+
+        /* KPI Cards */
+        .kpi-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .kpi-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(30deg, var(--sage-ai-green), var(--sage-ai-cyan), var(--sage-ai-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(30deg, var(--sage-ai-green), var(--sage-ai-cyan), var(--sage-ai-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .kpi-label {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-top: 0.5rem;
+        }
+
+        .kpi-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .kpi-trend.up {
+            color: var(--success);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        /* Charts */
+        .chart-container {
+            position: relative;
+            height: 350px;
+            width: 100%;
+        }
+
+        /* Tables */
+        .table-wrapper { overflow-x: auto; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        th {
+            background: var(--genysia-dark);
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        th:first-child { border-radius: 8px 0 0 0; }
+        th:last-child { border-radius: 0 8px 0 0; }
+
+        tr:hover td { background: var(--gray-50); }
+
+        .table-highlight {
+            background: rgba(124, 58, 237, 0.1) !important;
+            font-weight: 600;
+        }
+
+        /* Progress Bars */
+        .progress-bar {
+            background: var(--gray-200);
+            border-radius: 8px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--sage-ai-green), var(--sage-ai-cyan), var(--sage-ai-purple));
+            transition: width 0.5s ease;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 2px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--sage-ai-purple);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(124, 58, 237, 0.15);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--sage-ai-purple);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'RECOMMANDE';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(30deg, var(--sage-ai-green), var(--sage-ai-cyan), var(--sage-ai-purple));
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .pricing-tier {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--sage-ai-purple);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gray-900);
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray-500);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--sage-green-dark);
+            font-weight: 700;
+        }
+
+        /* Risk Matrix */
+        .risk-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            background: white;
+            border-left: 4px solid;
+        }
+
+        .risk-item.high { border-color: var(--danger); background: rgba(239, 68, 68, 0.05); }
+        .risk-item.medium { border-color: var(--warning); background: rgba(245, 158, 11, 0.05); }
+        .risk-item.low { border-color: var(--success); background: rgba(16, 185, 129, 0.05); }
+
+        .risk-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .risk-badge.high { background: var(--danger); color: white; }
+        .risk-badge.medium { background: var(--warning); color: white; }
+        .risk-badge.low { background: var(--success); color: white; }
+
+        /* Partnership Flow */
+        .partnership-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .flow-box {
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .flow-box.sage {
+            border-color: var(--sage-green-dark);
+            background: var(--sage-green-light);
+        }
+
+        .flow-box.genysia {
+            border-color: var(--genysia-teal);
+            background: var(--genysia-teal-light);
+        }
+
+        .flow-arrow { font-size: 2rem; color: var(--gray-400); }
+
+        .flow-label {
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.25rem;
+        }
+
+        .flow-percent {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--sage-ai-purple);
+        }
+
+        /* Exclusivity Card with Gradient */
+        .exclusivity-card {
+            background: linear-gradient(135deg, var(--genysia-dark) 0%, var(--sage-ai-cyan) 50%, var(--sage-ai-purple) 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exclusivity-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .exclusivity-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .exclusivity-phases {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .phase-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .phase-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .phase-duration {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .phase-target {
+            background: var(--sage-green-dark);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--genysia-dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logos svg {
+            height: 28px;
+            width: auto;
+        }
+
+        .footer-logos .sage-logo path { fill: var(--sage-green); }
+
+        .footer-text {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-metrics { gap: 1.5rem; }
+            .exclusivity-phases { grid-template-columns: 1fr; }
+            .logos { gap: 1rem; }
+            .logo-sage svg { height: 24px; }
+            .logo-genysia svg { height: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logos">
+                <div class="logo-genysia" style="display: flex; align-items: center; gap: 0.75rem; height: 32px;">
+                    <svg width="32" height="32" viewBox="0 0 128 131" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M34.2664 122.656C21.9194 116.189 12.0767 105.812 6.28564 93.1558C0.609197 80.7746 -0.950475 66.907 1.83443 53.5786C5.41742 54.3294 8.65062 56.2421 11.0297 59.0184C13.4088 61.7947 14.8 65.2785 14.9863 68.9264C15.3721 77.4337 17.9781 85.6929 22.5465 92.8867C27.1148 100.08 33.4871 105.959 41.0325 109.941C48.5779 113.923 57.0348 115.87 65.5661 115.589C74.0974 115.308 82.4073 112.809 89.6732 108.34C92.8019 106.444 96.4713 105.635 100.109 106.038C103.747 106.44 107.15 108.033 109.786 110.567C100.307 120.362 87.9341 126.873 74.4786 129.148C60.7321 131.491 46.5947 129.208 34.2917 122.656" fill="white"/>
+                        <path d="M84.4403 78.2109C82.2653 82.3092 78.9211 85.6722 74.8306 87.8745C70.74 90.0769 66.0867 91.0198 61.4591 90.5841C56.8314 90.1483 52.4372 88.3534 48.8319 85.4264C45.2267 82.4993 42.5723 78.5715 41.2043 74.1396C39.8363 69.7076 39.8162 64.9705 41.1466 60.5272C42.4769 56.0838 45.0979 52.1337 48.6782 49.1764C52.2586 46.219 56.6374 44.3871 61.2612 43.9123C65.885 43.4375 70.5461 44.3411 74.6552 46.5089C77.3847 47.9489 79.8031 49.9113 81.7722 52.284C83.7413 54.6568 85.2225 57.3933 86.1312 60.3373C87.0399 63.2813 87.3583 66.3751 87.0681 69.4419C86.778 72.5087 85.885 75.4885 84.4403 78.2109Z" fill="#00D6DE"/>
+                        <circle cx="35" cy="20" r="3" fill="white"/><circle cx="97" cy="15" r="2.5" fill="white"/><circle cx="108" cy="75" r="3" fill="white"/><circle cx="92" cy="32" r="3" fill="white"/><circle cx="72" cy="24" r="2.5" fill="white"/><circle cx="40" cy="31" r="3" fill="white"/><circle cx="63" cy="14" r="2.5" fill="white"/><circle cx="27" cy="15" r="2" fill="white"/><circle cx="38" cy="12" r="2.5" fill="white"/><circle cx="44" cy="5" r="2.5" fill="white"/><circle cx="30" cy="31" r="2" fill="white"/><circle cx="28" cy="24" r="3" fill="white"/><circle cx="25" cy="37" r="4" fill="white"/><circle cx="11" cy="49" r="4" fill="white"/><circle cx="114" cy="35" r="2.5" fill="white"/><circle cx="110" cy="85" r="2.5" fill="white"/><circle cx="105" cy="92" r="2" fill="white"/><circle cx="17" cy="56" r="3" fill="white"/><circle cx="23" cy="47" r="3" fill="white"/><circle cx="15" cy="41" r="3" fill="white"/><circle cx="19" cy="29" r="3" fill="white"/><circle cx="79" cy="15" r="3" fill="white"/><circle cx="47" cy="21" r="3" fill="white"/><circle cx="54" cy="13" r="3" fill="white"/><circle cx="69" cy="6" r="5" fill="white"/><circle cx="108" cy="24" r="3" fill="white"/><circle cx="116" cy="45" r="3" fill="white"/><circle cx="124" cy="49" r="3" fill="white"/><circle cx="117" cy="98" r="3" fill="white"/><circle cx="123" cy="73" r="3" fill="white"/><circle cx="114" cy="55" r="3" fill="white"/><circle cx="109" cy="62" r="3" fill="white"/><circle cx="105" cy="101" r="2.5" fill="white"/><circle cx="89" cy="11" r="3" fill="white"/><circle cx="105" cy="38" r="3" fill="white"/><circle cx="119" cy="81" r="4" fill="white"/><circle cx="112" cy="105" r="3" fill="white"/><circle cx="116" cy="91" r="3" fill="white"/><circle cx="127" cy="60" r="3" fill="white"/><circle cx="118" cy="64" r="3" fill="white"/>
+                    </svg>
+                    <span style="font-size: 1.25rem; font-weight: 800; color: white; letter-spacing: -0.5px;">Genysia Technologies</span>
+                </div>
+                <span class="logo-separator">×</span>
+                <div class="logo-sage">
+                    <svg width="100" height="32" viewBox="0 0 250 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.6269 0C43.2682 0 55.9863 10.8171 56.2793 25.8724C56.4258 30.1107 53.3561 32.4512 49.9935 32.4512C46.7773 32.4512 44.0006 30.1139 43.8542 26.1654C43.7077 17.6855 36.5462 11.3997 27.4805 11.3997C19.0006 11.3997 12.5716 17.3926 12.5716 25.5794C12.5716 34.4954 18.5645 38.444 30.9896 42.9753C44.2904 47.7995 56.4258 53.4993 56.4258 70.4557C56.4258 85.2213 44.8763 97.0605 28.7988 97.0605C13.0111 97.0605 0 85.9505 0 70.8952C0 61.5397 4.53125 54.9609 8.91602 54.9609C12.7181 54.9609 15.0553 57.4447 15.0553 60.8073C15.0553 63.7305 12.5716 65.0456 12.5716 70.3092C12.5716 79.6647 20.1725 85.6576 28.7988 85.6576C37.8613 85.6576 43.8542 79.3717 43.8542 71.7708C43.8542 62.4154 37.8613 58.4701 25.4362 54.082C11.5495 49.1178 0 43.1217 0 26.6048C0 11.696 11.9857 0 27.6269 0Z" fill="#00D639"/>
+                        <path d="M91.4225 97.0636C75.6348 97.0636 62.4805 84.3455 62.4805 68.2648C62.4805 51.6014 75.7813 39.1763 91.862 39.1763C109.111 39.1763 121.243 52.0409 121.243 69.5832V90.9243C121.243 94.5799 118.32 97.0636 114.958 97.0636C111.449 97.0636 108.525 94.5799 108.525 90.9243V70.0194C108.525 58.4699 101.947 50.576 91.569 50.576C82.36 50.576 75.0521 58.3234 75.0521 68.2648C75.0521 77.4738 82.2135 85.3677 91.2793 85.3677C94.6419 85.3677 96.1035 84.492 98.151 84.492C100.928 84.492 103.851 86.8293 103.851 90.1919C103.848 94.7231 98.4375 97.0636 91.4225 97.0636Z" fill="#00D639"/>
+                        <path d="M157.262 140.625C140.889 140.625 127.295 128.929 127.295 113.727C127.295 108.61 130.218 106.273 133.581 106.273C136.943 106.273 139.72 108.467 139.867 112.705C140.013 122.207 147.614 129.222 157.116 129.222C167.204 129.222 173.779 122.79 173.779 114.456C173.779 104.954 166.471 101.009 154.046 97.0604C139.574 92.3826 127.295 85.9504 127.295 68.1183C127.295 51.7446 139.867 39.1763 156.237 39.1763C172.754 39.1763 186.351 51.1619 186.351 66.9497C186.351 76.5981 182.406 84.0526 176.995 84.0526C173.34 84.0526 170.856 81.4224 170.856 78.2062C170.856 74.8436 173.779 73.382 173.779 67.3892C173.779 57.3013 165.885 50.5793 156.383 50.5793C147.174 50.5793 139.867 57.5975 139.867 66.8065C139.867 77.1841 147.321 81.5721 159.6 85.6639C173.779 90.3416 186.351 96.188 186.351 113.291C186.351 128.639 174.219 140.625 157.262 140.625Z" fill="#00D639"/>
+                        <path d="M222.227 97.0638C205.853 97.0638 192.406 84.1992 192.406 68.1218C192.406 52.041 205.417 39.1797 221.494 39.1797C237.722 39.1797 250 50.4362 250 64.7624C250 70.3158 246.055 73.6784 239.623 73.6784H222.813C219.45 73.6784 216.966 71.3411 216.966 68.2682C216.966 65.345 219.45 63.0046 222.813 63.0046H235.384C236.553 63.0046 237.432 62.4186 237.432 61.25C237.432 57.0117 232.022 50.4329 221.937 50.4329C212.582 50.4329 204.981 58.4733 204.981 68.1218C204.981 77.9167 212.728 85.6641 222.376 85.6641C233.487 85.6641 237.142 79.0853 241.673 79.0853C245.475 79.0853 247.52 81.569 247.52 84.349C247.52 86.9792 245.765 89.3197 241.38 92.0964C236.989 94.8698 230.414 97.0638 222.227 97.0638Z" fill="#00D639"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="partnership-badge">Sage AI Studio - Tech Partner</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sage AI Studio</h1>
+            <p class="hero-subtitle">Business Model & Plan Stratégique 18 Mois</p>
+            <div class="hero-quote">
+                "L'IA devient commodite. La fenetre d'opportunite se ferme. Nous devons aller vite."
+            </div>
+            <div class="hero-metrics">
+                <div class="hero-metric">
+                    <span class="hero-metric-value">€7.7M</span>
+                    <span class="hero-metric-label">ARR Cible M18</span>
+                </div>
+                <div class="hero-metric">
+                    <span class="hero-metric-value">44,580</span>
+                    <span class="hero-metric-label">Clients Cibles à 18 mois</span>
+                </div>
+                <div class="hero-metric">
+                    <span class="hero-metric-value">12-18</span>
+                    <span class="hero-metric-label">Mois d'Avance Concurrence</span>
+                </div>
+                <div class="hero-metric">
+                    <span class="hero-metric-value">100%</span>
+                    <span class="hero-metric-label">Exclusivité Sage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav-section">
+        <div class="nav-content">
+            <a href="#executive" class="nav-link active">Executive Summary</a>
+            <a href="#pricing" class="nav-link">Pricing Optimal</a>
+            <a href="#timeline" class="nav-link">Plan 18 Mois</a>
+            <a href="#financials" class="nav-link">Projections</a>
+            <a href="#exclusivity" class="nav-link">Clause Exclusivité</a>
+            <a href="#segments" class="nav-link">Segments</a>
+            <a href="#competitive" class="nav-link">Avantage Concurrentiel</a>
+            <a href="#risks" class="nav-link">Risques</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Executive Summary -->
+        <section id="executive" class="section">
+            <div class="section-header">
+                <span class="section-tag">Executive Summary</span>
+                <h2 class="section-title">Contexte Stratégique</h2>
+                <p class="section-subtitle">First-mover advantage sur l'écosystème Sage avec strategie freemium massive</p>
+            </div>
+
+            <div class="grid-4" style="margin-bottom: 2rem;">
+                <div class="card kpi-card">
+                    <div class="kpi-icon">🎯</div>
+                    <div class="kpi-value">40K</div>
+                    <div class="kpi-label">Clients Freemium Cible</div>
+                    <div class="kpi-trend up">Target 30/09/2026</div>
+                </div>
+                <div class="card kpi-card">
+                    <div class="kpi-icon">💰</div>
+                    <div class="kpi-value">€644K</div>
+                    <div class="kpi-label">MRR Fin Période</div>
+                    <div class="kpi-trend up">+222% vs Q1</div>
+                </div>
+                <div class="card kpi-card">
+                    <div class="kpi-icon">📊</div>
+                    <div class="kpi-value">€1.0M</div>
+                    <div class="kpi-label">Revenus Part Sage</div>
+                    <div class="kpi-trend up">18 mois</div>
+                </div>
+                <div class="card kpi-card">
+                    <div class="kpi-icon">🚀</div>
+                    <div class="kpi-value">8x</div>
+                    <div class="kpi-label">LTV/CAC Ratio</div>
+                    <div class="kpi-trend up">Excellent</div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 class="card-title">📈 Opportunité de Marche</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-100); display: flex; justify-content: space-between;">
+                            <span>Clients Sage 50 (France)</span>
+                            <strong style="color: var(--sage-ai-purple);">~40,000</strong>
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-100); display: flex; justify-content: space-between;">
+                            <span>Clients Sage 100 (via SPC)</span>
+                            <strong style="color: var(--sage-ai-purple);">~17,500</strong>
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-100); display: flex; justify-content: space-between;">
+                            <span>Nouveaux clients Sage/mois</span>
+                            <strong style="color: var(--sage-ai-purple);">700-800</strong>
+                        </li>
+                        <li style="padding: 0.75rem 0; display: flex; justify-content: space-between;">
+                            <span>R&D Sage bloquee (e-invoicing)</span>
+                            <strong style="color: var(--warning);">2 ans</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">🎯 Stratégie d'Exécution</h3>
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="font-weight: 500;">1. Capture massive via Freemium</span>
+                            <span style="color: var(--sage-ai-purple); font-weight: 600;">40K clients</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="font-weight: 500;">2. Conversion vers payant</span>
+                            <span style="color: var(--sage-ai-purple); font-weight: 600;">2.5%/quarter</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="font-weight: 500;">3. Expansion Sage 100</span>
+                            <span style="color: var(--sage-ai-purple); font-weight: 600;">1,230 clients</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="section">
+            <div class="section-header">
+                <span class="section-tag">Calcul Pricing</span>
+                <h2 class="section-title">Prix Freemium Optimal</h2>
+                <p class="section-subtitle">Analyse economique a l'echelle de 40,000 clients</p>
+            </div>
+
+            <div class="grid-2" style="margin-bottom: 2rem;">
+                <div class="card">
+                    <h3 class="card-title">💵 Structure de Coûts a l'Échelle</h3>
+                    <div class="chart-container" style="height: 280px;">
+                        <canvas id="costChart"></canvas>
+                    </div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
+                        <div style="display: flex; justify-content: space-between; font-weight: 600;">
+                            <span>Coût Total / Client / Mois</span>
+                            <span style="color: var(--sage-ai-purple); font-size: 1.25rem;">€2.93</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--gray-500); margin-top: 0.25rem;">
+                            (inclut coût API réel 150K tokens/client)
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">📊 Analyse des Scenarios de Prix</h3>
+                    <div class="chart-container" style="height: 280px;">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                    <div style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(0,166,81,0.1)); border-radius: 8px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600;">Prix Retenu</span>
+                            <span style="color: var(--sage-ai-purple); font-size: 1.5rem; font-weight: 800;">€5.00 HT/mois</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">🔢 Matrice de Décision Prix Freemium</h3>
+                <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 1rem;">
+                    💡 Sage subventionne le Freemium → Part Genysia = 100% du montant versé
+                </p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Prix HT</th>
+                                <th>MRR (40K clients)</th>
+                                <th>Part Genysia (100%)</th>
+                                <th>Coût Total</th>
+                                <th>Marge Nette</th>
+                                <th>Recommandation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>€4.50</td>
+                                <td>€180,000</td>
+                                <td>€180,000</td>
+                                <td>€117,200</td>
+                                <td>€62,800 (35%)</td>
+                                <td><span style="color: var(--warning);">Plancher</span></td>
+                            </tr>
+                            <tr class="table-highlight">
+                                <td><strong>€5.00</strong></td>
+                                <td><strong>€200,000</strong></td>
+                                <td><strong>€200,000</strong></td>
+                                <td><strong>€117,200</strong></td>
+                                <td><strong>€82,800 (41%)</strong></td>
+                                <td><span style="color: var(--sage-green-dark); font-weight: 700;">✓ RETENU</span></td>
+                            </tr>
+                            <tr>
+                                <td>€5.50</td>
+                                <td>€220,000</td>
+                                <td>€220,000</td>
+                                <td>€117,200</td>
+                                <td>€102,800 (47%)</td>
+                                <td><span style="color: var(--gray-500);">Option</span></td>
+                            </tr>
+                            <tr>
+                                <td>€6.00</td>
+                                <td>€240,000</td>
+                                <td>€240,000</td>
+                                <td>€117,200</td>
+                                <td>€122,800 (51%)</td>
+                                <td><span style="color: var(--gray-500);">Maximum</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <div class="section-header">
+                <span class="section-tag">Roadmap</span>
+                <h2 class="section-title">Plan de Déploiement 18 Mois</h2>
+                <p class="section-subtitle">Phase initiale 6 mois + Reconduction 12 mois sous clause d'exclusivite</p>
+            </div>
+
+            <div class="exclusivity-card" style="margin-bottom: 3rem;">
+                <h3 class="exclusivity-title">🔒 Structure du Partenariat avec Clause d'Exclusivité</h3>
+                <div class="exclusivity-phases">
+                    <div class="phase-box">
+                        <div class="phase-title">📍 PHASE INITIALE</div>
+                        <div class="phase-duration">Janvier → 30 Septembre 2026 (6 mois)</div>
+                        <div class="phase-target">
+                            Target: 40,000 clients freemium<br>
+                            MRR: €200,000
+                        </div>
+                    </div>
+                    <div class="phase-box">
+                        <div class="phase-title">🚀 PHASE RECONDUCTION</div>
+                        <div class="phase-duration">Octobre 2026 → Septembre 2027 (12 mois)</div>
+                        <div class="phase-target">
+                            Exclusivité prolongee<br>
+                            MRR: €644,000 (+222%)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">📈 Rampe d'Acquisition Freemium Sage 50</h3>
+                <div class="chart-container">
+                    <canvas id="deploymentChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financials Section -->
+        <section id="financials" class="section">
+            <div class="section-header">
+                <span class="section-tag">Projections Financières</span>
+                <h2 class="section-title">MRR & Revenus par Quarter</h2>
+                <p class="section-subtitle">Croissance de +222% sur 18 mois avec targets trimestriels</p>
+            </div>
+
+            <div class="grid-2" style="margin-bottom: 2rem;">
+                <div class="card">
+                    <h3 class="card-title">📊 Evolution MRR par Segment</h3>
+                    <div class="chart-container">
+                        <canvas id="mrrChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">💰 Partage de la Valeur</h3>
+                    <div class="chart-container">
+                        <canvas id="marginChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">📋 Detail des Targets par Quarter Closing</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Quarter</th>
+                                <th>Date</th>
+                                <th>Freemium S50</th>
+                                <th>Payant S50</th>
+                                <th>Sage 100</th>
+                                <th>MRR Total</th>
+                                <th>Croissance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Q1</strong></td>
+                                <td>30/09/26</td>
+                                <td>€200,000</td>
+                                <td>€17,500</td>
+                                <td>€22,500</td>
+                                <td><strong>€240,000</strong></td>
+                                <td>Baseline</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Q2</strong></td>
+                                <td>31/12/26</td>
+                                <td>€200,000</td>
+                                <td>€47,500</td>
+                                <td>€55,125</td>
+                                <td><strong>€302,625</strong></td>
+                                <td style="color: var(--success);">+26%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Q3</strong></td>
+                                <td>31/03/27</td>
+                                <td>€200,000</td>
+                                <td>€77,500</td>
+                                <td>€109,125</td>
+                                <td><strong>€386,625</strong></td>
+                                <td style="color: var(--success);">+28%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Q4</strong></td>
+                                <td>30/06/27</td>
+                                <td>€200,000</td>
+                                <td>€117,500</td>
+                                <td>€183,375</td>
+                                <td><strong>€500,875</strong></td>
+                                <td style="color: var(--success);">+30%</td>
+                            </tr>
+                            <tr class="table-highlight">
+                                <td><strong>Q5</strong></td>
+                                <td>30/09/27</td>
+                                <td>€200,000</td>
+                                <td>€167,500</td>
+                                <td>€276,750</td>
+                                <td><strong>€644,250</strong></td>
+                                <td style="color: var(--success);">+29%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exclusivity Section -->
+        <section id="exclusivity" class="section">
+            <div class="section-header">
+                <span class="section-tag">Partenariat</span>
+                <h2 class="section-title">Clause d'Exclusivité Tech Partner</h2>
+                <p class="section-subtitle">Mecanisme de reconduction avec targets progressifs</p>
+            </div>
+
+            <div class="grid-2" style="margin-bottom: 2rem;">
+                <div class="card">
+                    <h3 class="card-title">🎯 Conditions de Reconduction</h3>
+                    <div style="margin-bottom: 1.5rem; padding: 1rem; background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(0,166,81,0.1)); border-radius: 8px;">
+                        <strong style="color: var(--sage-ai-purple);">Target Q1 (30/09/26)</strong>
+                        <p style="margin: 0.5rem 0 0; color: var(--gray-600);">MRR Freemium ≥ €200,000</p>
+                    </div>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="color: var(--success); font-size: 1.25rem;">✓</span>
+                            <span><strong>Si atteint:</strong> Reconduction automatique 12 mois</span>
+                        </li>
+                        <li style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="color: var(--danger); font-size: 1.25rem;">✗</span>
+                            <span><strong>Si non atteint:</strong> Negociation ou fin d'exclusivite</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">📊 Jalons Trimestriels - Modele Progressif</h3>
+                    <div class="table-wrapper">
+                        <table style="font-size: 0.85rem;">
+                            <thead>
+                                <tr>
+                                    <th>Quarter</th>
+                                    <th>Objectif</th>
+                                    <th>Si &lt;70% objectif</th>
+                                    <th>Bonus &gt;120%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Q1</td>
+                                    <td>€240,000</td>
+                                    <td style="color: var(--success);">Zone de grâce - Revue conjointe</td>
+                                    <td style="color: var(--sage-green-dark);">+3 mois exclusivité</td>
+                                </tr>
+                                <tr>
+                                    <td>Q2</td>
+                                    <td>€305,000</td>
+                                    <td style="color: var(--warning);">Exclusivité France uniquement</td>
+                                    <td style="color: var(--sage-green-dark);">+3 mois exclusivité</td>
+                                </tr>
+                                <tr>
+                                    <td>Q3</td>
+                                    <td>€390,000</td>
+                                    <td style="color: var(--warning);">Ouverture mid-market autres ERP</td>
+                                    <td style="color: var(--sage-green-dark);">+6 mois exclusivité</td>
+                                </tr>
+                                <tr>
+                                    <td>Q4</td>
+                                    <td>€505,000</td>
+                                    <td style="color: var(--gray-500);">Révision termes conjointe</td>
+                                    <td style="color: var(--sage-green-dark);">+6 mois exclusivité</td>
+                                </tr>
+                                <tr>
+                                    <td>Q5</td>
+                                    <td>€650,000</td>
+                                    <td style="color: var(--gray-500);">Renégociation partenariat</td>
+                                    <td style="color: var(--sage-green-dark);">Reconduction auto 12 mois</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; font-size: 0.85rem;">
+                        <strong style="color: var(--success);">💡 Clause de rattrapage:</strong> Un quarter KO peut etre efface si le suivant atteint 130% de son objectif
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Segments Section -->
+        <section id="segments" class="section">
+            <div class="section-header">
+                <span class="section-tag">Grilles Tarifaires</span>
+                <h2 class="section-title">Offres par Segment</h2>
+                <p class="section-subtitle">Sage 50 (Direct) et Sage 100 (Via Partenaires)</p>
+            </div>
+
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem; color: var(--sage-green-dark);">💼 Sage 50 - Offres Ask.AI</h3>
+            <div class="pricing-grid" style="margin-bottom: 2rem;">
+                <div class="pricing-card">
+                    <div class="pricing-tier">Freemium</div>
+                    <div class="pricing-name">Ask.AI Lite</div>
+                    <div class="pricing-price">€5<span>/mois</span></div>
+                    <ul class="pricing-features">
+                        <li>1 utilisateur inclus</li>
+                        <li>150,000 tokens/mois</li>
+                        <li>Ask.AI mono-produit</li>
+                        <li>Mode texte uniquement</li>
+                        <li>Support FAQ + bot</li>
+                    </ul>
+                    <div style="color: var(--sage-green-dark); font-size: 0.85rem; font-weight: 600;">100% payé par Sage (investissement acquisition)</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-tier">Standard</div>
+                    <div class="pricing-name">Ask.AI Pro</div>
+                    <div class="pricing-price">€29<span>/mois</span></div>
+                    <ul class="pricing-features">
+                        <li>3 utilisateurs inclus (+€8/user)</li>
+                        <li>350,000 tokens/mois</li>
+                        <li>Multi-requête simultanée</li>
+                        <li>Historique 30 jours</li>
+                        <li>Support email</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-tier">Premium</div>
+                    <div class="pricing-name">Ask.AI Business</div>
+                    <div class="pricing-price">€79<span>/mois</span></div>
+                    <ul class="pricing-features">
+                        <li>10 utilisateurs inclus (+€6/user)</li>
+                        <li>1,000,000 tokens/mois</li>
+                        <li>Multi-produit Sage</li>
+                        <li>API accès + Rich media</li>
+                        <li>Support prioritaire</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem; color: var(--sage-green-dark);">🎨 Sage 50 - Offres Builder.AI</h3>
+            <div class="pricing-grid" style="margin-bottom: 3rem;">
+                <div class="pricing-card">
+                    <div class="pricing-tier">Standard</div>
+                    <div class="pricing-name">Builder.AI Starter</div>
+                    <div class="pricing-price">€99<span>/mois</span></div>
+                    <ul class="pricing-features">
+                        <li>2 utilisateurs inclus (+€35/user)</li>
+                        <li>250,000 tokens/mois</li>
+                        <li>5 projets actifs</li>
+                        <li>Templates métier inclus</li>
+                        <li>Export code source</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-tier">Premium</div>
+                    <div class="pricing-name">Builder.AI Pro</div>
+                    <div class="pricing-price">€199<span>/mois</span></div>
+                    <ul class="pricing-features">
+                        <li>5 utilisateurs inclus (+€30/user)</li>
+                        <li>1,000,000 tokens/mois</li>
+                        <li>Projets illimités</li>
+                        <li>Design system personnalisé</li>
+                        <li>APIs d'intégration (Dataven, Sensaas...)</li>
+                        <li>Support prioritaire + formation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 class="card-title">📊 Sage 50 - Repartition des Revenus</h4>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Module</th>
+                                <th>Tier</th>
+                                <th>Prix HT/mois</th>
+                                <th>Part Genysia (70%)</th>
+                                <th>Part Sage (30%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: rgba(0, 214, 57, 0.1);">
+                                <td>Ask.AI</td>
+                                <td><strong>Freemium</strong></td>
+                                <td>€5.00 (subventionné Sage)</td>
+                                <td style="color: var(--genysia-teal); font-weight: 600;">€5.00 (100%)</td>
+                                <td style="color: var(--danger); font-weight: 600;">€0 (coût Sage)</td>
+                            </tr>
+                            <tr>
+                                <td>Ask.AI</td>
+                                <td>Standard</td>
+                                <td>€29</td>
+                                <td>€20.30</td>
+                                <td style="color: var(--sage-green-dark); font-weight: 600;">€8.70</td>
+                            </tr>
+                            <tr>
+                                <td>Ask.AI</td>
+                                <td>Premium</td>
+                                <td>€79</td>
+                                <td>€55.30</td>
+                                <td style="color: var(--sage-green-dark); font-weight: 600;">€23.70</td>
+                            </tr>
+                            <tr>
+                                <td>Builder.AI</td>
+                                <td>Standard</td>
+                                <td>€99</td>
+                                <td>€69.30</td>
+                                <td style="color: var(--sage-green-dark); font-weight: 600;">€29.70</td>
+                            </tr>
+                            <tr>
+                                <td>Builder.AI</td>
+                                <td>Premium</td>
+                                <td>€199</td>
+                                <td>€139.30</td>
+                                <td style="color: var(--sage-green-dark); font-weight: 600;">€59.70</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 1rem; padding: 1rem; background: rgba(0, 214, 57, 0.1); border-radius: 8px; font-size: 0.9rem;">
+                    <strong style="color: var(--sage-green-dark);">💡 Freemium = Investissement acquisition Sage:</strong>
+                    Coût €5/client/mois → ROI positif dès la conversion vers Standard (break-even 4ème mois post-conversion avec 35% taux conversion)
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem; color: var(--genysia-dark);">🏢 Sage 100 - Grille Tarifaire Partenaires</h3>
+            <div class="card">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Module</th>
+                                <th>Tier</th>
+                                <th>Prix Client</th>
+                                <th>Users</th>
+                                <th>User Add.</th>
+                                <th>Tokens</th>
+                                <th>Part Partner</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Produits unitaires -->
+                            <tr>
+                                <td rowspan="3" style="font-weight: 600; vertical-align: middle;">Ask.AI</td>
+                                <td>Standard</td>
+                                <td>€89</td>
+                                <td>5</td>
+                                <td>+€12</td>
+                                <td>350K</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td>Premium</td>
+                                <td>€159</td>
+                                <td>15</td>
+                                <td>+€9</td>
+                                <td>1M</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td>Enterprise</td>
+                                <td>€299</td>
+                                <td>50</td>
+                                <td>+€5</td>
+                                <td>2M</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3" style="font-weight: 600; vertical-align: middle;">Builder.AI</td>
+                                <td>Standard</td>
+                                <td>€249</td>
+                                <td>3</td>
+                                <td>+€60</td>
+                                <td>250K</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td>Premium</td>
+                                <td>€449</td>
+                                <td>8</td>
+                                <td>+€45</td>
+                                <td>1M</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td>Enterprise</td>
+                                <td>€799</td>
+                                <td>20</td>
+                                <td>+€30</td>
+                                <td>2.5M</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" style="font-weight: 600; vertical-align: middle;">Workflow.AI</td>
+                                <td>Standard</td>
+                                <td>€149</td>
+                                <td>3</td>
+                                <td>+€35</td>
+                                <td>250K</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td>Premium</td>
+                                <td>€279</td>
+                                <td>8</td>
+                                <td>+€28</td>
+                                <td>500K</td>
+                                <td>35%</td>
+                            </tr>
+                            <!-- Séparateur Bundles -->
+                            <tr>
+                                <td colspan="7" style="background: linear-gradient(90deg, var(--sage-ai-green), var(--sage-ai-cyan), var(--sage-ai-purple)); color: white; font-weight: 700; text-align: center; padding: 0.75rem;">
+                                    📦 BUNDLES SUITES — Marge maximisée (+10% back-margin)
+                                </td>
+                            </tr>
+                            <!-- Bundles -->
+                            <tr>
+                                <td style="font-weight: 600;">Suite Standard</td>
+                                <td colspan="2">Ask + Builder + Workflow Std</td>
+                                <td style="font-weight: 600;">€449</td>
+                                <td>5</td>
+                                <td>850K</td>
+                                <td style="background: rgba(0,214,57,0.15); color: var(--sage-green-dark); font-weight: 700;">45%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600;">Suite Premium</td>
+                                <td colspan="2">Ask + Builder + Workflow Pro</td>
+                                <td style="font-weight: 600;">€849</td>
+                                <td>15</td>
+                                <td>2.5M</td>
+                                <td style="background: rgba(0,214,57,0.15); color: var(--sage-green-dark); font-weight: 700;">45%</td>
+                            </tr>
+                            <tr class="table-highlight">
+                                <td style="font-weight: 700;">Suite Enterprise</td>
+                                <td colspan="2">Ask + Builder + Workflow Ent.</td>
+                                <td style="font-weight: 700;">€1,299</td>
+                                <td>50</td>
+                                <td>5M</td>
+                                <td style="background: rgba(0,214,57,0.25); color: var(--sage-green-dark); font-weight: 700;">45%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, rgba(0,214,57,0.1), rgba(0,214,222,0.1)); border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <span style="font-weight: 600; color: var(--gray-700);">Économie client vs produits séparés</span>
+                            <span style="color: var(--sage-green-dark); font-weight: 700; margin-left: 0.5rem;">jusqu'à -15%</span>
+                        </div>
+                        <div>
+                            <span style="font-weight: 600; color: var(--gray-700);">Marge Partner Bundle</span>
+                            <span style="color: var(--sage-green-dark); font-weight: 700; margin-left: 0.5rem;">45% (+10% back-margin)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competitive Advantage Section -->
+        <section id="competitive" class="section">
+            <div class="section-header">
+                <span class="section-tag">Avantage Concurrentiel</span>
+                <h2 class="section-title">Sage prend 12-18 mois d'avance</h2>
+                <p class="section-subtitle">Comparaison avec les concurrents - Une fenêtre d'opportunité qui se ferme</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fonctionnalité</th>
+                                <th style="background: linear-gradient(135deg, var(--sage-green-dark), var(--sage-green));">Sage + AI Studio</th>
+                                <th>Cegid</th>
+                                <th>EBP</th>
+                                <th>Pennylane</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>IA native intégrée</td>
+                                <td style="background: var(--sage-green-light); color: var(--sage-green-dark); font-weight: 600;">✓ Avril 2026</td>
+                                <td style="color: var(--gray-400);">2027-2028 (roadmap floue)</td>
+                                <td style="color: var(--gray-400);">Non annoncé</td>
+                                <td style="color: var(--gray-400);">IA limitée (saisie auto)</td>
+                            </tr>
+                            <tr>
+                                <td>Assistant conversationnel</td>
+                                <td style="background: var(--sage-green-light); color: var(--sage-green-dark); font-weight: 600;">✓ Ask.AI production-ready</td>
+                                <td style="color: var(--gray-400);">POC interne</td>
+                                <td style="color: var(--gray-400);">✗ Absent</td>
+                                <td style="color: var(--gray-400);">✗ Absent</td>
+                            </tr>
+                            <tr>
+                                <td>Générateur de vues IA</td>
+                                <td style="background: var(--sage-green-light); color: var(--sage-green-dark); font-weight: 600;">✓ Builder.AI no-code</td>
+                                <td style="color: var(--gray-400);">Non prévu</td>
+                                <td style="color: var(--gray-400);">Non prévu</td>
+                                <td style="color: var(--gray-400);">Non prévu</td>
+                            </tr>
+                            <tr>
+                                <td>Workflows automatisés</td>
+                                <td style="background: var(--sage-green-light); color: var(--sage-green-dark); font-weight: 600;">✓ Workflow.AI 50+ scénarios</td>
+                                <td style="color: var(--gray-400);">Projet R&D</td>
+                                <td style="color: var(--gray-400);">✗ Absent</td>
+                                <td style="color: var(--gray-400);">Règles basiques</td>
+                            </tr>
+                            <tr>
+                                <td>Time-to-market</td>
+                                <td style="background: var(--sage-green-light); color: var(--sage-green-dark); font-weight: 700;">6 mois</td>
+                                <td style="color: var(--danger);">24-36 mois</td>
+                                <td style="color: var(--gray-400);">N/A</td>
+                                <td style="color: var(--gray-400);">N/A</td>
+                            </tr>
+                            <tr>
+                                <td>Investissement requis</td>
+                                <td style="background: var(--sage-green-light); color: var(--sage-green-dark); font-weight: 700;">€0 (partenariat)</td>
+                                <td style="color: var(--danger);">€2-5M R&D</td>
+                                <td style="color: var(--gray-400);">N/A</td>
+                                <td style="color: var(--gray-400);">N/A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card" style="border: 2px solid var(--sage-green-dark);">
+                    <h3 class="card-title" style="color: var(--sage-green-dark);">🎯 Arguments Clés</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-100); display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <span style="color: var(--sage-green-dark); font-size: 1.2rem;">→</span>
+                            <div>
+                                <strong>First-mover advantage décisif</strong>
+                                <p style="font-size: 0.85rem; color: var(--gray-500); margin-top: 0.25rem;">Le marché ERP français n'a pas encore d'offre IA intégrée mature. Sage peut définir le standard.</p>
+                            </div>
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-100); display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <span style="color: var(--sage-green-dark); font-size: 1.2rem;">→</span>
+                            <div>
+                                <strong>Build vs Buy : l'équation est claire</strong>
+                                <p style="font-size: 0.85rem; color: var(--gray-500); margin-top: 0.25rem;">Développer en interne coûterait €2-5M et 24+ mois. Notre partenariat livre une solution en 6 mois pour €0.</p>
+                            </div>
+                        </li>
+                        <li style="padding: 0.75rem 0; display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <span style="color: var(--sage-green-dark); font-size: 1.2rem;">→</span>
+                            <div>
+                                <strong>Verrouillage client premium</strong>
+                                <p style="font-size: 0.85rem; color: var(--gray-500); margin-top: 0.25rem;">Les utilisateurs formés sur Sage AI Studio deviennent des ambassadeurs captifs. Le switching cost explose.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card" style="background: linear-gradient(135deg, #00A651, #007A20); color: white;">
+                    <h3 class="card-title" style="color: white;">⚡ Fenêtre d'Opportunité</h3>
+                    <div style="text-align: center; padding: 2rem 0;">
+                        <div style="font-size: 4rem; font-weight: 800;">18 mois</div>
+                        <div style="font-size: 1.1rem; opacity: 0.9;">avant que la concurrence ne réagisse</div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px; font-size: 0.95rem;">
+                        <strong>"Pendant que Cegid en est aux POC et qu'EBP n'a pas de roadmap IA, Sage peut capturer le marché."</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risks Section -->
+        <section id="risks" class="section">
+            <div class="section-header">
+                <span class="section-tag">Analyse des Risques</span>
+                <h2 class="section-title">Risques & Mitigations</h2>
+                <p class="section-subtitle">Identification et strategies de mitigation</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 class="card-title">⚠️ Matrice des Risques</h3>
+                    <div class="risk-item high">
+                        <span class="risk-badge high">Haute</span>
+                        <div>
+                            <strong>Concurrence emerge rapidement</strong>
+                            <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">Impact eleve</p>
+                        </div>
+                    </div>
+                    <div class="risk-item medium">
+                        <span class="risk-badge medium">Moyenne</span>
+                        <div>
+                            <strong>Sage ne push pas assez le freemium</strong>
+                            <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">Impact critique</p>
+                        </div>
+                    </div>
+                    <div class="risk-item medium">
+                        <span class="risk-badge medium">Moyenne</span>
+                        <div>
+                            <strong>Conversion payant faible</strong>
+                            <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">Impact eleve</p>
+                        </div>
+                    </div>
+                    <div class="risk-item medium">
+                        <span class="risk-badge medium">Moyenne</span>
+                        <div>
+                            <strong>Churn eleve freemium</strong>
+                            <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">Impact moyen</p>
+                        </div>
+                    </div>
+                    <div class="risk-item low">
+                        <span class="risk-badge low">Faible</span>
+                        <div>
+                            <strong>Coûts API Anthropic augmentent</strong>
+                            <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">Impact moyen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">🛡️ Stratégies de Mitigation</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-100);">
+                            <strong style="color: var(--sage-ai-purple);">→ Velocite d'execution</strong>
+                            <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 0.25rem;">First-mover advantage + clause d'exclusivite</p>
+                        </li>
+                        <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-100);">
+                            <strong style="color: var(--sage-ai-purple);">→ Clause marketing minimum</strong>
+                            <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 0.25rem;">Engagement Sage sur budget promo (€100K estime)</p>
+                        </li>
+                        <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-100);">
+                            <strong style="color: var(--sage-ai-purple);">→ Upsell agressif</strong>
+                            <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 0.25rem;">Limitations freemium + features premium attractives</p>
+                        </li>
+                        <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-100);">
+                            <strong style="color: var(--sage-ai-purple);">→ Onboarding ameliore</strong>
+                            <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 0.25rem;">Features sticky + activation rapide</p>
+                        </li>
+                        <li style="padding: 1rem 0;">
+                            <strong style="color: var(--sage-ai-purple);">→ Mix modeles optimise</strong>
+                            <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 0.25rem;">70% Haiku / 25% Sonnet / 5% Opus</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">Prochaines Etapes</span>
+                <h2 class="section-title">Calendrier d'Exécution</h2>
+                <p class="section-subtitle">Phase 1: Finalisation (Jan-Avril) | Phase 2: Scaling (Avril-Sept)</p>
+            </div>
+
+            <div class="grid-2" style="margin-bottom: 2rem;">
+                <div class="card" style="border-left: 4px solid var(--sage-ai-purple);">
+                    <h4 class="card-title">🔧 Phase 1: Finalisation Produit</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="padding: 0.75rem; background: var(--gray-50); border-radius: 8px;">
+                            <div style="font-weight: 600; color: var(--sage-ai-purple);">Janvier 2026</div>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">Kick-off technique + Architecture validee</div>
+                        </div>
+                        <div style="padding: 0.75rem; background: var(--gray-50); border-radius: 8px;">
+                            <div style="font-weight: 600; color: var(--sage-ai-purple);">Fevrier 2026</div>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">MVP Ask.AI + Integration API Sage 50</div>
+                        </div>
+                        <div style="padding: 0.75rem; background: var(--gray-50); border-radius: 8px;">
+                            <div style="font-weight: 600; color: var(--sage-ai-purple);">Mars 2026</div>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">Beta privee 500 clients + Builder.AI & Workflow.AI</div>
+                        </div>
+                        <div style="padding: 0.75rem; background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(0,166,81,0.1)); border-radius: 8px; border: 1px solid var(--sage-ai-purple);">
+                            <div style="font-weight: 700; color: var(--sage-ai-purple);">Avril 2026 - GO LIVE</div>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">Produit certifie + Documentation + Formation equipes Sage</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="border-left: 4px solid var(--sage-green-dark);">
+                    <h4 class="card-title">🚀 Phase 2: Scaling 40,000 Clients</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="padding: 0.75rem; background: var(--gray-50); border-radius: 8px;">
+                            <div style="font-weight: 600; color: var(--sage-green-dark);">Avril 2026</div>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">Lancement soft - 2,000 early adopters</div>
+                        </div>
+                        <div style="padding: 0.75rem; background: var(--gray-50); border-radius: 8px;">
+                            <div style="font-weight: 600; color: var(--sage-green-dark);">Mai-Juin 2026</div>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">Campagne marketing Sage + Onboarding partenaires S100</div>
+                        </div>
+                        <div style="padding: 0.75rem; background: var(--gray-50); border-radius: 8px;">
+                            <div style="font-weight: 600; color: var(--sage-green-dark);">Juillet-Aout 2026</div>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">Scaling infrastructure + Push commercial rentree</div>
+                        </div>
+                        <div style="padding: 0.75rem; background: linear-gradient(135deg, rgba(0,214,57,0.1), rgba(0,166,81,0.1)); border-radius: 8px; border: 1px solid var(--sage-green-dark);">
+                            <div style="font-weight: 700; color: var(--sage-green-dark);">Septembre 2026 - TARGET Q1</div>
+                            <div style="font-size: 0.9rem; color: var(--gray-600);">40,000 clients Sage 50 + Review reconduction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="background: linear-gradient(135deg, rgba(124,58,237,0.05) 0%, rgba(0,166,81,0.05) 100%);">
+                <h4 class="card-title">📅 Points de Controle Critiques</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="padding: 1rem; background: white; border-radius: 12px; border-left: 4px solid var(--warning);">
+                        <div style="font-weight: 700; color: var(--warning);">15 Fevrier 2026</div>
+                        <div style="margin-top: 0.5rem;">Go/No-Go technique (validation architecture)</div>
+                    </div>
+                    <div style="padding: 1rem; background: white; border-radius: 12px; border-left: 4px solid var(--sage-green-dark);">
+                        <div style="font-weight: 700; color: var(--sage-green-dark);">1er Avril 2026</div>
+                        <div style="margin-top: 0.5rem;">Go/No-Go commercial (produit complet valide)</div>
+                    </div>
+                    <div style="padding: 1rem; background: white; border-radius: 12px; border-left: 4px solid var(--sage-ai-purple);">
+                        <div style="font-weight: 700; color: var(--sage-ai-purple);">1er Juillet 2026</div>
+                        <div style="margin-top: 0.5rem;">Revue mi-parcours scaling (ajustement objectifs)</div>
+                    </div>
+                    <div style="padding: 1rem; background: white; border-radius: 12px; border-left: 4px solid var(--sage-ai-purple);">
+                        <div style="font-weight: 700; color: var(--sage-ai-purple);">30 Septembre 2026</div>
+                        <div style="margin-top: 0.5rem;">Review Q1 - Decision reconduction exclusivite</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logos">
+                <svg class="sage-logo" width="100" height="32" viewBox="0 0 250 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.6269 0C43.2682 0 55.9863 10.8171 56.2793 25.8724C56.4258 30.1107 53.3561 32.4512 49.9935 32.4512C46.7773 32.4512 44.0006 30.1139 43.8542 26.1654C43.7077 17.6855 36.5462 11.3997 27.4805 11.3997C19.0006 11.3997 12.5716 17.3926 12.5716 25.5794C12.5716 34.4954 18.5645 38.444 30.9896 42.9753C44.2904 47.7995 56.4258 53.4993 56.4258 70.4557C56.4258 85.2213 44.8763 97.0605 28.7988 97.0605C13.0111 97.0605 0 85.9505 0 70.8952C0 61.5397 4.53125 54.9609 8.91602 54.9609C12.7181 54.9609 15.0553 57.4447 15.0553 60.8073C15.0553 63.7305 12.5716 65.0456 12.5716 70.3092C12.5716 79.6647 20.1725 85.6576 28.7988 85.6576C37.8613 85.6576 43.8542 79.3717 43.8542 71.7708C43.8542 62.4154 37.8613 58.4701 25.4362 54.082C11.5495 49.1178 0 43.1217 0 26.6048C0 11.696 11.9857 0 27.6269 0Z" fill="#00D639"/>
+                    <path d="M91.4225 97.0636C75.6348 97.0636 62.4805 84.3455 62.4805 68.2648C62.4805 51.6014 75.7813 39.1763 91.862 39.1763C109.111 39.1763 121.243 52.0409 121.243 69.5832V90.9243C121.243 94.5799 118.32 97.0636 114.958 97.0636C111.449 97.0636 108.525 94.5799 108.525 90.9243V70.0194C108.525 58.4699 101.947 50.576 91.569 50.576C82.36 50.576 75.0521 58.3234 75.0521 68.2648C75.0521 77.4738 82.2135 85.3677 91.2793 85.3677C94.6419 85.3677 96.1035 84.492 98.151 84.492C100.928 84.492 103.851 86.8293 103.851 90.1919C103.848 94.7231 98.4375 97.0636 91.4225 97.0636Z" fill="#00D639"/>
+                    <path d="M157.262 140.625C140.889 140.625 127.295 128.929 127.295 113.727C127.295 108.61 130.218 106.273 133.581 106.273C136.943 106.273 139.72 108.467 139.867 112.705C140.013 122.207 147.614 129.222 157.116 129.222C167.204 129.222 173.779 122.79 173.779 114.456C173.779 104.954 166.471 101.009 154.046 97.0604C139.574 92.3826 127.295 85.9504 127.295 68.1183C127.295 51.7446 139.867 39.1763 156.237 39.1763C172.754 39.1763 186.351 51.1619 186.351 66.9497C186.351 76.5981 182.406 84.0526 176.995 84.0526C173.34 84.0526 170.856 81.4224 170.856 78.2062C170.856 74.8436 173.779 73.382 173.779 67.3892C173.779 57.3013 165.885 50.5793 156.383 50.5793C147.174 50.5793 139.867 57.5975 139.867 66.8065C139.867 77.1841 147.321 81.5721 159.6 85.6639C173.779 90.3416 186.351 96.188 186.351 113.291C186.351 128.639 174.219 140.625 157.262 140.625Z" fill="#00D639"/>
+                    <path d="M222.227 97.0638C205.853 97.0638 192.406 84.1992 192.406 68.1218C192.406 52.041 205.417 39.1797 221.494 39.1797C237.722 39.1797 250 50.4362 250 64.7624C250 70.3158 246.055 73.6784 239.623 73.6784H222.813C219.45 73.6784 216.966 71.3411 216.966 68.2682C216.966 65.345 219.45 63.0046 222.813 63.0046H235.384C236.553 63.0046 237.432 62.4186 237.432 61.25C237.432 57.0117 232.022 50.4329 221.937 50.4329C212.582 50.4329 204.981 58.4733 204.981 68.1218C204.981 77.9167 212.728 85.6641 222.376 85.6641C233.487 85.6641 237.142 79.0853 241.673 79.0853C245.475 79.0853 247.52 81.569 247.52 84.349C247.52 86.9792 245.765 89.3197 241.38 92.0964C236.989 94.8698 230.414 97.0638 222.227 97.0638Z" fill="#00D639"/>
+                </svg>
+                <span style="color: white;">×</span>
+                <span style="font-weight: 700; color: white;">Genysia Technologies</span>
+            </div>
+            <p class="footer-text">
+                Document confidentiel | Business Model Sage AI Studio V3<br>
+                Plan Stratégique 18 Mois avec Clause d'Exclusivité<br>
+                © 2026 Genysia Technologies
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Chart.js Configuration
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#6B7280';
+
+        // Cost Structure Chart
+        const costCtx = document.getElementById('costChart').getContext('2d');
+        new Chart(costCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Infrastructure (+20%)', 'API Anthropic (150K tokens/client)', 'Operations (RH)'],
+                datasets: [{
+                    data: [42000, 31200, 44000],
+                    backgroundColor: ['#7C3AED', '#00D639', '#4BBECF'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { padding: 20, usePointStyle: true } },
+                    tooltip: { callbacks: { label: ctx => ctx.label + ': €' + ctx.raw.toLocaleString() + '/mois' } }
+                }
+            }
+        });
+
+        // Price Analysis Chart (100% Part Genysia)
+        const priceCtx = document.getElementById('priceChart').getContext('2d');
+        new Chart(priceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['€4.50', '€5.00', '€5.50', '€6.00'],
+                datasets: [{
+                    label: 'MRR Total (100% Genysia)',
+                    data: [180000, 200000, 220000, 240000],
+                    backgroundColor: 'rgba(124, 58, 237, 0.2)',
+                    borderColor: '#7C3AED',
+                    borderWidth: 2
+                }, {
+                    label: 'Marge Nette',
+                    data: [62800, 82800, 102800, 122800],
+                    backgroundColor: '#7C3AED',
+                    borderColor: '#5B21B6',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': €' + ctx.raw.toLocaleString() } }
+                },
+                scales: { y: { beginAtZero: true, ticks: { callback: v => '€' + v/1000 + 'K' } } }
+            }
+        });
+
+        // Deployment Chart
+        const deployCtx = document.getElementById('deploymentChart').getContext('2d');
+        new Chart(deployCtx, {
+            type: 'line',
+            data: {
+                labels: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7'],
+                datasets: [{
+                    label: 'Clients Cumules',
+                    data: [2000, 6000, 11000, 17000, 25000, 35000, 40000],
+                    borderColor: '#7C3AED',
+                    backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#7C3AED',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                }, {
+                    label: 'MRR (€)',
+                    data: [10000, 30000, 55000, 85000, 125000, 175000, 200000],
+                    borderColor: '#00D639',
+                    backgroundColor: 'transparent',
+                    borderDash: [5, 5],
+                    tension: 0.4,
+                    pointBackgroundColor: '#00D639',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: { legend: { position: 'bottom' } },
+                scales: {
+                    y: { type: 'linear', display: true, position: 'left', title: { display: true, text: 'Clients' } },
+                    y1: { type: 'linear', display: true, position: 'right', title: { display: true, text: 'MRR (€)' }, grid: { drawOnChartArea: false }, ticks: { callback: v => '€' + v/1000 + 'K' } }
+                }
+            }
+        });
+
+        // MRR by Segment Chart
+        const mrrCtx = document.getElementById('mrrChart').getContext('2d');
+        new Chart(mrrCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Q1 (30/09/26)', 'Q2 (31/12/26)', 'Q3 (31/03/27)', 'Q4 (30/06/27)', 'Q5 (30/09/27)'],
+                datasets: [{
+                    label: 'Freemium S50',
+                    data: [200000, 200000, 200000, 200000, 200000],
+                    backgroundColor: '#7C3AED'
+                }, {
+                    label: 'Payant S50',
+                    data: [17500, 47500, 77500, 117500, 167500],
+                    backgroundColor: '#293E4D'
+                }, {
+                    label: 'Sage 100',
+                    data: [22500, 55125, 109125, 183375, 276750],
+                    backgroundColor: '#4BBECF'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: v => '€' + v/1000 + 'K' } } }
+            }
+        });
+
+        // Partage de la Valeur Chart
+        const marginCtx = document.getElementById('marginChart').getContext('2d');
+        new Chart(marginCtx, {
+            type: 'line',
+            data: {
+                labels: ['Q1 (30/09/26)', 'Q2 (31/12/26)', 'Q3 (31/03/27)', 'Q4 (30/06/27)', 'Q5 (30/09/27)'],
+                datasets: [{
+                    label: 'Revenu Total',
+                    data: [240000, 302625, 386625, 500875, 644250],
+                    borderColor: '#1F2937',
+                    backgroundColor: 'rgba(31, 41, 55, 0.05)',
+                    fill: false,
+                    tension: 0.4,
+                    borderWidth: 3
+                }, {
+                    label: 'Part Genysia (100% Freemium)',
+                    data: [222375, 258056, 303356, 364769, 441788],
+                    borderColor: '#4BBECF',
+                    backgroundColor: 'rgba(75, 190, 207, 0.15)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Part Sage (Paid only)',
+                    data: [9750, 25275, 45075, 71925, 105600],
+                    borderColor: '#00D639',
+                    backgroundColor: 'rgba(0, 214, 57, 0.15)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Part Partenaires',
+                    data: [7875, 19294, 38194, 64181, 96862],
+                    borderColor: '#7C3AED',
+                    backgroundColor: 'rgba(124, 58, 237, 0.15)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { y: { ticks: { callback: v => '€' + v/1000 + 'K' } } }
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section[id]');
+            let current = '';
+            sections.forEach(section => {
+                if (pageYOffset >= section.offsetTop - 200) current = section.getAttribute('id');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
