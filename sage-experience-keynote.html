@@ -482,6 +482,63 @@
             margin-top: 8px;
         }
 
+        /* Roadmap Timeline */
+        .roadmap-timeline {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding-left: 30px;
+        }
+
+        .roadmap-line {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            bottom: 8px;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--sage-green), var(--sage-green));
+            border-radius: 2px;
+        }
+
+        .roadmap-item {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .roadmap-dot {
+            position: absolute;
+            left: -26px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: var(--sage-green);
+            border-radius: 50%;
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 0 3px var(--sage-green);
+        }
+
+        .roadmap-content {
+            padding-left: 10px;
+        }
+
+        .roadmap-title {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--sage-green);
+            line-height: 1;
+        }
+
+        .roadmap-date {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
         /* Stats Cards for AI slide */
         .stats-grid {
             display: grid;
@@ -1484,16 +1541,16 @@
             <div class="two-cols">
                 <div class="col-content">
                     <h2 class="slide-title animate-in">
-                        Tout Sage 100.<br><span class="green">En mieux.</span>
+                        Une nouvelle expérience.<br><span class="green">De Sage 100.</span>
                     </h2>
                     <ul class="feature-list animate-in-delay-1">
                         <li>
                             <span class="feature-check">✓</span>
-                            Gestion commerciale complète
+                            Gestion commerciale
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Comptabilité intégrée
+                            Comptabilité
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
@@ -1501,7 +1558,7 @@
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Connecté à Sage Connect
+                            Intégrant les autres services Sage (Connect, ACS ...)
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
@@ -1510,14 +1567,21 @@
                     </ul>
                 </div>
                 <div class="col-visual">
-                    <div class="stats-row animate-in-delay-2" style="flex-direction: column; gap: 40px;">
-                        <div class="stat-item">
-                            <div class="stat-number">V0 Gesco</div>
-                            <div class="stat-label">Février 2026</div>
+                    <div class="roadmap-timeline animate-in-delay-2">
+                        <div class="roadmap-line"></div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-dot"></div>
+                            <div class="roadmap-content">
+                                <div class="roadmap-title">V0 Gesco</div>
+                                <div class="roadmap-date">Février 2026</div>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">V0 Compta</div>
-                            <div class="stat-label">Mars 2026</div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-dot"></div>
+                            <div class="roadmap-content">
+                                <div class="roadmap-title">V0 Compta</div>
+                                <div class="roadmap-date">Mars 2026</div>
+                            </div>
                         </div>
                     </div>
                 </div>
