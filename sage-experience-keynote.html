@@ -1478,6 +1478,214 @@
                 gap: 40px;
             }
         }
+
+        /* Dual Roadmap Styles */
+        .dual-timeline-axis {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 80px;
+            margin: 30px 0 15px;
+            position: relative;
+        }
+
+        .dual-timeline-axis::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            right: 80px;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .dual-timeline-axis span {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dual-roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .swimlane {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 25px;
+            background: rgba(22, 22, 22, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swimlane::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .swimlane-green::before {
+            background: var(--sage-green);
+            box-shadow: 0 0 20px rgba(0, 214, 57, 0.3);
+        }
+
+        .swimlane-ai::before {
+            background: linear-gradient(180deg, #00D639 0%, #0891B2 100%);
+            box-shadow: 0 0 20px rgba(8, 145, 178, 0.3);
+        }
+
+        .swimlane-header {
+            width: 160px;
+            flex-shrink: 0;
+        }
+
+        .swimlane-title {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .swimlane-subtitle {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .swimlane-track {
+            flex: 1;
+            height: 70px;
+            position: relative;
+        }
+
+        .swimlane-track .track-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-50%);
+        }
+
+        .milestone {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .milestone-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .milestone-dot.green {
+            background: var(--sage-green);
+            box-shadow: 0 0 15px rgba(0, 214, 57, 0.4);
+        }
+
+        .milestone-dot.ai {
+            background: linear-gradient(135deg, #00D639 0%, #0891B2 100%);
+            box-shadow: 0 0 15px rgba(8, 145, 178, 0.4);
+        }
+
+        .milestone-label {
+            position: absolute;
+            top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .milestone-date {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .milestone-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .milestone-sub {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+        }
+
+        .milestone-badge {
+            position: absolute;
+            top: -22px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .milestone-badge.green {
+            background: var(--sage-green);
+            color: #000;
+        }
+
+        .milestone-badge.ai {
+            background: linear-gradient(135deg, #00D639 0%, #0891B2 100%);
+            color: #000;
+        }
+
+        .roadmap-legend {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 25px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.green {
+            background: var(--sage-green);
+            box-shadow: 0 0 10px rgba(0, 214, 57, 0.4);
+        }
+
+        .legend-dot.ai {
+            background: linear-gradient(135deg, #00D639 0%, #0891B2 100%);
+            box-shadow: 0 0 10px rgba(8, 145, 178, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -2151,35 +2359,104 @@
         <!-- SLIDE 26: Next Steps -->
         <div class="slide" data-slide="26">
             <h2 class="slide-title animate-in">La suite<span class="green">.</span></h2>
-            <div class="timeline animate-in-delay-1">
-                <div class="timeline-item">
-                    <div class="timeline-dot">1</div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Février 2026</div>
-                        <div class="timeline-text">V0 Gesco disponible<br>Co-construction roadmap</div>
+
+            <!-- Timeline axis -->
+            <div class="dual-timeline-axis animate-in-delay-1">
+                <span>Fév</span>
+                <span>Mars</span>
+                <span>Avril</span>
+                <span>Mai</span>
+                <span>Juin</span>
+            </div>
+
+            <!-- Dual Roadmap Swimlanes -->
+            <div class="dual-roadmap animate-in-delay-1">
+                <!-- Nouvelle Ergonomie Web -->
+                <div class="swimlane swimlane-green">
+                    <div class="swimlane-header">
+                        <div class="swimlane-title" style="color: var(--sage-green);">Nouvelle Ergonomie Web</div>
+                        <div class="swimlane-subtitle">Dataven Platform</div>
+                    </div>
+                    <div class="swimlane-track">
+                        <div class="track-line"></div>
+                        <div class="milestone" style="left: 5%;">
+                            <div class="milestone-dot green"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Février</span>
+                                <span class="milestone-text">V0 Gesco</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 22%;">
+                            <div class="milestone-dot green"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Fin Fév</span>
+                                <span class="milestone-text">Formation</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 38%;">
+                            <span class="milestone-badge green">Launch</span>
+                            <div class="milestone-dot green"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Mars</span>
+                                <span class="milestone-text">V0 Compta + EAP</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 72%;">
+                            <div class="milestone-dot green"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">T2 2026</span>
+                                <span class="milestone-text">Déploiement</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot">2</div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Fin février</div>
-                        <div class="timeline-text">Journée de prise en main<br>Formation vos consultants</div>
+
+                <!-- Sage AI Studio -->
+                <div class="swimlane swimlane-ai">
+                    <div class="swimlane-header">
+                        <div class="swimlane-title highlight-ai">Sage AI Studio</div>
+                        <div class="swimlane-subtitle">Intelligence Artificielle</div>
+                    </div>
+                    <div class="swimlane-track">
+                        <div class="track-line"></div>
+                        <div class="milestone" style="left: 22%;">
+                            <span class="milestone-badge ai">New</span>
+                            <div class="milestone-dot ai"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Fin Fév</span>
+                                <span class="milestone-text">Sage Copilot</span>
+                                <span class="milestone-sub">SaaS & Mobile</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 38%;">
+                            <div class="milestone-dot ai"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Mars</span>
+                                <span class="milestone-text">Builder.AI</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 55%;">
+                            <div class="milestone-dot ai"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Avril</span>
+                                <span class="milestone-text">Distribution</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 88%;">
+                            <div class="milestone-dot ai"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Juin</span>
+                                <span class="milestone-text">Workflow.AI</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot">3</div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Mars 2026</div>
-                        <div class="timeline-text">V0 Compta<br>Lancement EAP</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot">4</div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">T2 2026</div>
-                        <div class="timeline-text">Validation business model<br>Déploiement partenaires</div>
-                    </div>
-                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="roadmap-legend animate-in-delay-2">
+                <div class="legend-item"><span class="legend-dot green"></span> Nouvelle Ergonomie (Dataven)</div>
+                <div class="legend-item"><span class="legend-dot ai"></span> Sage AI Studio</div>
             </div>
         </div>
 
