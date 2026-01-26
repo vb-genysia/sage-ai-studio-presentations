@@ -1379,6 +1379,24 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
+        .coming-soon-badge {
+            position: absolute;
+            top: 80px;
+            right: 60px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            color: white;
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4);
+            transform: rotate(12deg);
+            z-index: 10;
+        }
+
         .arch-arrow {
             font-size: 2rem;
             color: var(--sage-green);
@@ -1841,6 +1859,7 @@
 
         <!-- SLIDE 17: Workflow.AI -->
         <div class="slide" data-slide="17">
+            <div class="coming-soon-badge animate-in">Coming Soon</div>
             <h2 class="slide-title animate-in">
                 Workflow.AI<span class="green">.</span><br>
                 <span style="font-size: 0.5em; font-weight: 400; color: var(--text-secondary);">Automatisez sans coder.</span>
