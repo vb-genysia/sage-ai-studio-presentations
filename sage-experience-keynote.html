@@ -833,6 +833,54 @@
             margin-top: 50px;
         }
 
+        .module-groups {
+            display: flex;
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 50px;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .module-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .module-group.partner-group {
+            flex: 2;
+        }
+
+        .module-cards-row {
+            display: flex;
+            gap: 30px;
+        }
+
+        .module-group-label {
+            margin-top: 20px;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-family: 'Sage Text', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .module-group-label.client {
+            background: rgba(0, 214, 57, 0.15);
+            color: var(--sage-green);
+            border: 1px solid rgba(0, 214, 57, 0.3);
+        }
+
+        .module-group-label.partner {
+            background: rgba(8, 145, 178, 0.15);
+            color: #0891B2;
+            border: 1px solid rgba(8, 145, 178, 0.3);
+        }
+
         .module-card {
             background: linear-gradient(180deg, var(--bg-card) 0%, rgba(20,20,20,0.5) 100%);
             border-radius: 24px;
@@ -1612,27 +1660,37 @@
         <!-- SLIDE 13: AI Studio 3 Modules (gradient icons) -->
         <div class="slide" data-slide="13">
             <h2 class="slide-title animate-in">3 modules<span class="green">.</span> Un écosystème.</h2>
-            <div class="module-showcase animate-in-delay-1">
-                <div class="module-card">
-                    <div class="module-icon-logo">
-                        <img src="sage-copilot-logo.png" alt="Sage Copilot" style="width: 48px; height: 48px; object-fit: contain;">
+            <div class="module-groups animate-in-delay-1">
+                <!-- Groupe Clients -->
+                <div class="module-group">
+                    <div class="module-card">
+                        <div class="module-icon-logo">
+                            <img src="sage-copilot-logo.png" alt="Sage Copilot" style="width: 48px; height: 48px; object-fit: contain;">
+                        </div>
+                        <div class="module-name">Sage Copilot</div>
+                        <div class="module-desc">Un assistant conversationnel connecté à Sage qui répond aux questions en langage naturel.</div>
                     </div>
-                    <div class="module-name">Sage Copilot</div>
-                    <div class="module-desc">Un assistant conversationnel connecté à Sage qui répond aux questions en langage naturel.</div>
+                    <div class="module-group-label client">Produit pour les clients</div>
                 </div>
-                <div class="module-card">
-                    <div class="module-icon-gradient">
-                        <svg viewBox="0 0 24 24" fill="white"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                <!-- Groupe Partenaires -->
+                <div class="module-group partner-group">
+                    <div class="module-cards-row">
+                        <div class="module-card">
+                            <div class="module-icon-gradient">
+                                <svg viewBox="0 0 24 24" fill="white"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                            </div>
+                            <div class="module-name">Builder.AI</div>
+                            <div class="module-desc">Créez des écrans et tableaux de bord personnalisés simplement en décrivant ce que vous voulez.</div>
+                        </div>
+                        <div class="module-card">
+                            <div class="module-icon-gradient">
+                                <svg viewBox="0 0 24 24" fill="white"><path d="M13 3v6h8l-8 12v-6H5l8-12z"/></svg>
+                            </div>
+                            <div class="module-name">Workflow.AI</div>
+                            <div class="module-desc">Automatisez les processus métier sans coder. Décrivez, l'IA construit.</div>
+                        </div>
                     </div>
-                    <div class="module-name">Builder.AI</div>
-                    <div class="module-desc">Créez des écrans et tableaux de bord personnalisés simplement en décrivant ce que vous voulez.</div>
-                </div>
-                <div class="module-card">
-                    <div class="module-icon-gradient">
-                        <svg viewBox="0 0 24 24" fill="white"><path d="M13 3v6h8l-8 12v-6H5l8-12z"/></svg>
-                    </div>
-                    <div class="module-name">Workflow.AI</div>
-                    <div class="module-desc">Automatisez les processus métier sans coder. Décrivez, l'IA construit.</div>
+                    <div class="module-group-label partner">Produits dédiés aux partenaires</div>
                 </div>
             </div>
         </div>
