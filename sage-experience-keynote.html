@@ -1324,6 +1324,51 @@
             font-size: 1.2rem;
         }
 
+        .arch-studio-container {
+            background: linear-gradient(180deg, rgba(0,214,57,0.08) 0%, rgba(8,145,178,0.08) 100%);
+            border: 2px solid rgba(0,214,57,0.4);
+            border-radius: 20px;
+            padding: 0;
+            overflow: hidden;
+            min-width: 500px;
+        }
+
+        .arch-studio-header {
+            background: var(--gradient-ai);
+            color: white;
+            font-family: 'Sage Headline', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 12px 30px;
+            text-align: center;
+        }
+
+        .arch-studio-modules {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 30px;
+        }
+
+        .arch-module-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Sage Text', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.05);
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .arch-box.output.copilot-app {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .arch-box.module {
             background: linear-gradient(180deg, rgba(0,214,57,0.15) 0%, rgba(8,145,178,0.15) 100%);
             border: 1px solid rgba(0,214,57,0.3);
@@ -1834,26 +1879,34 @@
                 <div class="arch-row">
                     <div class="arch-box product">Sage 50</div>
                     <div class="arch-box product">Sage 100</div>
-                    <div class="arch-box product">Sage X3</div>
-                    <div class="arch-box product">Sage FRP 1000</div>
                 </div>
                 <div class="arch-arrow">↓</div>
-                <div class="arch-row">
-                    <div class="arch-box studio">Sage AI Studio</div>
-                </div>
-                <div class="arch-arrow">↓</div>
-                <div class="arch-label">Modules disponibles</div>
-                <div class="arch-row">
-                    <div class="arch-box module">Sage Copilot</div>
-                    <div class="arch-box module">Builder.AI</div>
-                    <div class="arch-box module">Workflow.AI</div>
+                <div class="arch-studio-container">
+                    <div class="arch-studio-header">Sage AI Studio</div>
+                    <div class="arch-studio-modules">
+                        <div class="arch-module-item">
+                            <img src="sage-copilot-logo.png" alt="Copilot" style="width: 24px; height: 24px;">
+                            <span>Sage Copilot</span>
+                        </div>
+                        <div class="arch-module-item">
+                            <span class="module-icon-small"></span>
+                            <span>Builder.AI</span>
+                        </div>
+                        <div class="arch-module-item">
+                            <span class="module-icon-small"></span>
+                            <span>Workflow.AI</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="arch-arrow">↓</div>
                 <div class="arch-label">Intégrables dans</div>
                 <div class="arch-row">
-                    <div class="arch-box output">Interface web (Dataven)</div>
-                    <div class="arch-box output">App mobile</div>
-                    <div class="arch-box output">Interfaces tierces</div>
+                    <div class="arch-box output">Nouvelle Ergonomie Web</div>
+                    <div class="arch-box output copilot-app">
+                        <img src="sage-copilot-logo.png" alt="Copilot" style="width: 18px; height: 18px; margin-right: 6px;">
+                        App. mobile Copilot
+                    </div>
+                    <div class="arch-box output">Interfaces tierces par API</div>
                 </div>
             </div>
         </div>
