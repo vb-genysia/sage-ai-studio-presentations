@@ -1511,18 +1511,18 @@
         .dual-roadmap {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             width: 100%;
-            max-width: 1100px;
+            max-width: 1300px;
         }
 
         .swimlane {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 20px 25px;
+            gap: 25px;
+            padding: 28px 32px;
             background: rgba(22, 22, 22, 0.8);
-            border-radius: 16px;
+            border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.05);
             position: relative;
             overflow: hidden;
@@ -1549,25 +1549,25 @@
         }
 
         .swimlane-header {
-            width: 160px;
+            width: 200px;
             flex-shrink: 0;
         }
 
         .swimlane-title {
             font-family: 'Sage Headline', sans-serif;
-            font-size: 1rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         .swimlane-subtitle {
-            font-size: 0.7rem;
+            font-size: 0.875rem;
             color: var(--text-muted);
         }
 
         .swimlane-track {
             flex: 1;
-            height: 70px;
+            height: 90px;
             position: relative;
         }
 
@@ -1591,8 +1591,8 @@
         }
 
         .milestone-dot {
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             position: relative;
             z-index: 2;
@@ -1600,17 +1600,17 @@
 
         .milestone-dot.green {
             background: var(--sage-green);
-            box-shadow: 0 0 15px rgba(0, 214, 57, 0.4);
+            box-shadow: 0 0 20px rgba(0, 214, 57, 0.4);
         }
 
         .milestone-dot.ai {
             background: linear-gradient(135deg, #00D639 0%, #0891B2 100%);
-            box-shadow: 0 0 15px rgba(8, 145, 178, 0.4);
+            box-shadow: 0 0 20px rgba(8, 145, 178, 0.4);
         }
 
         .milestone-label {
             position: absolute;
-            top: 20px;
+            top: 26px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1618,29 +1618,29 @@
         }
 
         .milestone-date {
-            font-size: 0.6rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         .milestone-text {
-            font-size: 0.75rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--text-primary);
         }
 
         .milestone-sub {
-            font-size: 0.6rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
         }
 
         .milestone-badge {
             position: absolute;
-            top: -22px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.55rem;
+            top: -28px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -1659,21 +1659,21 @@
         .roadmap-legend {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-top: 25px;
+            gap: 50px;
+            margin-top: 35px;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
+            gap: 10px;
+            font-size: 1rem;
             color: var(--text-secondary);
         }
 
         .legend-dot {
-            width: 10px;
-            height: 10px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
         }
 
@@ -2360,15 +2360,6 @@
         <div class="slide" data-slide="26">
             <h2 class="slide-title animate-in">La suite<span class="green">.</span></h2>
 
-            <!-- Timeline axis -->
-            <div class="dual-timeline-axis animate-in-delay-1">
-                <span>Fév</span>
-                <span>Mars</span>
-                <span>Avril</span>
-                <span>Mai</span>
-                <span>Juin</span>
-            </div>
-
             <!-- Dual Roadmap Swimlanes -->
             <div class="dual-roadmap animate-in-delay-1">
                 <!-- Nouvelle Ergonomie Web -->
@@ -2455,7 +2446,7 @@
 
             <!-- Legend -->
             <div class="roadmap-legend animate-in-delay-2">
-                <div class="legend-item"><span class="legend-dot green"></span> Nouvelle Ergonomie (Dataven)</div>
+                <div class="legend-item"><span class="legend-dot green"></span> Nouvelle Ergonomie Web</div>
                 <div class="legend-item"><span class="legend-dot ai"></span> Sage AI Studio</div>
             </div>
         </div>
