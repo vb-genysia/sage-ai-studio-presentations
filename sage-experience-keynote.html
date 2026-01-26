@@ -1686,6 +1686,179 @@
             background: linear-gradient(135deg, #00D639 0%, #0891B2 100%);
             box-shadow: 0 0 10px rgba(8, 145, 178, 0.4);
         }
+
+        /* Workflow Diagram Styles */
+        .workflow-diagram {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 20px;
+            max-width: 480px;
+        }
+
+        .workflow-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .workflow-badge {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .workflow-title-small {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .workflow-canvas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .workflow-node {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 12px 16px;
+            width: 100%;
+            max-width: 280px;
+            transition: all 0.3s ease;
+        }
+
+        .workflow-node:hover {
+            border-color: var(--sage-green);
+            box-shadow: 0 0 20px rgba(0, 214, 57, 0.2);
+        }
+
+        .workflow-node.trigger {
+            border-left: 3px solid #FF6B6B;
+        }
+
+        .workflow-node.sage {
+            border-left: 3px solid var(--sage-green);
+        }
+
+        .workflow-node.condition {
+            border-left: 3px solid #FFD93D;
+        }
+
+        .workflow-node.action {
+            border-left: 3px solid #6BCB77;
+        }
+
+        .workflow-node.action.slack {
+            border-left: 3px solid #4A90D9;
+        }
+
+        .workflow-node.output {
+            border-left: 3px solid #9B59B6;
+        }
+
+        .node-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .node-content {
+            flex: 1;
+        }
+
+        .node-type {
+            font-size: 0.55rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2px;
+        }
+
+        .node-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .node-config {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-family: 'Courier New', monospace;
+        }
+
+        .workflow-connector {
+            width: 2px;
+            height: 12px;
+            background: linear-gradient(180deg, var(--sage-green) 0%, rgba(0,214,57,0.3) 100%);
+        }
+
+        .workflow-branch {
+            display: flex;
+            justify-content: center;
+            width: 200px;
+            height: 20px;
+            position: relative;
+        }
+
+        .branch-line {
+            position: absolute;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--sage-green);
+        }
+
+        .branch-line.left {
+            left: 25%;
+            transform: rotate(-30deg);
+            transform-origin: top center;
+        }
+
+        .branch-line.right {
+            right: 25%;
+            transform: rotate(30deg);
+            transform-origin: top center;
+        }
+
+        .workflow-actions {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .workflow-actions .workflow-node {
+            flex: 1;
+            max-width: none;
+        }
+
+        .workflow-connector-merge {
+            width: 2px;
+            height: 12px;
+            background: linear-gradient(180deg, rgba(0,214,57,0.3) 0%, var(--sage-green) 100%);
+        }
     </style>
 </head>
 <body>
@@ -2117,35 +2290,112 @@
 
         <!-- SLIDE 18: Workflow.AI -->
         <div class="slide" data-slide="18">
-            <div class="coming-soon-badge animate-in">Coming Soon</div>
-            <h2 class="slide-title animate-in">
-                Workflow.AI<span class="green">.</span><br>
-                <span style="font-size: 0.5em; font-weight: 400; color: var(--text-secondary);">Automatisez sans coder.</span>
-            </h2>
-            <div style="margin-top: 40px; display: flex; align-items: center; gap: 30px;" class="animate-in-delay-1">
-                <div style="background: rgba(255,107,107,0.1); border: 2px solid rgba(255,107,107,0.3); border-radius: 16px; padding: 25px; text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 10px;">⏰</div>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Chaque<br>lundi 9 h</div>
+            <div class="two-cols">
+                <div class="col-visual animate-in">
+                    <!-- Technical Workflow Diagram -->
+                    <div class="workflow-diagram">
+                        <div class="workflow-header">
+                            <span class="workflow-badge">Coming Soon</span>
+                            <span class="workflow-title-small">workflow_relance_client.ai</span>
+                        </div>
+                        <div class="workflow-canvas">
+                            <!-- Trigger Node -->
+                            <div class="workflow-node trigger">
+                                <div class="node-icon">⏰</div>
+                                <div class="node-content">
+                                    <div class="node-type">TRIGGER</div>
+                                    <div class="node-name">Schedule</div>
+                                    <div class="node-config">Lundi 9h</div>
+                                </div>
+                            </div>
+                            <div class="workflow-connector"></div>
+                            <!-- Sage Query Node -->
+                            <div class="workflow-node sage">
+                                <div class="node-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                                </div>
+                                <div class="node-content">
+                                    <div class="node-type">SAGE 100</div>
+                                    <div class="node-name">Query</div>
+                                    <div class="node-config">Factures > 30j</div>
+                                </div>
+                            </div>
+                            <div class="workflow-connector"></div>
+                            <!-- Condition Node -->
+                            <div class="workflow-node condition">
+                                <div class="node-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 5v8l-9 5-9-5V8z"/></svg>
+                                </div>
+                                <div class="node-content">
+                                    <div class="node-type">CONDITION</div>
+                                    <div class="node-name">If/Then</div>
+                                    <div class="node-config">Amount > 1000€</div>
+                                </div>
+                            </div>
+                            <div class="workflow-branch">
+                                <div class="branch-line left"></div>
+                                <div class="branch-line right"></div>
+                            </div>
+                            <div class="workflow-actions">
+                                <!-- Email Action -->
+                                <div class="workflow-node action email">
+                                    <div class="node-icon">📧</div>
+                                    <div class="node-content">
+                                        <div class="node-type">ACTION</div>
+                                        <div class="node-name">Email</div>
+                                        <div class="node-config">Template relance</div>
+                                    </div>
+                                </div>
+                                <!-- Slack Action -->
+                                <div class="workflow-node action slack">
+                                    <div class="node-icon">💬</div>
+                                    <div class="node-content">
+                                        <div class="node-type">ACTION</div>
+                                        <div class="node-name">Slack</div>
+                                        <div class="node-config">#compta</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="workflow-connector-merge"></div>
+                            <!-- Log Node -->
+                            <div class="workflow-node output">
+                                <div class="node-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                                </div>
+                                <div class="node-content">
+                                    <div class="node-type">OUTPUT</div>
+                                    <div class="node-name">Log CRM</div>
+                                    <div class="node-config">+ Analytics</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div style="color: var(--sage-green); font-size: 2rem;">→</div>
-                <div style="background: rgba(0,212,170,0.1); border: 2px solid rgba(0,212,170,0.3); border-radius: 16px; padding: 25px; text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 10px;">🔍</div>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Factures<br>&gt; 30 jours</div>
-                </div>
-                <div style="color: var(--sage-green); font-size: 2rem;">→</div>
-                <div style="background: rgba(200,230,0,0.1); border: 2px solid rgba(200,230,0,0.3); border-radius: 16px; padding: 25px; text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 10px;">📧</div>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Relance<br>e-mail</div>
-                </div>
-                <div style="color: var(--sage-green); font-size: 2rem;">→</div>
-                <div style="background: rgba(0,214,57,0.1); border: 2px solid rgba(0,214,57,0.3); border-radius: 16px; padding: 25px; text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 10px;">📝</div>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Log<br>CRM</div>
+                <div class="col-content">
+                    <h2 class="slide-title animate-in-delay-1">
+                        Workflow.AI<span class="green">.</span><br>
+                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Expliquez. Séquencez. Déployez.</span>
+                    </h2>
+                    <ul class="feature-list animate-in-delay-2">
+                        <li>
+                            <span class="feature-check">✓</span>
+                            L'autopilote des workflows métiers
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Interagissez dans et en dehors de Sage
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Connectez les workflows aux vues construites avec l'IA
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Créez des automates avec la plupart des outils du marché
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px; font-size: 1.1rem;">
-                « Alerte si facture impayée > 30 jours » &bull; « Rapport hebdo auto aux managers » &bull; « Validation commandes > 10 K€ »
-            </p>
         </div>
 
         <!-- SLIDE 19: Architecture / Flux -->
