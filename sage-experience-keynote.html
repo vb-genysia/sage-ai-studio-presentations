@@ -16,11 +16,117 @@
     <!-- Empêcher le partage sur réseaux sociaux -->
     <meta name="twitter:card" content="none">
     <meta property="og:type" content="none">
-    <title>Sage Experience - BPAC 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Sage Xpérience - BPAC 2026</title>
     <style>
+        /* Sage Webfonts */
+        @font-face {
+            font-family: 'Sage Headline';
+            src: url('fonts/Sage_Headline-Black.woff2') format('woff2'),
+                 url('fonts/Sage_Headline-Black.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Light.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Light_Italic.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Light_Italic.woff') format('woff');
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Regular.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Regular_Italic.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Regular_Italic.woff') format('woff');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Medium.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Medium_Italic.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Medium_Italic.woff') format('woff');
+            font-weight: 500;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Bold.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Bold_Italic.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Bold_Italic.woff') format('woff');
+            font-weight: 700;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage UI';
+            src: url('fonts/Sage_UI-Regular.woff2') format('woff2'),
+                 url('fonts/Sage_UI-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage UI';
+            src: url('fonts/Sage_UI-Medium.woff2') format('woff2'),
+                 url('fonts/Sage_UI-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage UI';
+            src: url('fonts/Sage_UI-Bold.woff2') format('woff2'),
+                 url('fonts/Sage_UI-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --sage-green: #00D639;
             --sage-green-dark: #00B830;
@@ -50,7 +156,7 @@
             height: 100%;
             overflow: hidden;
             background: var(--bg-dark);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Sage Text', 'Sage UI', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-primary);
         }
 
@@ -93,8 +199,9 @@
 
         /* Typography */
         .slide-title {
+            font-family: 'Sage Headline', 'Sage Text', sans-serif;
             font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 700;
+            font-weight: 900;
             line-height: 1.1;
             margin-bottom: 30px;
             text-align: center;
@@ -120,6 +227,7 @@
         }
 
         .slide-subtitle {
+            font-family: 'Sage Text', sans-serif;
             font-size: clamp(1.2rem, 2vw, 1.8rem);
             font-weight: 400;
             color: var(--text-secondary);
@@ -129,13 +237,15 @@
         }
 
         .mega-title {
+            font-family: 'Sage Headline', 'Sage Text', sans-serif;
             font-size: clamp(4rem, 10vw, 8rem);
-            font-weight: 800;
+            font-weight: 900;
             line-height: 1;
             text-align: center;
         }
 
         .mega-number {
+            font-family: 'Sage Headline', sans-serif;
             font-size: clamp(6rem, 15vw, 12rem);
             font-weight: 900;
             background: var(--gradient-main);
@@ -232,13 +342,15 @@
         }
 
         .card-title {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1.3rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
             color: var(--sage-green);
         }
 
         .card-text {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.6;
@@ -295,6 +407,7 @@
         }
 
         .comparison-header {
+            font-family: 'Sage Text', sans-serif;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -316,6 +429,7 @@
         }
 
         .comparison-list li {
+            font-family: 'Sage Text', sans-serif;
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -353,13 +467,15 @@
         }
 
         .stat-number {
+            font-family: 'Sage Headline', sans-serif;
             font-size: 3.5rem;
-            font-weight: 800;
+            font-weight: 900;
             color: var(--sage-green);
             line-height: 1;
         }
 
         .stat-label {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1rem;
             color: var(--text-secondary);
             margin-top: 8px;
@@ -384,6 +500,7 @@
         }
 
         .stat-card .stat-number {
+            font-family: 'Sage Headline', sans-serif;
             font-size: 4rem;
             background: var(--gradient-ai);
             -webkit-background-clip: text;
@@ -392,12 +509,14 @@
         }
 
         .stat-card .stat-label {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1.1rem;
             margin-top: 15px;
             line-height: 1.4;
         }
 
         .stat-source {
+            font-family: 'Sage Text', sans-serif;
             font-size: 0.8rem;
             color: var(--text-muted);
             margin-top: 8px;
@@ -434,6 +553,7 @@
         }
 
         .timeline-dot {
+            font-family: 'Sage Headline', sans-serif;
             width: 70px;
             height: 70px;
             border-radius: 50%;
@@ -453,6 +573,7 @@
         }
 
         .timeline-date {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1rem;
             font-weight: 600;
             color: var(--sage-green);
@@ -460,6 +581,7 @@
         }
 
         .timeline-text {
+            font-family: 'Sage Text', sans-serif;
             font-size: 0.95rem;
             color: var(--text-secondary);
             max-width: 200px;
@@ -472,6 +594,7 @@
         }
 
         .feature-list li {
+            font-family: 'Sage Text', sans-serif;
             display: flex;
             align-items: center;
             gap: 16px;
@@ -525,6 +648,7 @@
         }
 
         .nav-btn {
+            font-family: 'Sage UI', sans-serif;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -545,6 +669,7 @@
         }
 
         .slide-counter {
+            font-family: 'Sage UI', sans-serif;
             position: fixed;
             bottom: 40px;
             left: 40px;
@@ -559,10 +684,12 @@
             top: 30px;
             left: 40px;
             z-index: 1000;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--sage-green);
-            letter-spacing: -1px;
+            height: 32px;
+        }
+
+        .sage-logo img {
+            height: 100%;
+            width: auto;
         }
 
         /* Animations */
@@ -693,8 +820,9 @@
         }
 
         .module-name {
+            font-family: 'Sage Headline', sans-serif;
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 900;
             margin-bottom: 12px;
             background: var(--gradient-ai);
             -webkit-background-clip: text;
@@ -703,6 +831,7 @@
         }
 
         .module-desc {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.6;
@@ -738,8 +867,9 @@
         }
 
         .pillar-card h3 {
+            font-family: 'Sage Headline', sans-serif;
             font-size: 1.8rem;
-            font-weight: 700;
+            font-weight: 900;
             margin-bottom: 20px;
         }
 
@@ -755,6 +885,7 @@
         }
 
         .pillar-card p {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1.1rem;
             color: var(--text-secondary);
             line-height: 1.7;
@@ -784,6 +915,7 @@
         }
 
         .security-title {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 8px;
@@ -791,6 +923,7 @@
         }
 
         .security-text {
+            font-family: 'Sage Text', sans-serif;
             font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.5;
@@ -808,18 +941,21 @@
         }
 
         .cta-title {
+            font-family: 'Sage Headline', sans-serif;
             font-size: 2rem;
-            font-weight: 700;
+            font-weight: 900;
             margin-bottom: 20px;
         }
 
         .cta-text {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1.2rem;
             color: var(--text-secondary);
             margin-bottom: 30px;
         }
 
         .cta-button {
+            font-family: 'Sage Text', sans-serif;
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -846,6 +982,7 @@
 
         /* Quote style */
         .quote {
+            font-family: 'Sage Text', sans-serif;
             font-size: clamp(1.5rem, 3vw, 2.5rem);
             font-weight: 300;
             font-style: italic;
@@ -919,6 +1056,7 @@
         }
 
         .value-title {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1.3rem;
             font-weight: 600;
             color: var(--sage-green);
@@ -926,6 +1064,7 @@
         }
 
         .value-desc {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.6;
@@ -953,12 +1092,14 @@
         }
 
         .speaker-name {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1.4rem;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .speaker-role {
+            font-family: 'Sage Text', sans-serif;
             font-size: 1rem;
             color: var(--text-secondary);
             max-width: 220px;
@@ -1038,6 +1179,7 @@
         }
 
         .arch-box {
+            font-family: 'Sage Text', sans-serif;
             padding: 20px 30px;
             border-radius: 12px;
             text-align: center;
@@ -1078,6 +1220,7 @@
         }
 
         .arch-label {
+            font-family: 'Sage Text', sans-serif;
             font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 15px;
@@ -1152,7 +1295,9 @@
     </style>
 </head>
 <body>
-    <div class="sage-logo">Sage</div>
+    <div class="sage-logo">
+        <img src="sage-logo.png" alt="Sage">
+    </div>
 
     <div class="presentation">
         <!-- SLIDE 1: Hero -->
@@ -1169,12 +1314,12 @@
                 <path class="wave-path" style="opacity:0.5;transform:translateY(30px)" d="M0,200 Q400,350 800,200 T1600,200 T2400,200" />
             </svg>
             <div class="hero-content">
-                <h1 class="mega-title animate-in">Sage <span class="highlight">Experience</span></h1>
+                <h1 class="mega-title animate-in">Sage <span class="highlight-ai">Xpérience</span></h1>
                 <p class="slide-subtitle animate-in-delay-1" style="margin-top: 30px; font-size: 1.5rem;">
                     L'avenir de Sage 100. Aujourd'hui.
                 </p>
                 <p class="animate-in-delay-2" style="margin-top: 60px; color: var(--text-muted);">
-                    BPAC 2026 &mdash; 29 Janvier
+                    BPAC 2026 &mdash; 29 janvier
                 </p>
             </div>
         </div>
@@ -1185,7 +1330,7 @@
                 <div class="speaker-card">
                     <img src="david.jpg" alt="David Klecel" class="speaker-photo">
                     <div class="speaker-name">David Klecel</div>
-                    <div class="speaker-role">VP TPE, PME & Experts Comptables - France</div>
+                    <div class="speaker-role">VP TPE, PME & Experts-Comptables - France</div>
                 </div>
                 <div class="speaker-card">
                     <img src="valentin.jpg" alt="Valentin Barthel" class="speaker-photo">
@@ -1210,17 +1355,17 @@
                 <div class="stat-card">
                     <div class="stat-number">72%</div>
                     <div class="stat-label">des PME prévoient d'adopter l'IA<br>dans les 12 prochains mois</div>
-                    <div class="stat-source">Source: McKinsey 2024</div>
+                    <div class="stat-source">Source : McKinsey 2024</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">3x</div>
                     <div class="stat-label">plus de productivité pour les tâches<br>automatisées par l'IA</div>
-                    <div class="stat-source">Source: Harvard Business Review 2024</div>
+                    <div class="stat-source">Source : Harvard Business Review 2024</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">40%</div>
                     <div class="stat-label">des éditeurs ERP auront intégré<br>l'IA générative d'ici fin 2025</div>
-                    <div class="stat-source">Source: Gartner 2024</div>
+                    <div class="stat-source">Source : Gartner 2024</div>
                 </div>
             </div>
         </div>
@@ -1246,7 +1391,7 @@
         <div class="slide" data-slide="5">
             <h2 class="slide-title animate-in">Ce que vos clients pensent<span class="green">.</span></h2>
             <div class="quote animate-in-delay-1">
-                L'interface Sage, c'est puissant... mais c'est resté dans les années 2000.
+                La profondeur fonctionnelle et la robustesse du produit Sage 100 est incroyable... Mais l'ergonomie du logiciel est restée dans les années 2000.
             </div>
         </div>
 
@@ -1266,14 +1411,14 @@
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                     </div>
                     <div class="card-title">Plus d'usage</div>
-                    <div class="card-text">Avec des services additionnels pour Xsell et Upsell</div>
+                    <div class="card-text">Avec des services additionnels pour le cross-sell et l'upsell</div>
                 </div>
                 <div class="card">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <div class="card-title">Moins de churn</div>
-                    <div class="card-text">Avec une expérience moderne qui répond aux attentes 2026</div>
+                    <div class="card-text">Avec une expérience moderne qui répond aux attentes de 2026</div>
                 </div>
                 <div class="card">
                     <div class="card-icon">
@@ -1291,18 +1436,18 @@
                 <p class="slide-subtitle animate-in" style="font-size: 1.3rem; margin-bottom: 30px;">Et si on pouvait</p>
                 <h1 class="mega-title animate-in-delay-1" style="font-size: clamp(3rem, 6vw, 5rem);">
                     Transformer Sage 100<br>
-                    <span class="highlight">sans tout changer?</span>
+                    <span class="highlight">sans tout changer ?</span>
                 </h1>
             </div>
         </div>
 
-        <!-- SLIDE 8: Introducing Sage Experience -->
+        <!-- SLIDE 8: Introducing Sage Xpérience -->
         <div class="slide" data-slide="8">
             <p class="slide-subtitle animate-in" style="margin-bottom: 20px;">Voici</p>
-            <h1 class="mega-title animate-in-delay-1">Sage <span class="highlight">Experience</span></h1>
+            <h1 class="mega-title animate-in-delay-1">Sage <span class="highlight-ai">Xpérience</span></h1>
             <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px; max-width: 800px;">
                 Une nouvelle couche applicative qui modernise Sage 100<br>
-                en combinant <strong>UX repensée</strong> et <strong>Intelligence Artificielle</strong>.
+                en combinant <strong>UX repensée</strong> et <strong>intelligence artificielle</strong>.
             </p>
         </div>
 
@@ -1311,7 +1456,7 @@
             <h2 class="slide-title animate-in">Deux piliers<span class="green">.</span></h2>
             <div class="pillars-grid animate-in-delay-1">
                 <div class="pillar-card ux">
-                    <h3>Une Ergonomie Web Moderne</h3>
+                    <h3>Une ergonomie web moderne</h3>
                     <p>
                         Une nouvelle interface web pour Sage 100.<br><br>
                         Gestion commerciale, comptabilité, tout repensé pour l'utilisateur d'aujourd'hui.
@@ -1363,7 +1508,7 @@
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            100% compatible SPC
+                            100 % compatible SPC
                         </li>
                     </ul>
                 </div>
@@ -1411,7 +1556,7 @@
                         <svg viewBox="0 0 24 24" fill="white"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
                     </div>
                     <div class="module-name">Builder.AI</div>
-                    <div class="module-desc">Créez des écrans et dashboards personnalisés simplement en décrivant ce que vous voulez.</div>
+                    <div class="module-desc">Créez des écrans et tableaux de bord personnalisés simplement en décrivant ce que vous voulez.</div>
                 </div>
                 <div class="module-card">
                     <div class="module-icon-gradient">
@@ -1434,19 +1579,19 @@
                     <ul class="feature-list animate-in-delay-1">
                         <li>
                             <span class="feature-check">✓</span>
-                            "Quels sont mes 5 plus gros clients ce mois?"
+                            « Quels sont mes 5 plus gros clients ce mois ? »
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            "Liste les factures impayées de plus de 30 jours"
+                            « Liste les factures impayées de plus de 30 jours »
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            "Envoie une relance personnalisée à Cloelure"
+                            « Envoie une relance personnalisée à Cloelure »
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Disponible sur Web et Mobile
+                            Disponible sur web et mobile
                         </li>
                     </ul>
                 </div>
@@ -1460,7 +1605,7 @@
                                 <img src="ask-mobile.png" alt="Ask.AI Mobile">
                             </div>
                             <div class="carousel-slide">
-                                <img src="ask-email.jpg" alt="Email généré par Ask.AI">
+                                <img src="ask-email.jpg" alt="E-mail généré par Ask.AI">
                             </div>
                         </div>
                         <div class="carousel-dots">
@@ -1478,7 +1623,7 @@
             <div class="two-cols">
                 <div class="col-visual animate-in">
                     <div class="screenshot-frame glow-green" style="max-width: 600px;">
-                        <img src="builder.png" alt="Builder.AI Interface">
+                        <img src="builder.png" alt="Interface Builder.AI">
                     </div>
                 </div>
                 <div class="col-content">
@@ -1517,17 +1662,17 @@
             <div style="margin-top: 40px; display: flex; align-items: center; gap: 30px;" class="animate-in-delay-1">
                 <div style="background: rgba(255,107,107,0.1); border: 2px solid rgba(255,107,107,0.3); border-radius: 16px; padding: 25px; text-align: center;">
                     <div style="font-size: 2rem; margin-bottom: 10px;">⏰</div>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Chaque<br>Lundi 9h</div>
+                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Chaque<br>lundi 9 h</div>
                 </div>
                 <div style="color: var(--sage-green); font-size: 2rem;">→</div>
                 <div style="background: rgba(0,212,170,0.1); border: 2px solid rgba(0,212,170,0.3); border-radius: 16px; padding: 25px; text-align: center;">
                     <div style="font-size: 2rem; margin-bottom: 10px;">🔍</div>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Factures<br>> 30 jours</div>
+                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Factures<br>&gt; 30 jours</div>
                 </div>
                 <div style="color: var(--sage-green); font-size: 2rem;">→</div>
                 <div style="background: rgba(200,230,0,0.1); border: 2px solid rgba(200,230,0,0.3); border-radius: 16px; padding: 25px; text-align: center;">
                     <div style="font-size: 2rem; margin-bottom: 10px;">📧</div>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Relance<br>Email</div>
+                    <div style="font-size: 0.95rem; color: var(--text-secondary);">Relance<br>e-mail</div>
                 </div>
                 <div style="color: var(--sage-green); font-size: 2rem;">→</div>
                 <div style="background: rgba(0,214,57,0.1); border: 2px solid rgba(0,214,57,0.3); border-radius: 16px; padding: 25px; text-align: center;">
@@ -1536,20 +1681,20 @@
                 </div>
             </div>
             <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px; font-size: 1.1rem;">
-                "Alerte si facture impayée > 30 jours" &bull; "Rapport hebdo auto aux managers" &bull; "Validation commandes > 10K€"
+                « Alerte si facture impayée > 30 jours » &bull; « Rapport hebdo auto aux managers » &bull; « Validation commandes > 10 K€ »
             </p>
         </div>
 
         <!-- SLIDE 17: Architecture / Flux -->
         <div class="slide" data-slide="17">
-            <h2 class="slide-title animate-in">Comment ça marche<span class="green">?</span></h2>
+            <h2 class="slide-title animate-in">Comment ça marche<span class="green"> ?</span></h2>
             <div class="architecture-container animate-in-delay-1">
                 <div class="arch-label">Vos produits Sage</div>
                 <div class="arch-row">
                     <div class="arch-box product">Sage 50</div>
                     <div class="arch-box product">Sage 100</div>
                     <div class="arch-box product">Sage X3</div>
-                    <div class="arch-box product">Sage FRP1000</div>
+                    <div class="arch-box product">Sage FRP 1000</div>
                 </div>
                 <div class="arch-arrow">↓</div>
                 <div class="arch-row">
@@ -1565,8 +1710,8 @@
                 <div class="arch-arrow">↓</div>
                 <div class="arch-label">Intégrables dans</div>
                 <div class="arch-row">
-                    <div class="arch-box output">Interface Web (Dataven)</div>
-                    <div class="arch-box output">App Mobile</div>
+                    <div class="arch-box output">Interface web (Dataven)</div>
+                    <div class="arch-box output">App mobile</div>
                     <div class="arch-box output">Interfaces tierces</div>
                 </div>
             </div>
@@ -1577,7 +1722,7 @@
             <div class="two-cols">
                 <div class="col-content">
                     <h2 class="slide-title animate-in">
-                        Bibliothèque<br><span class="green">Partenaire.</span>
+                        Bibliothèque<br><span class="green">partenaire.</span>
                     </h2>
                     <p class="slide-subtitle animate-in-delay-1" style="text-align: left; margin-top: 20px;">
                         Industrialisez vos développements.<br>
@@ -1586,11 +1731,11 @@
                     <ul class="feature-list animate-in-delay-2">
                         <li>
                             <span class="feature-check">✓</span>
-                            Transposez vos vues "stars" en quelques minutes
+                            Transposez vos vues « stars » en quelques minutes
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Dashboard financier → Déployable chez 10 clients en 1h
+                            Dashboard financier → Déployable chez 10 clients en 1 h
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
@@ -1600,41 +1745,41 @@
                 </div>
                 <div class="col-visual animate-in-delay-2">
                     <div style="text-align: center;">
-                        <div class="mega-number" style="font-size: 8rem;">x10</div>
+                        <div class="mega-number" style="font-size: 8rem;">×10</div>
                         <p style="color: var(--text-secondary); font-size: 1.2rem; margin-top: 10px;">Multiplicateur de marge</p>
                         <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 20px;">
-                            Temps dev initial: <strong>2 jours</strong><br>
-                            Temps transposition: <strong style="color: var(--sage-green);">15 min</strong>
+                            Temps dev initial : <strong>2 jours</strong><br>
+                            Temps transposition : <strong style="color: var(--sage-green);">15 min</strong>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 19: Why Integrate? (sans 35%) -->
+        <!-- SLIDE 19: Why Integrate? -->
         <div class="slide" data-slide="19">
-            <h2 class="slide-title animate-in">Pourquoi intégrer Sage AI Studio<span class="green">?</span></h2>
+            <h2 class="slide-title animate-in">Pourquoi intégrer Sage AI Studio<span class="green"> ?</span></h2>
             <div class="value-grid animate-in-delay-1">
                 <div class="value-card">
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
                     </div>
-                    <div class="value-title">Nouveaux Revenus</div>
+                    <div class="value-title">Nouveaux revenus</div>
                     <div class="value-desc">Revenus récurrents sur chaque abonnement. Sans investissement initial.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M13 3v6h8l-8 12v-6H5l8-12z"/></svg>
                     </div>
-                    <div class="value-title">Productivité x3</div>
+                    <div class="value-title">Productivité ×3</div>
                     <div class="value-desc">Facturez des journées de dev produites en quelques minutes.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
                     </div>
-                    <div class="value-title">Montée en Compétences</div>
-                    <div class="value-desc">Vos consultants réalisent les petits devs en autonomie.</div>
+                    <div class="value-title">Montée en compétences</div>
+                    <div class="value-desc">Vos consultants réalisent les petits développements en autonomie.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
@@ -1647,8 +1792,8 @@
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
                     </div>
-                    <div class="value-title">Offre Modulaire</div>
-                    <div class="value-desc">Ask seul, Builder seul, ou Suite complète. Adaptez l'offre.</div>
+                    <div class="value-title">Offre modulaire</div>
+                    <div class="value-desc">Ask seul, Builder seul, ou suite complète. Adaptez l'offre.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
@@ -1678,7 +1823,7 @@
                 </div>
                 <div class="comparison-card after">
                     <div class="comparison-header">
-                        Avec Sage Experience
+                        Avec Sage Xpérience
                     </div>
                     <ul class="comparison-list">
                         <li>Développements en heures, pas en semaines</li>
@@ -1698,11 +1843,11 @@
                 <div class="security-badge">
                     <div class="security-icon">🇫🇷</div>
                     <div class="security-title">Hébergement France</div>
-                    <div class="security-text">100% France/Europe. Données souveraines.</div>
+                    <div class="security-text">100 % France/Europe. Données souveraines.</div>
                 </div>
                 <div class="security-badge">
                     <div class="security-icon">🛡️</div>
-                    <div class="security-title">RGPD Compliant</div>
+                    <div class="security-title">RGPD compliant</div>
                     <div class="security-text">Conformité totale. DPO désigné.</div>
                 </div>
                 <div class="security-badge">
@@ -1717,7 +1862,7 @@
                 </div>
             </div>
             <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px;">
-                SLA 99.9% &bull; Assurance cyber €2M &bull; Audit de sécurité annuel
+                SLA 99,9 % &bull; Assurance cyber 2 M€ &bull; Audit de sécurité annuel
             </p>
         </div>
 
@@ -1725,7 +1870,7 @@
         <div class="slide" data-slide="22">
             <div class="fullscreen-message">
                 <h1 class="mega-title animate-in text-glow">
-                    100% aligné<br>
+                    100 % aligné<br>
                     <span class="highlight">Sage 100 SPC</span>
                 </h1>
                 <p class="slide-subtitle animate-in-delay-1" style="margin-top: 30px;">
@@ -1761,7 +1906,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot">2</div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Fin Février</div>
+                        <div class="timeline-date">Fin février</div>
                         <div class="timeline-text">Journée de prise en main<br>Formation vos consultants</div>
                     </div>
                 </div>
@@ -1775,7 +1920,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot">4</div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Q2 2026</div>
+                        <div class="timeline-date">T2 2026</div>
                         <div class="timeline-text">Validation business model<br>Déploiement partenaires</div>
                     </div>
                 </div>
@@ -1786,9 +1931,9 @@
         <div class="slide" data-slide="25">
             <h2 class="slide-title animate-in">Rejoignez l'aventure<span class="green">.</span></h2>
             <div class="cta-box animate-in-delay-1">
-                <div class="cta-title">Intéressé(e) par l'Early Access?</div>
+                <div class="cta-title">Intéressé(e) par l'Early Access ?</div>
                 <div class="cta-text">
-                    Participez à la co-construction de Sage Experience.<br>
+                    Participez à la co-construction de Sage Xpérience.<br>
                     Vos feedbacks façonneront le produit final.
                 </div>
                 <a href="#" class="cta-button">
@@ -1815,7 +1960,7 @@
                 <path class="wave-path" style="opacity:0.5;transform:translateY(30px);stroke: url(#waveGradient2)" d="M0,200 Q400,350 800,200 T1600,200 T2400,200" />
             </svg>
             <div class="hero-content">
-                <h1 class="mega-title animate-in">Sage <span class="highlight">Experience</span></h1>
+                <h1 class="mega-title animate-in">Sage <span class="highlight-ai">Xpérience</span></h1>
                 <p class="slide-subtitle animate-in-delay-1" style="margin-top: 30px;">
                     L'avenir de Sage 100 commence aujourd'hui.
                 </p>
