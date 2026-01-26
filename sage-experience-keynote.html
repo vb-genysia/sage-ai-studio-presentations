@@ -877,6 +877,15 @@
             fill: white;
         }
 
+        .module-icon-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .module-name {
             font-family: 'Sage Headline', sans-serif;
             font-size: 1.5rem;
@@ -1605,8 +1614,8 @@
             <h2 class="slide-title animate-in">3 modules<span class="green">.</span> Un écosystème.</h2>
             <div class="module-showcase animate-in-delay-1">
                 <div class="module-card">
-                    <div class="module-icon-gradient">
-                        <svg viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+                    <div class="module-icon-logo">
+                        <img src="sage-copilot-logo.png" alt="Sage Copilot" style="width: 48px; height: 48px; object-fit: contain;">
                     </div>
                     <div class="module-name">Sage Copilot</div>
                     <div class="module-desc">Un assistant conversationnel connecté à Sage qui répond aux questions en langage naturel.</div>
@@ -1632,7 +1641,10 @@
         <div class="slide" data-slide="14">
             <div class="two-cols">
                 <div class="col-content">
-                    <h2 class="slide-title animate-in">
+                    <div class="animate-in" style="margin-bottom: 20px;">
+                        <img src="sage-copilot-logo.png" alt="Sage Copilot" style="width: 64px; height: 64px; object-fit: contain;">
+                    </div>
+                    <h2 class="slide-title animate-in-delay-1">
                         Sage Copilot<span class="green">.</span><br>
                         <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Posez la question, obtenez la réponse.</span>
                     </h2>
