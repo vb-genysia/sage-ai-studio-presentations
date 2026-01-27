@@ -1,0 +1,2933 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Protection contre l'indexation - Document confidentiel -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, noimageindex">
+    <meta name="slurp" content="noindex, nofollow">
+    <meta name="duckduckbot" content="noindex, nofollow">
+    <!-- Empêcher la mise en cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Empêcher le partage sur réseaux sociaux -->
+    <meta name="twitter:card" content="none">
+    <meta property="og:type" content="none">
+    <title>Nouvelle Expérience - BPAC 2026 (POC)</title>
+    <style>
+        /* Sage Webfonts */
+        @font-face {
+            font-family: 'Sage Headline';
+            src: url('fonts/Sage_Headline-Black.woff2') format('woff2'),
+                 url('fonts/Sage_Headline-Black.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Light.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Light_Italic.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Light_Italic.woff') format('woff');
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Regular.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Regular_Italic.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Regular_Italic.woff') format('woff');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Medium.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Medium_Italic.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Medium_Italic.woff') format('woff');
+            font-weight: 500;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Bold.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage Text';
+            src: url('fonts/Sage_Text-Bold_Italic.woff2') format('woff2'),
+                 url('fonts/Sage_Text-Bold_Italic.woff') format('woff');
+            font-weight: 700;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage UI';
+            src: url('fonts/Sage_UI-Regular.woff2') format('woff2'),
+                 url('fonts/Sage_UI-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage UI';
+            src: url('fonts/Sage_UI-Medium.woff2') format('woff2'),
+                 url('fonts/Sage_UI-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Sage UI';
+            src: url('fonts/Sage_UI-Bold.woff2') format('woff2'),
+                 url('fonts/Sage_UI-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --sage-green: #00D639;
+            --sage-green-dark: #00B830;
+            --sage-green-light: #33FF6B;
+            --sage-cyan: #00D4AA;
+            --sage-blue: #0891B2;
+            --sage-yellow: #C8E600;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0A0A0;
+            --text-muted: #666666;
+            --gradient-main: linear-gradient(135deg, #00D639 0%, #00D4AA 50%, #C8E600 100%);
+            --gradient-ai: linear-gradient(135deg, #00D639 0%, #0891B2 100%);
+            --gradient-glow: linear-gradient(180deg, rgba(0,214,57,0.3) 0%, transparent 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--bg-dark);
+            font-family: 'Sage Text', 'Sage UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+        }
+
+        /* Presentation Container */
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Slide Base */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--bg-dark);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100px);
+        }
+
+        /* Typography */
+        .slide-title {
+            font-family: 'Sage Headline', 'Sage Text', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 1200px;
+        }
+
+        .slide-title .highlight {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .slide-title .highlight-ai,
+        .mega-title .highlight-ai {
+            background: var(--gradient-ai);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .slide-title .green {
+            color: var(--sage-green);
+        }
+
+        .slide-subtitle {
+            font-family: 'Sage Text', sans-serif;
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 900px;
+            line-height: 1.5;
+        }
+
+        .mega-title {
+            font-family: 'Sage Headline', 'Sage Text', sans-serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .mega-number {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        /* Hero Slide */
+        .slide-hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            pointer-events: none;
+        }
+
+        .hero-wave svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-logo {
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+            height: 40px;
+        }
+
+        .hero-content {
+            z-index: 10;
+            text-align: center;
+        }
+
+        /* Animated Wave Background */
+        .wave-bg {
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 120%;
+            height: 70%;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .wave-path {
+            fill: none;
+            stroke: url(#waveGradient);
+            stroke-width: 2;
+            filter: drop-shadow(0 0 20px rgba(0, 214, 57, 0.5));
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1400px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            border-color: rgba(0, 214, 57, 0.3);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(0,214,57,0.2), rgba(0,212,170,0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--sage-green);
+        }
+
+        .card-text {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Two Column Layout */
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            width: 100%;
+            max-width: 1400px;
+            align-items: center;
+        }
+
+        .col-content {
+            text-align: left;
+        }
+
+        .col-content .slide-title {
+            text-align: left;
+        }
+
+        .col-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Comparison Layout */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 40px;
+        }
+
+        .comparison-card {
+            padding: 40px;
+            border-radius: 24px;
+            position: relative;
+        }
+
+        .comparison-card.before {
+            background: linear-gradient(180deg, #FF6B6B20 0%, #FF6B6B05 100%);
+            border: 1px solid #FF6B6B30;
+        }
+
+        .comparison-card.after {
+            background: linear-gradient(180deg, #00D63920 0%, #00D63905 100%);
+            border: 1px solid #00D63930;
+        }
+
+        .comparison-header {
+            font-family: 'Sage Text', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .comparison-card.before .comparison-header {
+            color: #FF6B6B;
+        }
+
+        .comparison-card.after .comparison-header {
+            color: var(--sage-green);
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            font-family: 'Sage Text', sans-serif;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .comparison-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .comparison-card.before .comparison-list li::before {
+            background: #FF6B6B;
+        }
+
+        .comparison-card.after .comparison-list li::before {
+            background: var(--sage-green);
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--sage-green);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        /* Roadmap Timeline */
+        .roadmap-timeline {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding-left: 30px;
+        }
+
+        .roadmap-line {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            bottom: 8px;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--sage-green), var(--sage-green));
+            border-radius: 2px;
+        }
+
+        .roadmap-item {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .roadmap-dot {
+            position: absolute;
+            left: -26px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: var(--sage-green);
+            border-radius: 50%;
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 0 3px var(--sage-green);
+        }
+
+        .roadmap-content {
+            padding-left: 10px;
+        }
+
+        .roadmap-title {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--sage-green);
+            line-height: 1;
+        }
+
+        .roadmap-date {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        /* Stats Cards for AI slide */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stat-card .stat-number {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 4rem;
+            background: var(--gradient-ai);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-card .stat-label {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        .stat-source {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            margin-top: 60px;
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--sage-green), var(--sage-cyan), var(--sage-yellow));
+        }
+
+        .timeline-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-dot {
+            font-family: 'Sage Headline', sans-serif;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--sage-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-dark);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            margin-top: 24px;
+        }
+
+        .timeline-date {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--sage-green);
+            margin-bottom: 8px;
+        }
+
+        .timeline-text {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            max-width: 200px;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .feature-list li {
+            font-family: 'Sage Text', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 1.1rem;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-check {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(0, 214, 57, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sage-green);
+            flex-shrink: 0;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient-main);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            font-family: 'Sage UI', sans-serif;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .nav-btn:hover {
+            background: var(--sage-green);
+            color: var(--bg-dark);
+        }
+
+        .slide-counter {
+            font-family: 'Sage UI', sans-serif;
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            z-index: 1000;
+        }
+
+        /* Sage Logo */
+        .sage-logo {
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            z-index: 1000;
+            height: 64px;
+        }
+
+        .sage-logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .slide.active .animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .slide.active .animate-in-delay-1 {
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .slide.active .animate-in-delay-2 {
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .slide.active .animate-in-delay-3 {
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Glow effects */
+        .glow-green {
+            box-shadow: 0 0 60px rgba(0, 214, 57, 0.3);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 40px rgba(0, 214, 57, 0.5);
+        }
+
+        /* Module cards - gradient style */
+        .module-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 50px;
+        }
+
+        .module-groups {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 50px;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .module-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .module-group .module-card {
+            width: 350px;
+        }
+
+        .module-cards-row {
+            display: flex;
+            gap: 30px;
+        }
+
+        .module-cards-row .module-card {
+            width: 350px;
+        }
+
+        .module-group-label {
+            margin-top: 20px;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-family: 'Sage Text', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .module-group-label.client {
+            width: 350px;
+            background: rgba(0, 214, 57, 0.15);
+            color: var(--sage-green);
+            border: 1px solid rgba(0, 214, 57, 0.3);
+        }
+
+        .module-group-label.partner {
+            width: 729px;
+            background: rgba(8, 145, 178, 0.15);
+            color: #0891B2;
+            border: 1px solid rgba(8, 145, 178, 0.3);
+        }
+
+        .module-card {
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(20,20,20,0.5) 100%);
+            border-radius: 24px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-ai);
+            opacity: 1;
+        }
+
+        .module-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 214, 57, 0.3);
+        }
+
+        .module-icon-gradient {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            border-radius: 20px;
+            background: var(--gradient-ai);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .module-icon-gradient svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        .module-icon-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .module-name {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            background: var(--gradient-ai);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .module-desc {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Two pillars cards */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 50px;
+        }
+
+        .pillar-card {
+            padding: 50px 40px;
+            border-radius: 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .pillar-card.ux {
+            background: linear-gradient(180deg, rgba(8,145,178,0.12) 0%, rgba(0,214,57,0.02) 100%);
+            border: 2px solid;
+            border-image: var(--gradient-ai) 1;
+        }
+
+        .pillar-card.ai {
+            background: linear-gradient(180deg, rgba(8,145,178,0.12) 0%, rgba(0,214,57,0.02) 100%);
+            border: 2px solid;
+            border-image: var(--gradient-ai) 1;
+        }
+
+        .pillar-card h3 {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .pillar-card.ux h3 {
+            color: var(--sage-green);
+        }
+
+        .pillar-card.ai h3 {
+            background: var(--gradient-ai);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pillar-card p {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Security badges */
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 50px;
+        }
+
+        .security-badge {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .security-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .security-title {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--sage-green);
+        }
+
+        .security-text {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(0,214,57,0.1) 0%, rgba(0,212,170,0.1) 100%);
+            border: 2px solid var(--sage-green);
+            border-radius: 30px;
+            padding: 60px 80px;
+            text-align: center;
+            max-width: 900px;
+            margin-top: 40px;
+        }
+
+        .cta-title {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            font-family: 'Sage Text', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--sage-green);
+            color: var(--bg-dark);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 214, 57, 0.4);
+        }
+
+        /* Full screen message */
+        .fullscreen-message {
+            text-align: center;
+            max-width: 1000px;
+        }
+
+        /* Quote style */
+        .quote {
+            font-family: 'Sage Text', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-secondary);
+            max-width: 900px;
+            text-align: center;
+            line-height: 1.6;
+            position: relative;
+            padding: 40px 60px;
+        }
+
+        .quote::before,
+        .quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--sage-green);
+            opacity: 0.3;
+            position: absolute;
+            font-family: Georgia, serif;
+        }
+
+        .quote::before {
+            top: 0;
+            left: 0;
+        }
+
+        .quote::after {
+            bottom: -20px;
+            right: 0;
+        }
+
+        /* Value props */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: var(--sage-green);
+            transform: translateY(-4px);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: var(--gradient-ai);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .value-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .value-title {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--sage-green);
+            margin-bottom: 12px;
+        }
+
+        .value-desc {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Speaker photos */
+        .speakers-row {
+            display: flex;
+            gap: 80px;
+            margin-top: 30px;
+        }
+
+        .speaker-card {
+            text-align: center;
+        }
+
+        .speaker-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 24px;
+            border: 3px solid var(--sage-green);
+            box-shadow: 0 10px 40px rgba(0, 214, 57, 0.2);
+        }
+
+        .speaker-name {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .speaker-role {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 220px;
+        }
+
+        /* Screenshot frame */
+        .screenshot-frame {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .screenshot-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0 10px;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--sage-green);
+            transform: scale(1.2);
+        }
+
+        /* Architecture diagram */
+        .architecture-container {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 40px;
+        }
+
+        .arch-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .arch-box {
+            font-family: 'Sage Text', sans-serif;
+            padding: 20px 30px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .arch-box.product {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            min-width: 150px;
+        }
+
+        .arch-box.studio {
+            background: var(--gradient-ai);
+            color: white;
+            font-weight: 600;
+            padding: 30px 50px;
+            font-size: 1.2rem;
+        }
+
+        .arch-studio-container {
+            background: linear-gradient(180deg, rgba(0,214,57,0.08) 0%, rgba(8,145,178,0.08) 100%);
+            border: 2px solid rgba(0,214,57,0.4);
+            border-radius: 20px;
+            padding: 0;
+            overflow: hidden;
+            min-width: 500px;
+        }
+
+        .arch-studio-header {
+            background: var(--gradient-ai);
+            color: white;
+            font-family: 'Sage Headline', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 12px 30px;
+            text-align: center;
+        }
+
+        .arch-studio-modules {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 30px;
+        }
+
+        .arch-module-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Sage Text', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.05);
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .arch-box.output.copilot-app {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arch-box.module {
+            background: linear-gradient(180deg, rgba(0,214,57,0.15) 0%, rgba(8,145,178,0.15) 100%);
+            border: 1px solid rgba(0,214,57,0.3);
+        }
+
+        .arch-box.output {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 80px;
+            right: 60px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            color: white;
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4);
+            transform: rotate(12deg);
+            z-index: 10;
+        }
+
+        .arch-arrow {
+            font-size: 2rem;
+            color: var(--sage-green);
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .arch-label {
+            font-family: 'Sage Text', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .two-cols {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .col-content .slide-title {
+                text-align: center;
+            }
+
+            .security-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .module-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 30px;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .timeline {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .speakers-row {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+
+        /* Dual Roadmap Styles */
+        .dual-timeline-axis {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 80px;
+            margin: 30px 0 15px;
+            position: relative;
+        }
+
+        .dual-timeline-axis::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            right: 80px;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .dual-timeline-axis span {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dual-roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 1300px;
+        }
+
+        .swimlane {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 28px 32px;
+            background: rgba(22, 22, 22, 0.8);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swimlane::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .swimlane-green::before {
+            background: var(--sage-green);
+            box-shadow: 0 0 20px rgba(0, 214, 57, 0.3);
+        }
+
+        .swimlane-ai::before {
+            background: linear-gradient(180deg, #00D639 0%, #0891B2 100%);
+            box-shadow: 0 0 20px rgba(8, 145, 178, 0.3);
+        }
+
+        .swimlane-header {
+            width: 200px;
+            flex-shrink: 0;
+        }
+
+        .swimlane-title {
+            font-family: 'Sage Headline', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .swimlane-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .swimlane-track {
+            flex: 1;
+            height: 90px;
+            position: relative;
+        }
+
+        .swimlane-track .track-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-50%);
+        }
+
+        .milestone {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .milestone-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .milestone-dot.green {
+            background: var(--sage-green);
+            box-shadow: 0 0 20px rgba(0, 214, 57, 0.4);
+        }
+
+        .milestone-dot.ai {
+            background: linear-gradient(135deg, #00D639 0%, #0891B2 100%);
+            box-shadow: 0 0 20px rgba(8, 145, 178, 0.4);
+        }
+
+        .milestone-label {
+            position: absolute;
+            top: 26px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .milestone-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .milestone-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .milestone-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .milestone-badge {
+            position: absolute;
+            top: -28px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .milestone-badge.green {
+            background: var(--sage-green);
+            color: #000;
+        }
+
+        .milestone-badge.ai {
+            background: linear-gradient(135deg, #00D639 0%, #0891B2 100%);
+            color: #000;
+        }
+
+        .roadmap-legend {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 35px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.green {
+            background: var(--sage-green);
+            box-shadow: 0 0 10px rgba(0, 214, 57, 0.4);
+        }
+
+        .legend-dot.ai {
+            background: linear-gradient(135deg, #00D639 0%, #0891B2 100%);
+            box-shadow: 0 0 10px rgba(8, 145, 178, 0.4);
+        }
+
+        /* Workflow Diagram Styles */
+        .workflow-diagram {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 20px;
+            max-width: 480px;
+        }
+
+        .workflow-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .workflow-badge {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            color: #000;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            animation: pulse-badge 2s ease-in-out infinite;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6); }
+        }
+
+        .workflow-title-small {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .workflow-canvas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .workflow-node {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 12px 16px;
+            width: 100%;
+            max-width: 280px;
+            transition: all 0.3s ease;
+        }
+
+        .workflow-node:hover {
+            border-color: var(--sage-green);
+            box-shadow: 0 0 20px rgba(0, 214, 57, 0.2);
+        }
+
+        .workflow-node.trigger {
+            border-left: 3px solid #FF6B6B;
+        }
+
+        .workflow-node.sage {
+            border-left: 3px solid var(--sage-green);
+        }
+
+        .workflow-node.condition {
+            border-left: 3px solid #FFD93D;
+        }
+
+        .workflow-node.action {
+            border-left: 3px solid #6BCB77;
+        }
+
+        .workflow-node.action.slack {
+            border-left: 3px solid #4A90D9;
+        }
+
+        .workflow-node.output {
+            border-left: 3px solid #9B59B6;
+        }
+
+        .node-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .node-content {
+            flex: 1;
+        }
+
+        .node-type {
+            font-size: 0.55rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2px;
+        }
+
+        .node-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .node-config {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-family: 'Courier New', monospace;
+        }
+
+        .workflow-connector {
+            width: 2px;
+            height: 12px;
+            background: linear-gradient(180deg, var(--sage-green) 0%, rgba(0,214,57,0.3) 100%);
+        }
+
+        .workflow-branch {
+            display: flex;
+            justify-content: center;
+            width: 200px;
+            height: 20px;
+            position: relative;
+        }
+
+        .branch-line {
+            position: absolute;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--sage-green);
+        }
+
+        .branch-line.left {
+            left: 25%;
+            transform: rotate(-30deg);
+            transform-origin: top center;
+        }
+
+        .branch-line.right {
+            right: 25%;
+            transform: rotate(30deg);
+            transform-origin: top center;
+        }
+
+        .workflow-actions {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .workflow-actions .workflow-node {
+            flex: 1;
+            max-width: none;
+        }
+
+        .workflow-connector-merge {
+            width: 2px;
+            height: 12px;
+            background: linear-gradient(180deg, rgba(0,214,57,0.3) 0%, var(--sage-green) 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="sage-logo">
+        <img src="sage-logo.svg" alt="Sage">
+    </div>
+
+    <div class="presentation">
+        <!-- SLIDE 1: Hero -->
+        <div class="slide slide-hero active" data-slide="1">
+            <svg class="wave-bg" viewBox="0 0 1920 400" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#00D4AA"/>
+                        <stop offset="50%" style="stop-color:#00D639"/>
+                        <stop offset="100%" style="stop-color:#C8E600"/>
+                    </linearGradient>
+                </defs>
+                <path class="wave-path" d="M0,200 Q400,50 800,200 T1600,200 T2400,200" />
+                <path class="wave-path" style="opacity:0.5;transform:translateY(30px)" d="M0,200 Q400,350 800,200 T1600,200 T2400,200" />
+            </svg>
+            <span class="poc-badge animate-in" style="position: absolute; top: 30px; right: 40px; padding: 8px 20px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; font-size: 0.9rem; color: var(--text-muted); letter-spacing: 2px;">P.O.C</span>
+            <div class="hero-content">
+                <h1 class="mega-title animate-in">Nouvelle <span class="highlight-ai">Expérience</span></h1>
+                <p class="slide-subtitle animate-in-delay-1" style="margin-top: 30px; font-size: 1.5rem;">
+                    L'avenir de l'offre Sage pour les PME
+                </p>
+                <p class="animate-in-delay-2" style="margin-top: 60px; color: var(--text-muted);">
+                    BPAC 2026 &mdash; 29 janvier
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Speakers (no title) -->
+        <div class="slide" data-slide="2">
+            <div class="speakers-row animate-in">
+                <div class="speaker-card">
+                    <img src="david.jpg" alt="David Klecel" class="speaker-photo">
+                    <div class="speaker-name">David Klecel</div>
+                    <div class="speaker-role">VP TPE, PME & Experts-Comptables - France</div>
+                </div>
+                <div class="speaker-card">
+                    <img src="valentin.jpg" alt="Valentin Barthel" class="speaker-photo">
+                    <div class="speaker-name">Valentin Barthel</div>
+                    <div class="speaker-role">Président du Groupe Genysia Technologies</div>
+                </div>
+                <div class="speaker-card">
+                    <img src="nicolas.jpg" alt="Nicolas Jacques" class="speaker-photo">
+                    <div class="speaker-name">Nicolas Jacques</div>
+                    <div class="speaker-role">Strategic Product Manager - Sage 50/100</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Facture électronique context -->
+        <div class="slide" data-slide="3">
+            <div class="fullscreen-message" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <h2 class="slide-title animate-in">
+                    La facture électronique vous occupe<span class="green">.</span><br>
+                    <span style="font-size: 0.7em; color: var(--text-secondary);">C'est normal, c'est urgent.</span>
+                </h2>
+                <p class="slide-subtitle animate-in-delay-1" style="margin-top: 40px; font-size: 1.4rem;">
+                    Mais l'innovation d'aujourd'hui assurera vos revenus de demain.
+                </p>
+                <p class="animate-in-delay-2" style="margin-top: 50px; font-size: 1.8rem; color: var(--sage-green); font-weight: 600; text-align: center; width: 100%;">
+                    Préparons ensemble l'après « facture électronique »
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: The Problem -->
+        <div class="slide" data-slide="4">
+            <h2 class="slide-title animate-in">Ce que vos clients pensent<span class="green">.</span></h2>
+            <div class="quote animate-in-delay-1">
+                La profondeur fonctionnelle et la robustesse de Sage 100 est incroyable... Mais l'ergonomie est restée dans les années 2000.
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Partner Challenges -->
+        <div class="slide" data-slide="5">
+            <h2 class="slide-title animate-in">Les défis de vos clients<span class="green">.</span></h2>
+            <div class="cards-grid animate-in-delay-1" style="grid-template-columns: repeat(3, 1fr); max-width: 1200px;">
+                <div class="card" style="border-left: 4px solid #00D639;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(0,214,57,0.2), rgba(0,214,57,0.1));">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div class="card-title" style="color: #00D639; font-size: 2.3rem;">Ergonomie</div>
+                    <div class="card-text">Une interface qui n'a pas évolué depuis 20 ans. L'UX freine l'acquisition de nouveaux clients et accélère le départ des existants.</div>
+                </div>
+                <div class="card" style="border-left: 4px solid #00D639;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(0,214,57,0.2), rgba(0,214,57,0.1));">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <div class="card-title" style="color: #00D639; font-size: 2.3rem;">Ouverture</div>
+                    <div class="card-text">Manque d'ouverture aux APIs et systèmes tiers. Les intégrations avec vos solutions partenaires sont complexes et coûteuses.</div>
+                </div>
+                <div class="card" style="border-left: 4px solid #00D639;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(0,214,57,0.2), rgba(0,214,57,0.1));">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div class="card-title" style="color: #00D639; font-size: 2.3rem;">Productivité</div>
+                    <div class="card-text">La conséquence directe : un outil pénible à utiliser au quotidien, qui ralentit vos équipes et celles de vos clients.</div>
+                </div>
+            </div>
+            <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px; font-size: 1.1rem;">
+                Ces freins limitent votre capacité à vendre, déployer et fidéliser.
+            </p>
+        </div>
+
+        <!-- SLIDE 6: AI Urgency Hook -->
+        <div class="slide" data-slide="6">
+            <h2 class="slide-title animate-in">
+                L'IA dans les logiciels métier,<br>
+                <span class="highlight-ai">c'est maintenant.</span>
+            </h2>
+            <div class="stats-grid animate-in-delay-1">
+                <div class="stat-card">
+                    <div class="stat-number">72%</div>
+                    <div class="stat-label">des PME prévoient d'adopter l'IA<br>dans les 12 prochains mois</div>
+                    <div class="stat-source">Source : McKinsey 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3x</div>
+                    <div class="stat-label">plus de productivité pour les tâches<br>automatisées par l'IA</div>
+                    <div class="stat-source">Source : Harvard Business Review 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">des éditeurs ERP auront intégré<br>l'IA générative d'ici fin 2025</div>
+                    <div class="stat-source">Source : Gartner 2024</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: The Solution Intro -->
+        <div class="slide" data-slide="7">
+            <div class="fullscreen-message">
+                <h1 class="mega-title animate-in" style="font-size: clamp(3rem, 6vw, 5rem);">
+                    Transformer <span class="highlight-ai">les usages</span><br>
+                    <span class="highlight">sans tout changer ?</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Introducing Nouvelle Expérience -->
+        <div class="slide" data-slide="8">
+            <p class="slide-subtitle animate-in" style="margin-bottom: 20px;">Aujourd'hui :</p>
+            <h1 class="mega-title animate-in-delay-1">Parlons <span class="highlight-ai">Expérience</span></h1>
+            <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px; max-width: 800px;">
+                Une nouvelle couche applicative qui modernise<br>
+                en combinant <strong>UX repensée</strong> et <strong>intelligence artificielle</strong>.
+            </p>
+        </div>
+
+        <!-- SLIDE 9: Two Pillars (no icons, text style) -->
+        <div class="slide" data-slide="9">
+            <h2 class="slide-title animate-in">Deux piliers<span class="green">.</span></h2>
+            <div class="pillars-grid animate-in-delay-1" style="display: flex; align-items: stretch; gap: 30px;">
+                <div class="pillar-card ux" style="flex: 1;">
+                    <h3>Nouvelle ergonomie Web</h3>
+                    <p>
+                        Une nouvelle interface web connectée à Sage.<br><br>
+                        Gestion commerciale, comptabilité, tout repensé pour l'utilisateur d'aujourd'hui.
+                    </p>
+                </div>
+                <div class="pillars-plus" style="font-size: 4rem; font-weight: 900; background: var(--gradient-ai); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; align-self: center;">+</div>
+                <div class="pillar-card ai" style="flex: 1;">
+                    <h3>Sage <span style="background: var(--gradient-ai); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI Studio</span></h3>
+                    <p>
+                        L'intelligence artificielle intégrée à Sage.<br><br>
+                        Assistant IA, création d'écrans, automatisation des processus.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Dataven - Real Screenshot -->
+        <div class="slide" data-slide="10">
+            <h2 class="slide-title animate-in">
+                Une interface<br><span class="highlight">pensée pour le web.</span>
+            </h2>
+            <div class="screenshot-frame animate-in-delay-1 floating" style="margin-top: 40px; max-width: 950px;">
+                <img src="dataven.png" alt="Interface Dataven">
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Dataven Features -->
+        <div class="slide" data-slide="11">
+            <div class="two-cols">
+                <div class="col-content">
+                    <h2 class="slide-title animate-in">
+                        Une nouvelle expérience.<br><span class="green">De Sage 100.</span>
+                    </h2>
+                    <ul class="feature-list animate-in-delay-1">
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Gestion commerciale
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Comptabilité
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Interface responsive (mobile, tablette)
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Intégrant les autres services Sage (Connect, ACS ...)
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            100 % compatible SPC
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-visual">
+                    <div class="roadmap-timeline animate-in-delay-2">
+                        <div class="roadmap-line"></div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-dot"></div>
+                            <div class="roadmap-content">
+                                <div class="roadmap-title">V0 Gesco</div>
+                                <div class="roadmap-date">Février 2026</div>
+                            </div>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="roadmap-dot"></div>
+                            <div class="roadmap-content">
+                                <div class="roadmap-title">V0 Compta</div>
+                                <div class="roadmap-date">Mars 2026</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: AI Studio Intro -->
+        <div class="slide" data-slide="12">
+            <div class="fullscreen-message">
+                <p class="slide-subtitle animate-in" style="font-size: 1.3rem; margin-bottom: 30px;">Maintenant, parlons de</p>
+                <h1 class="mega-title animate-in-delay-1">
+                    Sage <span class="highlight-ai">AI Studio</span>
+                </h1>
+                <p class="slide-subtitle animate-in-delay-2" style="margin-top: 30px;">
+                    L'intelligence artificielle au service de vos clients.
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: AI Studio 3 Modules (gradient icons) -->
+        <div class="slide" data-slide="13">
+            <h2 class="slide-title animate-in">3 modules<span class="green">.</span> Un écosystème.</h2>
+            <div class="module-groups animate-in-delay-1">
+                <!-- Groupe Clients -->
+                <div class="module-group">
+                    <div class="module-card">
+                        <div class="module-icon-gradient">
+                            <svg viewBox="0 0 24 24" fill="white"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21" stroke="white" stroke-width="2"/><line x1="12" y1="17" x2="12" y2="21" stroke="white" stroke-width="2"/></svg>
+                        </div>
+                        <div class="module-name">Nouvelle Ergonomie</div>
+                        <div class="module-desc">Une nouvelle interface repensée pour les usages web, fluide et augmentée par l'intelligence artificielle.</div>
+                    </div>
+                    <div class="module-group-label client">Produit pour les clients</div>
+                </div>
+                <!-- Groupe Partenaires -->
+                <div class="module-group partner-group">
+                    <div class="module-cards-row">
+                        <div class="module-card">
+                            <div class="module-icon-gradient">
+                                <svg viewBox="0 0 24 24" fill="white"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                            </div>
+                            <div class="module-name">Builder.AI</div>
+                            <div class="module-desc">Créez des écrans et tableaux de bord personnalisés simplement en décrivant ce que vous voulez.</div>
+                        </div>
+                        <div class="module-card">
+                            <div class="module-icon-gradient">
+                                <svg viewBox="0 0 24 24" fill="white"><path d="M13 3v6h8l-8 12v-6H5l8-12z"/></svg>
+                            </div>
+                            <div class="module-name">Workflow.AI</div>
+                            <div class="module-desc">Automatisez les processus métier sans coder. Décrivez, l'IA construit.</div>
+                        </div>
+                    </div>
+                    <div class="module-group-label partner">Produits dédiés aux partenaires</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: Sage Copilot - COMMENTÉ (gardé en mémoire)
+        <div class="slide" data-slide="14">
+            <div class="two-cols">
+                <div class="col-content">
+                    <div class="animate-in" style="margin-bottom: 20px;">
+                        <img src="sage-copilot-logo.png" alt="Sage Copilot" style="width: 64px; height: 64px; object-fit: contain;">
+                    </div>
+                    <h2 class="slide-title animate-in-delay-1">
+                        Sage Copilot<span class="green">.</span><br>
+                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Posez la question, obtenez la réponse.</span>
+                    </h2>
+                    <ul class="feature-list animate-in-delay-1">
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Interrogez ou interagissez avec la base Sage en langage naturel
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Pilotez les accès et les sources de données depuis le Studio
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Disponible sur le Web et via l'application mobile
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Versions Standard & Premium (médias, captures…)
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Déployez via API où vous voulez
+                        </li>
+                    </ul>
+                    <a href="https://sage-ai-studio.webexpr.dev/ask" target="_blank" class="demo-button animate-in-delay-2" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; background: var(--gradient-ai); color: white; padding: 14px 28px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                        <span>Démo</span>
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="col-visual animate-in-delay-2">
+                    <div class="screenshot-frame" style="max-width: 280px;">
+                        <img src="ask-mobile.png" alt="Sage Copilot Mobile">
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <!-- SLIDE 15: Indirect Sales Model - SUPPRIMÉ (n'apporte pas de valeur) -->
+
+        <!-- SLIDE 16: Builder.AI with real screenshot -->
+        <div class="slide" data-slide="16">
+            <div class="two-cols">
+                <div class="col-visual animate-in">
+                    <div class="screenshot-frame glow-green" style="max-width: 600px;">
+                        <img src="builder.png" alt="Interface Builder.AI">
+                    </div>
+                </div>
+                <div class="col-content">
+                    <h2 class="slide-title animate-in-delay-1">
+                        Builder.AI<span class="green">.</span><br>
+                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Décrivez. L'IA construit.</span>
+                    </h2>
+                    <ul class="feature-list animate-in-delay-2">
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Générez des vues connectées à Sage via un simple prompt
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Itérez, Améliorez, Finalisez : Mode VibeCoding
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Déployez la vue finale sur le portail client
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Multiproduits & Multilingue
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Une API par vue — intégration universelle
+                        </li>
+                    </ul>
+                    <a href="https://sage-ai-studio.webexpr.dev/builder" target="_blank" class="demo-button animate-in-delay-3" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; background: var(--gradient-ai); color: white; padding: 14px 28px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                        <span>Démo</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE USE CASES BUILDER: Introduction Démo -->
+        <div class="slide" data-slide="16b">
+            <h2 class="slide-title animate-in">En pratique<span class="green">.</span></h2>
+            <p class="slide-subtitle animate-in-delay-1" style="margin-bottom: 50px;">Deux cas concrets pour vos clients.</p>
+            <div class="cards-grid animate-in-delay-2" style="grid-template-columns: repeat(2, 1fr); max-width: 1000px; gap: 40px;">
+                <div class="card use-case-card" style="border-left: 4px solid var(--sage-green); padding: 40px; text-align: left;">
+                    <div class="use-case-number" style="font-size: 0.9rem; color: var(--sage-green); font-weight: 600; margin-bottom: 15px;">CAS N°1</div>
+                    <div class="card-title" style="color: white; font-size: 1.5rem; line-height: 1.3; margin-bottom: 15px;">Devis simplifiés et sur-mesure</div>
+                    <div class="card-text" style="color: var(--text-secondary);">Une vue métier personnalisée qui génère automatiquement un devis complet dans Sage. Saisie guidée et création instantanée.</div>
+                    <div class="use-case-tag" style="margin-top: 20px; display: inline-block; padding: 6px 12px; background: rgba(0,214,57,0.15); border-radius: 20px; font-size: 0.85rem; color: var(--sage-green);">Gain de temps opérationnel</div>
+                </div>
+                <div class="card use-case-card" style="border-left: 4px solid #0891B2; padding: 40px; text-align: left;">
+                    <div class="use-case-number" style="font-size: 0.9rem; color: #0891B2; font-weight: 600; margin-bottom: 15px;">CAS N°2</div>
+                    <div class="card-title" style="color: white; font-size: 1.5rem; line-height: 1.3; margin-bottom: 15px;">Piloter autrement les stocks</div>
+                    <div class="card-text" style="color: var(--text-secondary);">Vue de réapprovisionnement intelligente. Alertes automatiques et indicateurs visuels en temps réel.</div>
+                    <div class="use-case-tag" style="margin-top: 20px; display: inline-block; padding: 6px 12px; background: rgba(8,145,178,0.15); border-radius: 20px; font-size: 0.85rem; color: #0891B2;">Levier de création de cash</div>
+                </div>
+            </div>
+            <p class="animate-in-delay-3" style="margin-top: 50px; font-size: 1.1rem; color: var(--text-muted);">
+                <span style="background: var(--gradient-ai); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600;">▶ Démonstration vidéo</span>
+            </p>
+        </div>
+
+        <!-- SLIDE 17: Workflow.AI (déplacé avant Partner Library) -->
+        <div class="slide" data-slide="17">
+            <div class="two-cols">
+                <div class="col-visual animate-in">
+                    <!-- Technical Workflow Diagram -->
+                    <div class="workflow-diagram">
+                        <div class="workflow-header">
+                            <span class="workflow-badge">Coming Soon</span>
+                            <span class="workflow-title-small">workflow_relance_client.ai</span>
+                        </div>
+                        <div class="workflow-canvas">
+                            <!-- Trigger Node -->
+                            <div class="workflow-node trigger">
+                                <div class="node-icon">⏰</div>
+                                <div class="node-content">
+                                    <div class="node-type">TRIGGER</div>
+                                    <div class="node-name">Schedule</div>
+                                    <div class="node-config">Lundi 9h</div>
+                                </div>
+                            </div>
+                            <div class="workflow-connector"></div>
+                            <!-- Sage Query Node -->
+                            <div class="workflow-node sage">
+                                <div class="node-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                                </div>
+                                <div class="node-content">
+                                    <div class="node-type">SAGE 100</div>
+                                    <div class="node-name">Query</div>
+                                    <div class="node-config">Factures > 30j</div>
+                                </div>
+                            </div>
+                            <div class="workflow-connector"></div>
+                            <!-- Condition Node -->
+                            <div class="workflow-node condition">
+                                <div class="node-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 5v8l-9 5-9-5V8z"/></svg>
+                                </div>
+                                <div class="node-content">
+                                    <div class="node-type">CONDITION</div>
+                                    <div class="node-name">If/Then</div>
+                                    <div class="node-config">Amount > 1000€</div>
+                                </div>
+                            </div>
+                            <div class="workflow-branch">
+                                <div class="branch-line left"></div>
+                                <div class="branch-line right"></div>
+                            </div>
+                            <div class="workflow-actions">
+                                <!-- Email Action -->
+                                <div class="workflow-node action email">
+                                    <div class="node-icon">📧</div>
+                                    <div class="node-content">
+                                        <div class="node-type">ACTION</div>
+                                        <div class="node-name">Email</div>
+                                        <div class="node-config">Template relance</div>
+                                    </div>
+                                </div>
+                                <!-- Slack Action -->
+                                <div class="workflow-node action slack">
+                                    <div class="node-icon">💬</div>
+                                    <div class="node-content">
+                                        <div class="node-type">ACTION</div>
+                                        <div class="node-name">Slack</div>
+                                        <div class="node-config">#compta</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="workflow-connector-merge"></div>
+                            <!-- Log Node -->
+                            <div class="workflow-node output">
+                                <div class="node-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                                </div>
+                                <div class="node-content">
+                                    <div class="node-type">OUTPUT</div>
+                                    <div class="node-name">Log CRM</div>
+                                    <div class="node-config">+ Analytics</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-content">
+                    <h2 class="slide-title animate-in-delay-1">
+                        Workflow.AI<span class="green">.</span><br>
+                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Expliquez. Séquencez. Déployez.</span>
+                    </h2>
+                    <ul class="feature-list animate-in-delay-2">
+                        <li>
+                            <span class="feature-check">✓</span>
+                            L'autopilote des workflows métiers
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Interagissez dans et en dehors de Sage
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Connectez les workflows aux vues construites avec l'IA
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Créez des automates avec la plupart des outils du marché
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE USE CASES WORKFLOW: Cas d'usage théoriques -->
+        <div class="slide" data-slide="17b">
+            <h2 class="slide-title animate-in">Cas d'usage Workflow<span class="green">.</span></h2>
+            <div style="display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 40px;" class="animate-in">
+                <span class="workflow-badge" style="animation: pulse-badge 2s ease-in-out infinite;">Coming Soon</span>
+            </div>
+            <div class="cards-grid animate-in-delay-1" style="grid-template-columns: repeat(2, 1fr); max-width: 1000px; gap: 40px;">
+                <div class="card use-case-card" style="border-left: 4px solid #FF6B6B; padding: 40px; text-align: left;">
+                    <div class="use-case-number" style="font-size: 0.9rem; color: #FF6B6B; font-weight: 600; margin-bottom: 15px;">AUTOMATISATION</div>
+                    <div class="card-title" style="color: white; font-size: 1.4rem; line-height: 1.3; margin-bottom: 15px;">Contrôle automatique des commandes</div>
+                    <div class="card-text" style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Vérification automatique des échéances, marges produits, CGV signées et acomptes avant validation. Transformation automatique en préparation de livraison.
+                    </div>
+                </div>
+                <div class="card use-case-card" style="border-left: 4px solid #FF8E53; padding: 40px; text-align: left;">
+                    <div class="use-case-number" style="font-size: 0.9rem; color: #FF8E53; font-weight: 600; margin-bottom: 15px;">REPORTING</div>
+                    <div class="card-title" style="color: white; font-size: 1.4rem; line-height: 1.3; margin-bottom: 15px;">Rapports de gestion automatiques</div>
+                    <div class="card-text" style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Envoi périodique des tableaux de bord : impayés, échéances dépassées, factures non comptabilisées, PL en cours. Alertes personnalisées par rôle.
+                    </div>
+                </div>
+            </div>
+            <p class="animate-in-delay-2" style="margin-top: 40px; font-size: 1rem; color: var(--text-muted); text-align: center;">
+                Ces automatisations seront disponibles dans une prochaine version.
+            </p>
+        </div>
+
+        <!-- SLIDE 18: Partner Library (déplacé après Workflow.AI) -->
+        <div class="slide" data-slide="18">
+            <div class="two-cols">
+                <div class="col-content">
+                    <h2 class="slide-title animate-in">
+                        Bibliothèque<br><span class="green">partenaire.</span>
+                    </h2>
+                    <p class="slide-subtitle animate-in-delay-1" style="text-align: left; margin-top: 20px;">
+                        Industrialisez vos développements.<br>
+                        Maximisez votre marge.
+                    </p>
+                    <ul class="feature-list animate-in-delay-2">
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Transposez vos vues « stars » en quelques minutes d'un client à l'autre
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Soyez force de proposition chez les prospects avec du "jamais vu"
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            Toute la robustesse de Sage avec toute la souplesse du web
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-visual animate-in-delay-2">
+                    <div style="text-align: center;">
+                        <div class="mega-number" style="font-size: 8rem;">×10</div>
+                        <p style="color: var(--text-secondary); font-size: 1.2rem; margin-top: 10px;">Multiplicateur de marge</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 20px;">
+                            Temps dev initial : <strong>2 jours</strong><br>
+                            Temps transposition : <strong style="color: var(--sage-green);">15 min</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 19: Architecture / Flux -->
+        <div class="slide" data-slide="19">
+            <h2 class="slide-title animate-in">Comment ça marche<span class="green"> ?</span></h2>
+            <div class="architecture-container animate-in-delay-1">
+                <div class="arch-label">Vos produits Sage</div>
+                <div class="arch-row">
+                    <div class="arch-box product">Sage 50</div>
+                    <div class="arch-box product">Sage 100</div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-studio-container">
+                    <div class="arch-studio-header">Sage AI Studio</div>
+                    <div class="arch-studio-modules">
+                        <div class="arch-module-item">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            <span>Builder.AI</span>
+                        </div>
+                        <div class="arch-module-item">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            <span>Workflow.AI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-label">Intégrables pour vos clients</div>
+                <div class="arch-row">
+                    <div class="arch-box output">Nouvelle Ergonomie Web</div>
+                    <div class="arch-box output">Interfaces tierces par API</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 20: Why Integrate? -->
+        <div class="slide" data-slide="20">
+            <h2 class="slide-title animate-in">Pourquoi intégrer<br>Sage <span class="highlight-ai">AI Studio</span><span class="green"> ?</span></h2>
+            <div class="value-grid animate-in-delay-1">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+                    </div>
+                    <div class="value-title">Nouveaux revenus</div>
+                    <div class="value-desc">Revenus récurrents sur chaque abonnement. Sans investissement initial.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M13 3v6h8l-8 12v-6H5l8-12z"/></svg>
+                    </div>
+                    <div class="value-title">Productivité ×3</div>
+                    <div class="value-desc">Facturez des journées de dev produites en quelques minutes.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                    </div>
+                    <div class="value-title">Montée en compétences</div>
+                    <div class="value-desc">Vos consultants réalisent les petits développements en autonomie.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                    </div>
+                    <div class="value-title">Personnalisation</div>
+                    <div class="value-desc">Créez des interfaces adaptées à chaque client.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    </div>
+                    <div class="value-title">Offre modulaire</div>
+                    <div class="value-desc">Ergonomie seule, Builder seul, ou suite complète. Adaptez l'offre.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+                    </div>
+                    <div class="value-title">Différenciation</div>
+                    <div class="value-desc">Positionnez Sage face à Odoo, Pennylane et Cegid.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 21: Before/After - SUPPRIMÉ -->
+        <!-- SLIDE 22: Security - SUPPRIMÉ -->
+
+        <!-- SLIDE 23: The Stakes -->
+        <div class="slide" data-slide="23">
+            <h2 class="slide-title animate-in">Les enjeux pour Sage 100<span class="green">.</span></h2>
+            <div class="cards-grid animate-in-delay-1">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="card-title" style="color: var(--sage-green); font-size: 1.9rem;">Plus de clients</div>
+                    <div class="card-text">Avec des interfaces intuitives qui séduisent les nouvelles générations</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    </div>
+                    <div class="card-title" style="color: var(--sage-green); font-size: 1.9rem;">Plus d'usage</div>
+                    <div class="card-text">Avec des services additionnels pour le cross-sell et l'upsell</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="card-title" style="color: var(--sage-green); font-size: 1.9rem;">Moins de churn</div>
+                    <div class="card-text">Avec une expérience moderne qui répond aux attentes de 2026</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                    </div>
+                    <div class="card-title" style="color: var(--sage-green); font-size: 1.9rem;">Plus ouvert</div>
+                    <div class="card-text">API, marketplace, intégrations tierces</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 25: 100% SPC -->
+        <div class="slide" data-slide="24">
+            <div class="fullscreen-message">
+                <h1 class="mega-title animate-in text-glow">
+                    100 % aligné<br>
+                    <span class="highlight">Sage 100 SPC</span>
+                </h1>
+                <p class="slide-subtitle animate-in-delay-1" style="margin-top: 30px;">
+                    La migration cloud devient une évidence, pas une contrainte.
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 25: What we're asking -->
+        <div class="slide" data-slide="25">
+            <div class="fullscreen-message">
+                <p class="slide-subtitle animate-in" style="font-size: 1.5rem; margin-bottom: 30px;">
+                    On ne vous demande pas de signer aujourd'hui.
+                </p>
+                <h1 class="mega-title animate-in-delay-1" style="font-size: clamp(2.5rem, 5vw, 4rem);">
+                    On vous demande de<br>
+                    <span class="highlight">construire ça avec nous.</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- SLIDE 26: Next Steps -->
+        <div class="slide" data-slide="26">
+            <h2 class="slide-title animate-in">La suite<span class="green">.</span></h2>
+
+            <!-- Dual Roadmap Swimlanes -->
+            <div class="dual-roadmap animate-in-delay-1">
+                <!-- Nouvelle Ergonomie Web -->
+                <div class="swimlane swimlane-green">
+                    <div class="swimlane-header">
+                        <div class="swimlane-title" style="color: var(--sage-green);">Nouvelle Ergonomie Web</div>
+                        <div class="swimlane-subtitle">Sage</div>
+                    </div>
+                    <div class="swimlane-track">
+                        <div class="track-line"></div>
+                        <div class="milestone" style="left: 5%;">
+                            <div class="milestone-dot green"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Février</span>
+                                <span class="milestone-text">V0 Gesco</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 22%;">
+                            <div class="milestone-dot green"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Fin Fév</span>
+                                <span class="milestone-text">Formation</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 38%;">
+                            <span class="milestone-badge green">POC</span>
+                            <div class="milestone-dot green"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Mars</span>
+                                <span class="milestone-text">V0 Compta + EAP</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 72%;">
+                            <div class="milestone-dot green"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">T2 2026</span>
+                                <span class="milestone-text">Déploiement</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sage AI Studio -->
+                <div class="swimlane swimlane-ai">
+                    <div class="swimlane-header">
+                        <div class="swimlane-title highlight-ai">Sage AI Studio</div>
+                        <div class="swimlane-subtitle">Intelligence Artificielle</div>
+                    </div>
+                    <div class="swimlane-track">
+                        <div class="track-line"></div>
+                        <div class="milestone" style="left: 22%;">
+                            <span class="milestone-badge ai">New</span>
+                            <div class="milestone-dot ai"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Fin Fév</span>
+                                <span class="milestone-text">Nouvelle ergonomie</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 38%;">
+                            <div class="milestone-dot ai"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Mars</span>
+                                <span class="milestone-text">Builder.AI</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 55%;">
+                            <div class="milestone-dot ai"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Avril</span>
+                                <span class="milestone-text">Distribution</span>
+                            </div>
+                        </div>
+                        <div class="milestone" style="left: 88%;">
+                            <div class="milestone-dot ai"></div>
+                            <div class="milestone-label">
+                                <span class="milestone-date">Juin</span>
+                                <span class="milestone-text">Workflow.AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend - SUPPRIMÉ -->
+        </div>
+
+        <!-- SLIDE 27: CTA -->
+        <div class="slide" data-slide="27">
+            <h2 class="slide-title animate-in">Rejoignez l'aventure<span class="green">.</span></h2>
+            <div class="cta-box animate-in-delay-1">
+                <div class="cta-title">Intéressé(e) par l'Early Access ?</div>
+                <div class="cta-text">
+                    Participez à la co-construction du futur de Sage 100.<br>
+                    Vos feedbacks façonneront le produit final.
+                </div>
+                <a href="#" class="cta-button">
+                    <span>Je veux participer</span>
+                    <span>→</span>
+                </a>
+            </div>
+            <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px; font-size: 1rem;">
+                Formation incluse &bull; Support dédié &bull; Accès prioritaire
+            </p>
+        </div>
+
+        <!-- SLIDE 28: Final -->
+        <div class="slide slide-hero" data-slide="28">
+            <svg class="wave-bg" viewBox="0 0 1920 400" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#00D4AA"/>
+                        <stop offset="50%" style="stop-color:#00D639"/>
+                        <stop offset="100%" style="stop-color:#C8E600"/>
+                    </linearGradient>
+                </defs>
+                <path class="wave-path" style="stroke: url(#waveGradient2)" d="M0,200 Q400,50 800,200 T1600,200 T2400,200" />
+                <path class="wave-path" style="opacity:0.5;transform:translateY(30px);stroke: url(#waveGradient2)" d="M0,200 Q400,350 800,200 T1600,200 T2400,200" />
+            </svg>
+            <div class="hero-content">
+                <h1 class="mega-title animate-in">Nouvelle <span class="highlight-ai">Expérience</span></h1>
+                <span class="poc-badge" style="display: inline-block; margin-top: 20px; padding: 6px 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; font-size: 0.85rem; color: var(--text-muted); letter-spacing: 2px;">P.O.C</span>
+                <p class="slide-subtitle animate-in-delay-1" style="margin-top: 30px;">
+                    L'avenir de Sage 100 commence aujourd'hui.
+                </p>
+                <h2 class="mega-title animate-in-delay-2" style="margin-top: 50px; font-size: 4rem;">
+                    Merci <span class="green">!</span>
+                </h2>
+                <div class="animate-in-delay-3" style="margin-top: 60px; display: flex; gap: 40px; justify-content: center; color: var(--text-muted); font-size: 0.95rem;">
+                    <span>David Klecel</span>
+                    <span>•</span>
+                    <span>Valentin Barthel</span>
+                    <span>•</span>
+                    <span>Nicolas Jacques</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">28</span>
+    </div>
+
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn">←</button>
+        <button class="nav-btn" id="nextBtn">→</button>
+    </div>
+
+    <script>
+        // Presentation Controller
+        class Presentation {
+            constructor() {
+                this.slides = document.querySelectorAll('.slide');
+                this.currentSlide = 0;
+                this.totalSlides = this.slides.length;
+                this.isAnimating = false;
+
+                this.init();
+            }
+
+            init() {
+                document.getElementById('totalSlides').textContent = this.totalSlides;
+
+                document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+
+                document.getElementById('prevBtn').addEventListener('click', () => this.prev());
+                document.getElementById('nextBtn').addEventListener('click', () => this.next());
+
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                document.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                document.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipe(touchStartX, touchEndX);
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (e.target.closest('.nav-controls') || e.target.closest('.cta-button') || e.target.closest('.carousel')) return;
+
+                    const clickX = e.clientX;
+                    const windowWidth = window.innerWidth;
+
+                    if (clickX > windowWidth * 0.7) {
+                        this.next();
+                    } else if (clickX < windowWidth * 0.3) {
+                        this.prev();
+                    }
+                });
+
+                this.goToSlide(0);
+                this.initCarousels();
+            }
+
+            initCarousels() {
+                document.querySelectorAll('.carousel').forEach(carousel => {
+                    const track = carousel.querySelector('.carousel-track');
+                    const dots = carousel.querySelectorAll('.carousel-dot');
+                    let currentIndex = 0;
+
+                    const goToSlide = (index) => {
+                        track.style.transform = `translateX(-${index * 100}%)`;
+                        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+                        currentIndex = index;
+                    };
+
+                    dots.forEach(dot => {
+                        dot.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            goToSlide(parseInt(dot.dataset.index));
+                        });
+                    });
+
+                    // Auto advance
+                    setInterval(() => {
+                        const nextIndex = (currentIndex + 1) % dots.length;
+                        goToSlide(nextIndex);
+                    }, 4000);
+                });
+            }
+
+            handleKeyboard(e) {
+                switch(e.key) {
+                    case 'ArrowRight':
+                    case 'ArrowDown':
+                    case ' ':
+                    case 'PageDown':
+                        e.preventDefault();
+                        this.next();
+                        break;
+                    case 'ArrowLeft':
+                    case 'ArrowUp':
+                    case 'PageUp':
+                        e.preventDefault();
+                        this.prev();
+                        break;
+                    case 'Home':
+                        e.preventDefault();
+                        this.goToSlide(0);
+                        break;
+                    case 'End':
+                        e.preventDefault();
+                        this.goToSlide(this.totalSlides - 1);
+                        break;
+                }
+            }
+
+            handleSwipe(startX, endX) {
+                const threshold = 50;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > threshold) {
+                    if (diff > 0) {
+                        this.next();
+                    } else {
+                        this.prev();
+                    }
+                }
+            }
+
+            next() {
+                if (this.isAnimating) return;
+                if (this.currentSlide < this.totalSlides - 1) {
+                    this.goToSlide(this.currentSlide + 1);
+                }
+            }
+
+            prev() {
+                if (this.isAnimating) return;
+                if (this.currentSlide > 0) {
+                    this.goToSlide(this.currentSlide - 1);
+                }
+            }
+
+            goToSlide(index) {
+                if (this.isAnimating || index === this.currentSlide) return;
+
+                this.isAnimating = true;
+
+                const prevSlide = this.slides[this.currentSlide];
+                const nextSlide = this.slides[index];
+
+                const direction = index > this.currentSlide ? 1 : -1;
+
+                this.slides.forEach(slide => {
+                    slide.classList.remove('active', 'prev');
+                });
+
+                if (direction === 1) {
+                    prevSlide.classList.add('prev');
+                }
+
+                nextSlide.classList.add('active');
+
+                this.currentSlide = index;
+
+                this.updateUI();
+
+                setTimeout(() => {
+                    this.isAnimating = false;
+                }, 800);
+            }
+
+            updateUI() {
+                document.getElementById('currentSlide').textContent = this.currentSlide + 1;
+
+                const progress = ((this.currentSlide + 1) / this.totalSlides) * 100;
+                document.getElementById('progressBar').style.width = progress + '%';
+
+                document.getElementById('prevBtn').style.opacity = this.currentSlide === 0 ? 0.3 : 1;
+                document.getElementById('nextBtn').style.opacity = this.currentSlide === this.totalSlides - 1 ? 0.3 : 1;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new Presentation();
+        });
+
+        document.addEventListener('dblclick', (e) => {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
+
