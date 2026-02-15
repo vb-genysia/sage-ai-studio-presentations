@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Protection contre l'indexation - Document confidentiel -->
+    <!-- Protection against indexing - Confidential document -->
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <meta name="bingbot" content="noindex, nofollow, noarchive, noimageindex">
     <meta name="slurp" content="noindex, nofollow">
     <meta name="duckduckbot" content="noindex, nofollow">
-    <!-- Empêcher la mise en cache -->
+    <!-- Prevent caching -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <!-- Empêcher le partage sur réseaux sociaux -->
+    <!-- Prevent social media sharing -->
     <meta name="twitter:card" content="none">
     <meta property="og:type" content="none">
-    <title>Sage Xperience - BPAC 2026</title>
+    <title>Sage Experience - Executive Preview | Genysia Technologies</title>
     <style>
         /* Sage Webfonts */
         @font-face {
@@ -677,22 +677,98 @@
             flex-shrink: 0;
         }
 
-        /* Progress Bar */
+        /* Progress Bar - Clickable Navigation */
         .progress-container {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 6px;
             background: rgba(255,255,255,0.1);
             z-index: 1000;
+            cursor: pointer;
+            transition: height 0.2s ease;
+        }
+
+        .progress-container:hover {
+            height: 24px;
+        }
+
+        .progress-container:hover .progress-bar {
+            height: 24px;
+        }
+
+        .progress-container:hover .progress-markers {
+            opacity: 1;
         }
 
         .progress-bar {
             height: 100%;
             background: var(--gradient-main);
             width: 0%;
-            transition: width 0.3s ease;
+            transition: width 0.3s ease, height 0.2s ease;
+            pointer-events: none;
+        }
+
+        .progress-markers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .progress-marker {
+            flex: 1;
+            height: 100%;
+            border-right: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .progress-marker:last-child {
+            border-right: none;
+        }
+
+        .progress-marker-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: all 0.2s ease;
+        }
+
+        .progress-marker.active .progress-marker-dot,
+        .progress-marker.visited .progress-marker-dot {
+            background: var(--sage-green);
+        }
+
+        .progress-marker-label {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .progress-container:hover .progress-marker:hover .progress-marker-label {
+            opacity: 1;
         }
 
         /* Navigation */
@@ -850,7 +926,7 @@
         }
 
         .module-group .module-card {
-            width: 320px;
+            width: 350px;
         }
 
         .module-cards-row {
@@ -859,7 +935,7 @@
         }
 
         .module-cards-row .module-card {
-            width: 320px;
+            width: 350px;
         }
 
         .module-group-label {
@@ -876,14 +952,14 @@
         }
 
         .module-group-label.client {
-            width: 320px;
+            width: 350px;
             background: rgba(0, 214, 57, 0.15);
             color: var(--sage-green);
             border: 1px solid rgba(0, 214, 57, 0.3);
         }
 
         .module-group-label.partner {
-            width: 670px;
+            width: 729px;
             background: rgba(8, 145, 178, 0.15);
             color: #0891B2;
             border: 1px solid rgba(8, 145, 178, 0.3);
@@ -1244,6 +1320,70 @@
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        /* Sage Ask.AI Slider */
+        .askai-slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .askai-slides {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .askai-slide {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .askai-slide.active {
+            display: flex;
+        }
+
+        .askai-slide-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .askai-slider-dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .askai-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .askai-dot:hover {
+            border-color: var(--sage-green);
+        }
+
+        .askai-dot.active {
+            background: var(--sage-green);
+            border-color: var(--sage-green);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Carousel */
@@ -1712,12 +1852,18 @@
         .workflow-badge {
             background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
             color: #000;
-            font-size: 0.6rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            padding: 4px 10px;
+            padding: 8px 18px;
             border-radius: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
+            animation: pulse-badge 2s ease-in-out infinite;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6); }
         }
 
         .workflow-title-small {
@@ -1863,6 +2009,94 @@
             height: 12px;
             background: linear-gradient(180deg, rgba(0,214,57,0.3) 0%, var(--sage-green) 100%);
         }
+
+        /* Language Selector */
+        .lang-selector {
+            position: absolute;
+            top: 30px;
+            right: 140px;
+            z-index: 100;
+        }
+
+        .lang-current {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-family: 'Sage Text', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .lang-current:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--sage-green);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            display: none;
+            min-width: 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .lang-selector.open .lang-dropdown {
+            display: block;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            padding: 10px 16px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-family: 'Sage Text', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .lang-option:hover {
+            background: rgba(0,214,57,0.1);
+            color: white;
+        }
+
+        .lang-option.active {
+            background: rgba(0,214,57,0.2);
+            color: var(--sage-green);
+        }
+
+        .lang-flag {
+            width: 24px;
+            height: 18px;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .lang-arrow {
+            font-size: 0.7rem;
+            transition: transform 0.2s;
+        }
+
+        .lang-selector.open .lang-arrow {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body>
@@ -1884,13 +2118,14 @@
                 <path class="wave-path" d="M0,200 Q400,50 800,200 T1600,200 T2400,200" />
                 <path class="wave-path" style="opacity:0.5;transform:translateY(30px)" d="M0,200 Q400,350 800,200 T1600,200 T2400,200" />
             </svg>
+            <span class="poc-badge animate-in" style="position: absolute; top: 30px; right: 40px; padding: 8px 20px; background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(255,215,0,0.1)); border: 1px solid rgba(212,175,55,0.5); border-radius: 20px; font-size: 0.85rem; color: #D4AF37; letter-spacing: 1px; font-weight: 500;">EXECUTIVE PREVIEW</span>
             <div class="hero-content">
-                <h1 class="mega-title animate-in">Sage <span class="highlight-ai">Xperience</span></h1>
+                <h1 class="mega-title animate-in">New <span class="highlight-ai">Experience</span></h1>
                 <p class="slide-subtitle animate-in-delay-1" style="margin-top: 30px; font-size: 1.5rem;">
-                    L'avenir de l'offre Sage pour les PME
+                    The future of Sage offerings for SMBs
                 </p>
                 <p class="animate-in-delay-2" style="margin-top: 60px; color: var(--text-muted);">
-                    BPAC 2026 &mdash; 29 janvier
+                    Executive Preview — February 2026
                 </p>
             </div>
         </div>
@@ -1901,12 +2136,12 @@
                 <div class="speaker-card">
                     <img src="david.jpg" alt="David Klecel" class="speaker-photo">
                     <div class="speaker-name">David Klecel</div>
-                    <div class="speaker-role">VP TPE, PME & Experts-Comptables - France</div>
+                    <div class="speaker-role">VP SMB & Accountants - France</div>
                 </div>
                 <div class="speaker-card">
                     <img src="valentin.jpg" alt="Valentin Barthel" class="speaker-photo">
                     <div class="speaker-name">Valentin Barthel</div>
-                    <div class="speaker-role">Président du Groupe Genysia Technologies</div>
+                    <div class="speaker-role">President of Genysia Technologies Group</div>
                 </div>
                 <div class="speaker-card">
                     <img src="nicolas.jpg" alt="Nicolas Jacques" class="speaker-photo">
@@ -1916,165 +2151,229 @@
             </div>
         </div>
 
-        <!-- SLIDE 3: Facture électronique context -->
+        <!-- SLIDE 3: Genysia Technologies Group -->
         <div class="slide" data-slide="3">
+            <h2 class="slide-title animate-in" style="font-size: 2.8rem;">
+                Genysia Technologies <span class="highlight">Group</span>
+            </h2>
+            <p class="slide-subtitle animate-in-delay-1" style="margin-top: -10px; margin-bottom: 40px; font-size: 1.2rem; font-style: italic;">
+                AI-First Solutions for Enterprise Software
+            </p>
+            <div class="cards-grid animate-in-delay-1" style="grid-template-columns: repeat(4, 1fr); max-width: 1300px; gap: 20px;">
+                <div class="card" style="border-top: 3px solid #E63946; padding: 24px;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(230,57,70,0.2), rgba(230,57,70,0.1)); width: 48px; height: 48px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E63946" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="card-title" style="color: #E63946; font-size: 1.3rem;">WebexpR</div>
+                    <div class="card-text" style="font-size: 0.85rem;">Digital Agency & Development<br><span style="color: var(--text-muted);">30 experts</span></div>
+                </div>
+                <div class="card" style="border-top: 3px solid #1D3557; padding: 24px;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(29,53,87,0.3), rgba(29,53,87,0.1)); width: 48px; height: 48px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#457B9D" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <div class="card-title" style="color: #457B9D; font-size: 1.3rem;">DeskIT</div>
+                    <div class="card-text" style="font-size: 0.85rem;">IT & Cybersecurity<br><span style="color: var(--text-muted);">8 experts</span></div>
+                </div>
+                <div class="card" style="border-top: 3px solid #00D639; padding: 24px;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(0,214,57,0.2), rgba(0,214,57,0.1)); width: 48px; height: 48px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D639" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <div class="card-title" style="color: #00D639; font-size: 1.3rem;">LTG Conseil</div>
+                    <div class="card-text" style="font-size: 0.85rem;">Management Software<br><span style="color: var(--text-muted);">8 experts</span></div>
+                </div>
+                <div class="card" style="border-top: 3px solid #D4AF37; padding: 24px;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.1)); width: 48px; height: 48px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                    </div>
+                    <div class="card-title" style="color: #D4AF37; font-size: 1.3rem;">Mogador</div>
+                    <div class="card-text" style="font-size: 0.85rem;">Audiovisual Production<br><span style="color: var(--text-muted);">8 experts</span></div>
+                </div>
+            </div>
+            <div class="stats-row animate-in-delay-2" style="margin-top: 50px; gap: 80px;">
+                <div class="stat-item">
+                    <div class="stat-number" style="font-size: 2.8rem;">60+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" style="font-size: 2.8rem;">€7.6M</div>
+                    <div class="stat-label">Annual Revenue</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" style="font-size: 2.8rem;">+20%</div>
+                    <div class="stat-label">YoY Growth</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" style="font-size: 2.8rem;">2012</div>
+                    <div class="stat-label">Founded</div>
+                </div>
+            </div>
+            <p class="animate-in-delay-2" style="margin-top: 30px; color: var(--text-muted); font-size: 0.9rem;">
+                Paris & Compiègne, France
+            </p>
+        </div>
+
+        <!-- SLIDE 4: E-invoicing context -->
+        <div class="slide" data-slide="4">
             <div class="fullscreen-message" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
                 <h2 class="slide-title animate-in">
-                    La facture électronique vous occupe<span class="green">.</span><br>
-                    <span style="font-size: 0.7em; color: var(--text-secondary);">C'est normal, c'est urgent.</span>
+                    E-invoicing keeps you busy<span class="green">.</span><br>
+                    <span style="font-size: 0.7em; color: var(--text-secondary);">That's normal, it's urgent.</span>
                 </h2>
                 <p class="slide-subtitle animate-in-delay-1" style="margin-top: 40px; font-size: 1.4rem;">
-                    Mais l'innovation d'aujourd'hui assurera vos revenus de demain.
+                    But today's innovation will secure tomorrow's revenue.
                 </p>
                 <p class="animate-in-delay-2" style="margin-top: 50px; font-size: 1.8rem; color: var(--sage-green); font-weight: 600; text-align: center; width: 100%;">
-                    Préparons ensemble l'après « facture électronique »
+                    Let's prepare together for the post e-invoicing era
                 </p>
             </div>
         </div>
 
-        <!-- SLIDE 4: The Problem -->
-        <div class="slide" data-slide="4">
-            <h2 class="slide-title animate-in">Ce que vos clients pensent<span class="green">.</span></h2>
+        <!-- SLIDE 5: The Problem -->
+        <div class="slide" data-slide="5">
+            <h2 class="slide-title animate-in">What your clients think<span class="green">.</span></h2>
             <div class="quote animate-in-delay-1">
-                La profondeur fonctionnelle et la robustesse de Sage 100 est incroyable... Mais l'ergonomie est restée dans les années 2000.
+                The functional depth and robustness of Sage 100 is incredible... But the user experience is stuck in the 2000s.
             </div>
         </div>
 
-        <!-- SLIDE 5: Partner Challenges -->
-        <div class="slide" data-slide="5">
-            <h2 class="slide-title animate-in">Les défis de vos clients<span class="green">.</span></h2>
+        <!-- SLIDE 6: Partner Challenges -->
+        <div class="slide" data-slide="6">
+            <h2 class="slide-title animate-in">Your clients' challenges<span class="green">.</span></h2>
             <div class="cards-grid animate-in-delay-1" style="grid-template-columns: repeat(3, 1fr); max-width: 1200px;">
                 <div class="card" style="border-left: 4px solid #00D639;">
                     <div class="card-icon" style="background: linear-gradient(135deg, rgba(0,214,57,0.2), rgba(0,214,57,0.1));">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                     </div>
-                    <div class="card-title" style="color: #00D639; font-size: 2.3rem;">Ergonomie</div>
-                    <div class="card-text">Une interface qui n'a pas évolué depuis 20 ans. L'UX freine l'acquisition de nouveaux clients et accélère le départ des existants.</div>
+                    <div class="card-title" style="color: #00D639; font-size: 2.3rem;">User Experience</div>
+                    <div class="card-text">An interface that hasn't evolved in 20 years. Poor UX slows new customer acquisition and accelerates existing customer churn.</div>
                 </div>
                 <div class="card" style="border-left: 4px solid #00D639;">
                     <div class="card-icon" style="background: linear-gradient(135deg, rgba(0,214,57,0.2), rgba(0,214,57,0.1));">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
-                    <div class="card-title" style="color: #00D639; font-size: 2.3rem;">Ouverture</div>
-                    <div class="card-text">Manque d'ouverture aux APIs et systèmes tiers. Les intégrations avec vos solutions partenaires sont complexes et coûteuses.</div>
+                    <div class="card-title" style="color: #00D639; font-size: 2.3rem;">Openness</div>
+                    <div class="card-text">Lack of openness to APIs and third-party systems. Integrations with partner solutions are complex and costly.</div>
                 </div>
                 <div class="card" style="border-left: 4px solid #00D639;">
                     <div class="card-icon" style="background: linear-gradient(135deg, rgba(0,214,57,0.2), rgba(0,214,57,0.1));">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </div>
-                    <div class="card-title" style="color: #00D639; font-size: 2.3rem;">Productivité</div>
-                    <div class="card-text">La conséquence directe : un outil pénible à utiliser au quotidien, qui ralentit vos équipes et celles de vos clients.</div>
+                    <div class="card-title" style="color: #00D639; font-size: 2.3rem;">Productivity</div>
+                    <div class="card-text">The direct consequence: a tool that's painful to use daily, slowing down your teams and your clients' teams.</div>
                 </div>
             </div>
             <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px; font-size: 1.1rem;">
-                Ces freins limitent votre capacité à vendre, déployer et fidéliser.
+                These barriers limit your ability to sell, deploy, and retain customers.
             </p>
         </div>
 
-        <!-- SLIDE 6: AI Urgency Hook -->
-        <div class="slide" data-slide="6">
+        <!-- SLIDE 7: AI Urgency Hook -->
+        <div class="slide" data-slide="7">
             <h2 class="slide-title animate-in">
-                L'IA dans les logiciels métier,<br>
-                <span class="highlight-ai">c'est maintenant.</span>
+                AI in business software,<br>
+                <span class="highlight-ai">it's happening now.</span>
             </h2>
             <div class="stats-grid animate-in-delay-1">
                 <div class="stat-card">
                     <div class="stat-number">72%</div>
-                    <div class="stat-label">des PME prévoient d'adopter l'IA<br>dans les 12 prochains mois</div>
-                    <div class="stat-source">Source : McKinsey 2024</div>
+                    <div class="stat-label">of SMBs plan to adopt AI within the next 12 months</div>
+                    <div class="stat-source">Source: McKinsey 2024</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">3x</div>
-                    <div class="stat-label">plus de productivité pour les tâches<br>automatisées par l'IA</div>
-                    <div class="stat-source">Source : Harvard Business Review 2024</div>
+                    <div class="stat-label">more productivity for AI-automated tasks</div>
+                    <div class="stat-source">Source: Harvard Business Review 2024</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">40%</div>
-                    <div class="stat-label">des éditeurs ERP auront intégré<br>l'IA générative d'ici fin 2025</div>
-                    <div class="stat-source">Source : Gartner 2024</div>
+                    <div class="stat-label">of ERP vendors will have integrated generative AI by end of 2025</div>
+                    <div class="stat-source">Source: Gartner 2024</div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 7: The Solution Intro -->
-        <div class="slide" data-slide="7">
+        <!-- SLIDE 8: The Solution Intro -->
+        <div class="slide" data-slide="8">
             <div class="fullscreen-message">
                 <h1 class="mega-title animate-in" style="font-size: clamp(3rem, 6vw, 5rem);">
-                    Transformer <span class="highlight-ai">les usages</span><br>
-                    <span class="highlight">sans tout changer ?</span>
+                    Transform <span class="highlight-ai">the experience</span><br>
+                    <span class="highlight">without changing everything?</span>
                 </h1>
             </div>
         </div>
 
-        <!-- SLIDE 8: Introducing Sage Xperience -->
-        <div class="slide" data-slide="8">
-            <p class="slide-subtitle animate-in" style="margin-bottom: 20px;">Voici</p>
-            <h1 class="mega-title animate-in-delay-1">Sage <span class="highlight-ai">Xperience</span></h1>
+        <!-- SLIDE 9: Introducing New Experience -->
+        <div class="slide" data-slide="9">
+            <p class="slide-subtitle animate-in" style="margin-bottom: 20px;">Today:</p>
+            <h1 class="mega-title animate-in-delay-1">Let's talk <span class="highlight-ai">Experience</span></h1>
             <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px; max-width: 800px;">
-                Une nouvelle couche applicative qui modernise<br>
-                en combinant <strong>UX repensée</strong> et <strong>intelligence artificielle</strong>.
+                A new application layer that modernizes by combining <strong>redesigned UX</strong> and <strong>artificial intelligence</strong>.
             </p>
         </div>
 
-        <!-- SLIDE 9: Two Pillars (no icons, text style) -->
-        <div class="slide" data-slide="9">
-            <h2 class="slide-title animate-in">Deux piliers<span class="green">.</span></h2>
+        <!-- SLIDE 10: Two Pillars (no icons, text style) -->
+        <div class="slide" data-slide="10">
+            <h2 class="slide-title animate-in">Two pillars<span class="green">.</span></h2>
             <div class="pillars-grid animate-in-delay-1" style="display: flex; align-items: stretch; gap: 30px;">
                 <div class="pillar-card ux" style="flex: 1;">
-                    <h3>Nouvelle ergonomie pensée pour le Web</h3>
+                    <h3>New Web Experience</h3>
                     <p>
-                        Une nouvelle interface web pour Sage 100.<br><br>
-                        Gestion commerciale, comptabilité, tout repensé pour l'utilisateur d'aujourd'hui.
+                        A new web interface connected to Sage.<br><br>
+                        Sales management, accounting, everything redesigned for today's user.
                     </p>
                 </div>
                 <div class="pillars-plus" style="font-size: 4rem; font-weight: 900; background: var(--gradient-ai); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; align-self: center;">+</div>
                 <div class="pillar-card ai" style="flex: 1;">
                     <h3>Sage <span style="background: var(--gradient-ai); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI Studio</span></h3>
                     <p>
-                        L'intelligence artificielle intégrée à Sage.<br><br>
-                        Assistant IA, création d'écrans, automatisation des processus.
+                        Artificial intelligence integrated into Sage.<br><br>
+                        AI assistant, screen creation, process automation.
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 10: Dataven - Real Screenshot -->
-        <div class="slide" data-slide="10">
+        <!-- SLIDE 11: Dataven - Real Screenshot -->
+        <div class="slide" data-slide="11">
             <h2 class="slide-title animate-in">
-                Une interface<br><span class="highlight">pensée pour le web.</span>
+                An interface<br><span class="highlight">designed for the web.</span>
             </h2>
             <div class="screenshot-frame animate-in-delay-1 floating" style="margin-top: 40px; max-width: 950px;">
-                <img src="dataven.png" alt="Interface Dataven">
+                <img src="dataven-new.png" alt="Dataven Interface">
             </div>
+            <button onclick="window.open('video-nouvelle-ux.html', '_blank')" class="animate-in-delay-2" style="margin-top: 30px; padding: 16px 32px; background: linear-gradient(135deg, var(--sage-green), #0891B2); border: none; border-radius: 10px; color: white; font-weight: 600; font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 30px rgba(0,214,57,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                <span>Discover the new experience</span>
+            </button>
         </div>
 
-        <!-- SLIDE 11: Dataven Features -->
-        <div class="slide" data-slide="11">
+        <!-- SLIDE 12: Dataven Features -->
+        <div class="slide" data-slide="12">
             <div class="two-cols">
                 <div class="col-content">
                     <h2 class="slide-title animate-in">
-                        Une nouvelle expérience.<br><span class="green">De Sage 100.</span>
+                        A new experience.<br><span class="green">For Sage 100.</span>
                     </h2>
                     <ul class="feature-list animate-in-delay-1">
                         <li>
                             <span class="feature-check">✓</span>
-                            Gestion commerciale
+                            <span>Sales management</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Comptabilité
+                            <span>Accounting</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Interface responsive (mobile, tablette)
+                            <span>Responsive interface (mobile, tablet)</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Intégrant les autres services Sage (Connect, ACS ...)
+                            <span>Integrating other Sage services (Connect, ACS...)</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            100 % compatible SPC
+                            <span>100% SPC compatible</span>
                         </li>
                     </ul>
                 </div>
@@ -2084,17 +2383,76 @@
                         <div class="roadmap-item">
                             <div class="roadmap-dot"></div>
                             <div class="roadmap-content">
-                                <div class="roadmap-title">V0 Gesco</div>
-                                <div class="roadmap-date">Février 2026</div>
+                                <div class="roadmap-title">V0 Sales</div>
+                                <div class="roadmap-date">February 2026</div>
                             </div>
                         </div>
                         <div class="roadmap-item">
                             <div class="roadmap-dot"></div>
                             <div class="roadmap-content">
-                                <div class="roadmap-title">V0 Compta</div>
-                                <div class="roadmap-date">Mars 2026</div>
+                                <div class="roadmap-title">V0 Accounting</div>
+                                <div class="roadmap-date">March 2026</div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: Business Impact -->
+        <div class="slide" data-slide="13">
+            <h2 class="slide-title animate-in" style="margin-bottom: 50px;">What it changes<span class="green">.</span> In practice.</h2>
+            <div class="two-cols animate-in-delay-1" style="margin-top: 20px; align-items: center;">
+                <div class="col-visual" style="flex: 1.2;">
+                    <div class="screenshot-frame glow-green" style="max-width: 680px;">
+                        <img src="business-impact.png" alt="Business Impact">
+                    </div>
+                </div>
+                <div class="col-content" style="display: flex; flex-direction: column; gap: 28px; flex: 1;">
+                    <div style="border-left: 5px solid var(--sage-green); padding-left: 24px;">
+                        <div style="color: var(--sage-green); font-size: 1.5rem; font-weight: 700; margin-bottom: 10px;">1. Sell better</div>
+                        <div style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">Modern, reassuring interfaces. Demos you can show with pride.</div>
+                        <div style="color: var(--sage-green); font-weight: 600; margin-top: 12px; font-size: 1.05rem;">More conversions, +NCA</div>
+                    </div>
+                    <div style="border-left: 5px solid var(--sage-green); padding-left: 24px;">
+                        <div style="color: var(--sage-green); font-size: 1.5rem; font-weight: 700; margin-bottom: 10px;">2. Retain better</div>
+                        <div style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">A simpler, smoother experience. More efficient and satisfied users.</div>
+                        <div style="color: var(--sage-green); font-weight: 600; margin-top: 12px; font-size: 1.05rem;">Lower churn, +customer value</div>
+                    </div>
+                    <div style="border-left: 5px solid var(--sage-green); padding-left: 24px;">
+                        <div style="color: var(--sage-green); font-size: 1.5rem; font-weight: 700; margin-bottom: 10px;">3. Move faster</div>
+                        <div style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">Continuous product evolution. Improvements delivered more frequently.</div>
+                        <div style="color: var(--sage-green); font-weight: 600; margin-top: 12px; font-size: 1.05rem;">More agility facing the market</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11c: Understanding Real Usage -->
+        <div class="slide" data-slide="11c">
+            <h2 class="slide-title animate-in" style="margin-bottom: 50px;">Finally understand and control<br><span class="highlight">real usage.</span></h2>
+            <div class="two-cols animate-in-delay-1" style="margin-top: 20px; align-items: center;">
+                <div class="col-visual" style="flex: 1.2;">
+                    <div class="screenshot-frame glow-green" style="max-width: 680px;">
+                        <img src="usage-analytics.png" alt="Analytics Usage">
+                    </div>
+                </div>
+                <div class="col-content" style="display: flex; flex-direction: column; gap: 22px; flex: 1;">
+                    <div style="border-left: 5px solid var(--sage-green); padding-left: 24px;">
+                        <div style="color: var(--sage-green); font-size: 1.35rem; font-weight: 600; margin-bottom: 8px;">Visualize user journeys</div>
+                        <div style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.5;">Understand how clients really use Sage 100. Identify what works… and what blocks them.</div>
+                    </div>
+                    <div style="border-left: 5px solid var(--sage-green); padding-left: 24px;">
+                        <div style="color: var(--sage-green); font-size: 1.35rem; font-weight: 600; margin-bottom: 8px;">Detect weak signals</div>
+                        <div style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.5;">Anticipate dissatisfaction and churn before it's too late.</div>
+                    </div>
+                    <div style="border-left: 5px solid var(--sage-green); padding-left: 24px;">
+                        <div style="color: var(--sage-green); font-size: 1.35rem; font-weight: 600; margin-bottom: 8px;">Contextual messaging</div>
+                        <div style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.5;">More effective onboarding, usage support, cross-sell and up-sell opportunities.</div>
+                    </div>
+                    <div style="border-left: 5px solid var(--sage-green); padding-left: 24px;">
+                        <div style="color: var(--sage-green); font-size: 1.35rem; font-weight: 600; margin-bottom: 8px;">Better prioritization</div>
+                        <div style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.5;">More data, more rationale, and better client portfolio management.</div>
                     </div>
                 </div>
             </div>
@@ -2103,32 +2461,32 @@
         <!-- SLIDE 12: AI Studio Intro -->
         <div class="slide" data-slide="12">
             <div class="fullscreen-message">
-                <p class="slide-subtitle animate-in" style="font-size: 1.3rem; margin-bottom: 30px;">Maintenant, parlons de</p>
+                <p class="slide-subtitle animate-in" style="font-size: 1.3rem; margin-bottom: 30px;">Now, let's talk about</p>
                 <h1 class="mega-title animate-in-delay-1">
                     Sage <span class="highlight-ai">AI Studio</span>
                 </h1>
                 <p class="slide-subtitle animate-in-delay-2" style="margin-top: 30px;">
-                    L'intelligence artificielle au service de vos clients.
+                    Artificial intelligence at the service of your clients.
                 </p>
             </div>
         </div>
 
         <!-- SLIDE 13: AI Studio 3 Modules (gradient icons) -->
         <div class="slide" data-slide="13">
-            <h2 class="slide-title animate-in">3 modules<span class="green">.</span> Un écosystème.</h2>
+            <h2 class="slide-title animate-in">3 modules<span class="green">.</span> One ecosystem.</h2>
             <div class="module-groups animate-in-delay-1">
-                <!-- Groupe Clients -->
+                <!-- Client Group -->
                 <div class="module-group">
                     <div class="module-card">
-                        <div class="module-icon-logo">
-                            <img src="sage-copilot-logo.png" alt="Sage Copilot" style="width: 48px; height: 48px; object-fit: contain;">
+                        <div class="module-icon-gradient">
+                            <svg viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
                         </div>
-                        <div class="module-name">Sage Copilot</div>
-                        <div class="module-desc">Un assistant conversationnel connecté à Sage qui répond aux questions en langage naturel.</div>
+                        <div class="module-name">Sage Ask.AI</div>
+                        <div class="module-desc">A conversational assistant connected to Sage that answers questions in natural language.</div>
                     </div>
-                    <div class="module-group-label client">Produit pour les clients</div>
+                    <div class="module-group-label client">Product for end clients</div>
                 </div>
-                <!-- Groupe Partenaires -->
+                <!-- Partner Group -->
                 <div class="module-group partner-group">
                     <div class="module-cards-row">
                         <div class="module-card">
@@ -2136,277 +2494,278 @@
                                 <svg viewBox="0 0 24 24" fill="white"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
                             </div>
                             <div class="module-name">Builder.AI</div>
-                            <div class="module-desc">Créez des écrans et tableaux de bord personnalisés simplement en décrivant ce que vous voulez.</div>
+                            <div class="module-desc">Create custom screens and dashboards simply by describing what you want.</div>
                         </div>
                         <div class="module-card">
                             <div class="module-icon-gradient">
                                 <svg viewBox="0 0 24 24" fill="white"><path d="M13 3v6h8l-8 12v-6H5l8-12z"/></svg>
                             </div>
                             <div class="module-name">Workflow.AI</div>
-                            <div class="module-desc">Automatisez les processus métier sans coder. Décrivez, l'IA construit.</div>
+                            <div class="module-desc">Automate business processes without coding. Describe it, AI builds it.</div>
                         </div>
                     </div>
-                    <div class="module-group-label partner">Produits dédiés aux partenaires</div>
+                    <div class="module-group-label partner">Products for partners</div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 14: Sage Copilot -->
+        <!-- SLIDE 14: Sage Ask.AI -->
         <div class="slide" data-slide="14">
             <div class="two-cols">
                 <div class="col-content">
-                    <div class="animate-in" style="margin-bottom: 20px;">
-                        <img src="sage-copilot-logo.png" alt="Sage Copilot" style="width: 64px; height: 64px; object-fit: contain;">
-                    </div>
-                    <h2 class="slide-title animate-in-delay-1">
-                        Sage Copilot<span class="green">.</span><br>
-                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Posez la question, obtenez la réponse.</span>
+                    <h2 class="slide-title animate-in">
+                        Sage Ask.AI<span class="green">.</span><br>
+                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Ask the question, get the answer.</span>
                     </h2>
                     <ul class="feature-list animate-in-delay-1">
                         <li>
                             <span class="feature-check">✓</span>
-                            Interrogez ou interagissez avec la base Sage en langage naturel
+                            <span>Query or interact with Sage database in natural language</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Pilotez les accès et les sources de données depuis le Studio
+                            <span>Control access and data sources from the Studio</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Disponible sur le Web et via l'application mobile
+                            <span>Available on Web and via mobile application</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Versions Standard & Premium (médias, captures…)
+                            <span>Standard & Premium versions (media, screenshots…)</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Déployez via API où vous voulez
+                            <span>Deploy via API wherever you want</span>
                         </li>
                     </ul>
-                    <a href="https://sage-ai-studio.webexpr.dev/ask" target="_blank" class="demo-button animate-in-delay-2" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; background: var(--gradient-ai); color: white; padding: 14px 28px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
-                        <span>Démo</span>
-                        <span>→</span>
-                    </a>
                 </div>
-                <div class="col-visual animate-in-delay-2">
-                    <div class="screenshot-frame" style="max-width: 280px;">
-                        <img src="ask-mobile.png" alt="Sage Copilot Mobile">
+                <div class="col-visual animate-in-delay-1">
+                    <!-- Ask.AI visual slider -->
+                    <div class="askai-slider" id="askaiSlider">
+                        <div class="askai-slides">
+                            <div class="askai-slide active">
+                                <div class="screenshot-frame" style="max-width: 280px;">
+                                    <img src="Sage Ask.AI - Welcome Screen.png" alt="Sage Ask.AI - Welcome Screen">
+                                </div>
+                                <div class="askai-slide-label">Welcome Screen</div>
+                            </div>
+                            <div class="askai-slide">
+                                <div class="screenshot-frame" style="max-width: 280px;">
+                                    <img src="Sage Ask AI - Widget Iphone.png" alt="Sage Ask.AI - iPhone Widget">
+                                </div>
+                                <div class="askai-slide-label">iPhone Widget</div>
+                            </div>
+                            <div class="askai-slide">
+                                <div class="screenshot-frame" style="max-width: 400px;">
+                                    <img src="Sage Ask AI - Widget Apple Watch.png" alt="Sage Ask.AI - Apple Watch Widget">
+                                </div>
+                                <div class="askai-slide-label">Apple Watch Widget</div>
+                            </div>
+                        </div>
+                        <div class="askai-slider-dots">
+                            <button class="askai-dot active" data-slide="0"></button>
+                            <button class="askai-dot" data-slide="1"></button>
+                            <button class="askai-dot" data-slide="2"></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 15: Indirect Sales Model -->
+        <!-- SLIDE 15: Sage Ask.AI - Web Integration -->
         <div class="slide" data-slide="15">
-            <div class="fullscreen-message">
-                <div class="animate-in" style="margin-bottom: 30px;">
-                    <img src="Sage_Partner-Badge_FullColour_RGB.webp" alt="Sage Partner" style="height: 80px; object-fit: contain;">
-                </div>
-                <h1 class="mega-title animate-in-delay-1" style="font-size: clamp(2.5rem, 5vw, 4rem);">
-                    Un modèle également pensé<br>
-                    <span class="highlight">pour la vente indirecte.</span>
-                </h1>
+            <h2 class="slide-title animate-in" style="font-size: 3rem;">
+                Universal API integration<br><span class="highlight">into the tool of your choice.</span>
+            </h2>
+            <div class="screenshot-frame animate-in-delay-1 floating" style="margin-top: 40px; max-width: 950px;">
+                <img src="Slide Ask - Dataven.png" alt="Sage Ask.AI - Web Interface">
             </div>
         </div>
 
-        <!-- SLIDE 16: Builder.AI with real screenshot -->
-        <div class="slide" data-slide="16">
-            <div class="two-cols">
-                <div class="col-visual animate-in">
-                    <div class="screenshot-frame glow-green" style="max-width: 600px;">
-                        <img src="builder.png" alt="Interface Builder.AI">
+        <!-- SLIDE 16: Builder.AI with video demo -->
+        <div class="slide" data-slide="16" style="padding-left: 0;">
+            <div class="two-cols" style="gap: 80px; align-items: center;">
+                <div class="col-visual animate-in" style="flex: 1.8; margin-left: -60px;">
+                    <div class="screenshot-frame glow-green" style="max-width: none; margin-left: 0;">
+                        <video src="builder-demo.mp4" autoplay loop muted playsinline style="width: 138%; height: auto; border-radius: 8px;"></video>
                     </div>
                 </div>
-                <div class="col-content">
+                <div class="col-content" style="flex: 1;">
                     <h2 class="slide-title animate-in-delay-1">
                         Builder.AI<span class="green">.</span><br>
-                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Décrivez. L'IA construit.</span>
+                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Describe it. AI builds it.</span>
                     </h2>
                     <ul class="feature-list animate-in-delay-2">
                         <li>
                             <span class="feature-check">✓</span>
-                            Générez des vues connectées à Sage via un simple prompt
+                            <span>Generate Sage-connected views with a simple prompt</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Itérez, Améliorez, Finalisez : Mode VibeCoding
+                            <span>Iterate, Improve, Finalize: VibeCoding Mode</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Déployez la vue finale sur le portail client
+                            <span>Deploy the final view on the client portal</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Multiproduits & multilingue
+                            <span>Multi-product & Multilingual</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Une API par vue — intégration universelle
+                            <span>One API per view — universal integration</span>
                         </li>
                     </ul>
-                    <a href="https://sage-ai-studio.webexpr.dev/builder" target="_blank" class="demo-button animate-in-delay-3" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; background: var(--gradient-ai); color: white; padding: 14px 28px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
-                        <span>Démo</span>
-                        <span>→</span>
-                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 17: Partner Library -->
-        <div class="slide" data-slide="17">
+        <!-- SLIDE USE CASES BUILDER: Demo Introduction -->
+        <div class="slide" data-slide="16b">
+            <h2 class="slide-title animate-in">In practice<span class="green">.</span></h2>
+            <p class="slide-subtitle animate-in-delay-1" style="margin-bottom: 50px;">Two concrete use cases for your clients.</p>
+            <div class="cards-grid animate-in-delay-2" style="grid-template-columns: repeat(2, 1fr); max-width: 1000px; gap: 40px;">
+                <div class="card use-case-card" style="border-left: 4px solid var(--sage-green); padding: 40px; text-align: left; display: flex; flex-direction: column;">
+                    <div class="use-case-number" style="font-size: 0.9rem; color: var(--sage-green); font-weight: 600; margin-bottom: 15px;">USE CASE #1</div>
+                    <div class="card-title" style="color: white; font-size: 1.5rem; line-height: 1.3; margin-bottom: 15px;">Smart inventory management</div>
+                    <div class="card-text" style="color: var(--text-secondary); flex: 1;">Intelligent replenishment view. Automatic alerts and real-time visual indicators.</div>
+                    <div class="use-case-tag" style="margin-top: 20px; display: inline-block; padding: 6px 12px; background: rgba(0,214,57,0.15); border-radius: 20px; font-size: 0.85rem; color: var(--sage-green);">Cash flow optimization lever</div>
+                    <button onclick="window.open('video-stocks.html', '_blank')" style="margin-top: 20px; padding: 12px 24px; background: linear-gradient(135deg, var(--sage-green), #0891B2); border: none; border-radius: 8px; color: white; font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,214,57,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                        <span>Watch demo</span>
+                    </button>
+                </div>
+                <div class="card use-case-card" style="border-left: 4px solid #0891B2; padding: 40px; text-align: left; display: flex; flex-direction: column;">
+                    <div class="use-case-number" style="font-size: 0.9rem; color: #0891B2; font-weight: 600; margin-bottom: 15px;">USE CASE #2</div>
+                    <div class="card-title" style="color: white; font-size: 1.5rem; line-height: 1.3; margin-bottom: 15px;">Simplified custom quotes</div>
+                    <div class="card-text" style="color: var(--text-secondary); flex: 1;">A personalized business view that automatically generates a complete quote in Sage. Guided input and instant creation.</div>
+                    <div class="use-case-tag" style="margin-top: 20px; display: inline-block; padding: 6px 12px; background: rgba(8,145,178,0.15); border-radius: 20px; font-size: 0.85rem; color: #0891B2;">Operational time savings</div>
+                    <button onclick="window.open('video-devis.html', '_blank')" style="margin-top: 20px; padding: 12px 24px; background: linear-gradient(135deg, #0891B2, #00D6DE); border: none; border-radius: 8px; color: white; font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(8,145,178,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                        <span>Watch demo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 17: Workflow.AI -->
+        <div class="slide" data-slide="17" style="padding-left: 0;">
+            <div class="two-cols" style="gap: 80px; align-items: center;">
+                <div class="col-visual animate-in" style="flex: 1.8; margin-left: -60px;">
+                    <div class="screenshot-frame glow-green" style="max-width: none; margin-left: 0;">
+                        <video src="workflow-demo.mp4" autoplay loop muted playsinline style="width: 138%; height: auto; border-radius: 8px;"></video>
+                    </div>
+                </div>
+                <div class="col-content" style="flex: 1;">
+                    <h2 class="slide-title animate-in-delay-1">
+                        Workflow.AI<span class="green">.</span><br>
+                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Explain. Sequence. Deploy.</span>
+                    </h2>
+                    <ul class="feature-list animate-in-delay-2">
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Business workflow autopilot</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Interact inside and outside of Sage</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Connect workflows to AI-built views</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Create automations with most market tools</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE USE CASES WORKFLOW: Theoretical Use Cases -->
+        <div class="slide" data-slide="17b">
+            <h2 class="slide-title animate-in">Workflow Use Cases<span class="green">.</span></h2>
+            <div style="display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 40px;" class="animate-in">
+                <span class="workflow-badge" style="animation: pulse-badge 2s ease-in-out infinite;">Coming Soon</span>
+            </div>
+            <div class="cards-grid animate-in-delay-1" style="grid-template-columns: repeat(2, 1fr); max-width: 1000px; gap: 40px;">
+                <div class="card use-case-card" style="border-left: 4px solid #FF6B6B; padding: 40px; text-align: left;">
+                    <div class="use-case-number" style="font-size: 0.9rem; color: #FF6B6B; font-weight: 600; margin-bottom: 15px;">AUTOMATION</div>
+                    <div class="card-title" style="color: white; font-size: 1.4rem; line-height: 1.3; margin-bottom: 15px;">Automatic order control</div>
+                    <div class="card-text" style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Automatic verification of due dates, product margins, signed terms and deposits before validation. Automatic transformation into delivery preparation.
+                    </div>
+                </div>
+                <div class="card use-case-card" style="border-left: 4px solid #FF8E53; padding: 40px; text-align: left;">
+                    <div class="use-case-number" style="font-size: 0.9rem; color: #FF8E53; font-weight: 600; margin-bottom: 15px;">REPORTING</div>
+                    <div class="card-title" style="color: white; font-size: 1.4rem; line-height: 1.3; margin-bottom: 15px;">Automatic management reports</div>
+                    <div class="card-text" style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Periodic dashboard delivery: unpaid invoices, overdue dates, unrecorded invoices, ongoing P&L. Customized alerts by role.
+                    </div>
+                </div>
+            </div>
+            <div class="animate-in-delay-2" style="max-width: 1000px; margin: 30px auto 0;">
+                <button onclick="window.open('https://demo-workflow-ai.vercel.app/', '_blank')" style="width: 100%; padding: 16px 32px; background: linear-gradient(135deg, #FF6B6B, #FF8E53); border: none; border-radius: 10px; color: white; font-weight: 600; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 30px rgba(255,107,107,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                    <span>Watch Workflow.AI demo</span>
+                </button>
+            </div>
+            <p class="animate-in-delay-3" style="margin-top: 30px; font-size: 1rem; color: var(--text-muted); text-align: center;">
+                These automations will be available in an upcoming version.
+            </p>
+        </div>
+
+        <!-- SLIDE 18: Partner Library -->
+        <div class="slide" data-slide="18">
             <div class="two-cols">
                 <div class="col-content">
                     <h2 class="slide-title animate-in">
-                        Bibliothèque<br><span class="green">partenaire.</span>
+                        Partner<br><span class="green">Library.</span>
                     </h2>
                     <p class="slide-subtitle animate-in-delay-1" style="text-align: left; margin-top: 20px;">
-                        Industrialisez vos développements.<br>
-                        Maximisez votre marge.
+                        Industrialize your developments.<br>
+                        Maximize your margin.
                     </p>
                     <ul class="feature-list animate-in-delay-2">
                         <li>
                             <span class="feature-check">✓</span>
-                            Transposez vos vues « stars » en quelques minutes
+                            <span>Transfer your "star" views from one client to another in minutes</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Dashboard financier → Déployable chez 10 clients en 1 h
+                            <span>Be proactive with prospects with "never seen before" solutions</span>
                         </li>
                         <li>
                             <span class="feature-check">✓</span>
-                            Workflow relance clients → Duplicable en 5 min
+                            <span>All the robustness of Sage with all the flexibility of the web</span>
                         </li>
                     </ul>
+                    <button onclick="window.open('video-partenaires.html', '_blank')" class="animate-in-delay-3" style="margin-top: 30px; padding: 16px 32px; background: linear-gradient(135deg, var(--sage-green), #0891B2); border: none; border-radius: 10px; color: white; font-weight: 600; font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 30px rgba(0,214,57,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                        <span>Partner options</span>
+                    </button>
                 </div>
                 <div class="col-visual animate-in-delay-2">
                     <div style="text-align: center;">
                         <div class="mega-number" style="font-size: 8rem;">×10</div>
-                        <p style="color: var(--text-secondary); font-size: 1.2rem; margin-top: 10px;">Multiplicateur de marge</p>
+                        <p style="color: var(--text-secondary); font-size: 1.2rem; margin-top: 10px;">Margin multiplier</p>
                         <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 20px;">
-                            Temps dev initial : <strong>2 jours</strong><br>
-                            Temps transposition : <strong style="color: var(--sage-green);">15 min</strong>
+                            Initial dev time: <strong>2 days</strong><br>
+                            Transfer time: <strong style="color: var(--sage-green);">15 min</strong>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 18: Workflow.AI -->
-        <div class="slide" data-slide="18">
-            <div class="two-cols">
-                <div class="col-visual animate-in">
-                    <!-- Technical Workflow Diagram -->
-                    <div class="workflow-diagram">
-                        <div class="workflow-header">
-                            <span class="workflow-badge">Coming Soon</span>
-                            <span class="workflow-title-small">workflow_relance_client.ai</span>
-                        </div>
-                        <div class="workflow-canvas">
-                            <!-- Trigger Node -->
-                            <div class="workflow-node trigger">
-                                <div class="node-icon">⏰</div>
-                                <div class="node-content">
-                                    <div class="node-type">TRIGGER</div>
-                                    <div class="node-name">Schedule</div>
-                                    <div class="node-config">Lundi 9h</div>
-                                </div>
-                            </div>
-                            <div class="workflow-connector"></div>
-                            <!-- Sage Query Node -->
-                            <div class="workflow-node sage">
-                                <div class="node-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                                </div>
-                                <div class="node-content">
-                                    <div class="node-type">SAGE 100</div>
-                                    <div class="node-name">Query</div>
-                                    <div class="node-config">Factures > 30j</div>
-                                </div>
-                            </div>
-                            <div class="workflow-connector"></div>
-                            <!-- Condition Node -->
-                            <div class="workflow-node condition">
-                                <div class="node-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 5v8l-9 5-9-5V8z"/></svg>
-                                </div>
-                                <div class="node-content">
-                                    <div class="node-type">CONDITION</div>
-                                    <div class="node-name">If/Then</div>
-                                    <div class="node-config">Amount > 1000€</div>
-                                </div>
-                            </div>
-                            <div class="workflow-branch">
-                                <div class="branch-line left"></div>
-                                <div class="branch-line right"></div>
-                            </div>
-                            <div class="workflow-actions">
-                                <!-- Email Action -->
-                                <div class="workflow-node action email">
-                                    <div class="node-icon">📧</div>
-                                    <div class="node-content">
-                                        <div class="node-type">ACTION</div>
-                                        <div class="node-name">Email</div>
-                                        <div class="node-config">Template relance</div>
-                                    </div>
-                                </div>
-                                <!-- Slack Action -->
-                                <div class="workflow-node action slack">
-                                    <div class="node-icon">💬</div>
-                                    <div class="node-content">
-                                        <div class="node-type">ACTION</div>
-                                        <div class="node-name">Slack</div>
-                                        <div class="node-config">#compta</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="workflow-connector-merge"></div>
-                            <!-- Log Node -->
-                            <div class="workflow-node output">
-                                <div class="node-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
-                                </div>
-                                <div class="node-content">
-                                    <div class="node-type">OUTPUT</div>
-                                    <div class="node-name">Log CRM</div>
-                                    <div class="node-config">+ Analytics</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-content">
-                    <h2 class="slide-title animate-in-delay-1">
-                        Workflow.AI<span class="green">.</span><br>
-                        <span style="font-size: 0.6em; font-weight: 400; color: var(--text-secondary);">Expliquez. Séquencez. Déployez.</span>
-                    </h2>
-                    <ul class="feature-list animate-in-delay-2">
-                        <li>
-                            <span class="feature-check">✓</span>
-                            L'autopilote des workflows métiers
-                        </li>
-                        <li>
-                            <span class="feature-check">✓</span>
-                            Interagissez dans et en dehors de Sage
-                        </li>
-                        <li>
-                            <span class="feature-check">✓</span>
-                            Connectez les workflows aux vues construites avec l'IA
-                        </li>
-                        <li>
-                            <span class="feature-check">✓</span>
-                            Créez des automates avec la plupart des outils du marché
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 19: Architecture / Flux -->
+        <!-- SLIDE 19: Architecture / Flow -->
         <div class="slide" data-slide="19">
-            <h2 class="slide-title animate-in">Comment ça marche<span class="green"> ?</span></h2>
+            <h2 class="slide-title animate-in">How it works<span class="green">?</span></h2>
             <div class="architecture-container animate-in-delay-1">
-                <div class="arch-label">Vos produits Sage</div>
+                <div class="arch-label">Your Sage products</div>
                 <div class="arch-row">
                     <div class="arch-box product">Sage 50</div>
                     <div class="arch-box product">Sage 100</div>
@@ -2416,354 +2775,122 @@
                     <div class="arch-studio-header">Sage AI Studio</div>
                     <div class="arch-studio-modules">
                         <div class="arch-module-item">
-                            <img src="sage-copilot-logo.png" alt="Copilot" style="width: 24px; height: 24px;">
-                            <span>Sage Copilot</span>
-                        </div>
-                        <div class="arch-module-item">
-                            <span class="module-icon-small"></span>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                             <span>Builder.AI</span>
                         </div>
                         <div class="arch-module-item">
-                            <span class="module-icon-small"></span>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                             <span>Workflow.AI</span>
                         </div>
                     </div>
                 </div>
                 <div class="arch-arrow">↓</div>
-                <div class="arch-label">Intégrables dans</div>
+                <div class="arch-label">Integrable for your clients</div>
                 <div class="arch-row">
-                    <div class="arch-box output">Nouvelle Ergonomie Web</div>
-                    <div class="arch-box output copilot-app">
-                        <img src="sage-copilot-logo.png" alt="Copilot" style="width: 18px; height: 18px; margin-right: 6px;">
-                        App. mobile Copilot
-                    </div>
-                    <div class="arch-box output">Interfaces tierces par API</div>
+                    <div class="arch-box output">New Web UX</div>
+                    <div class="arch-box output">Third-party interfaces via API</div>
                 </div>
             </div>
         </div>
 
         <!-- SLIDE 20: Why Integrate? -->
         <div class="slide" data-slide="20">
-            <h2 class="slide-title animate-in">Pourquoi intégrer<br>Sage <span class="highlight-ai">AI Studio</span><span class="green"> ?</span></h2>
+            <h2 class="slide-title animate-in">Why integrate<br>Sage <span class="highlight-ai">AI Studio</span><span class="green">?</span></h2>
             <div class="value-grid animate-in-delay-1">
                 <div class="value-card">
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
                     </div>
-                    <div class="value-title">Nouveaux revenus</div>
-                    <div class="value-desc">Revenus récurrents sur chaque abonnement. Sans investissement initial.</div>
+                    <div class="value-title">New revenue streams</div>
+                    <div class="value-desc">Recurring revenue on every subscription. No upfront investment.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M13 3v6h8l-8 12v-6H5l8-12z"/></svg>
                     </div>
-                    <div class="value-title">Productivité ×3</div>
-                    <div class="value-desc">Facturez des journées de dev produites en quelques minutes.</div>
+                    <div class="value-title">Productivity ×3</div>
+                    <div class="value-desc">Bill full development days produced in just minutes.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
                     </div>
-                    <div class="value-title">Montée en compétences</div>
-                    <div class="value-desc">Vos consultants réalisent les petits développements en autonomie.</div>
+                    <div class="value-title">Skill uplift</div>
+                    <div class="value-desc">Your consultants deliver small developments autonomously.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
                     </div>
-                    <div class="value-title">Personnalisation</div>
-                    <div class="value-desc">Créez des interfaces adaptées à chaque client.</div>
+                    <div class="value-title">Customization</div>
+                    <div class="value-desc">Create interfaces tailored to each client.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
                     </div>
-                    <div class="value-title">Offre modulaire</div>
-                    <div class="value-desc">Sage Copilot seul, Builder seul, ou suite complète. Adaptez l'offre.</div>
+                    <div class="value-title">Modular offering</div>
+                    <div class="value-desc">UX only, Builder only, or full suite. Adapt the offering.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <svg viewBox="0 0 24 24" fill="white"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
                     </div>
-                    <div class="value-title">Différenciation</div>
-                    <div class="value-desc">Positionnez Sage face à Odoo, Pennylane et Cegid.</div>
+                    <div class="value-title">Differentiation</div>
+                    <div class="value-desc">Position Sage against Odoo, Pennylane and Cegid.</div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 21: Before/After -->
-        <div class="slide" data-slide="21">
-            <h2 class="slide-title animate-in">Le changement<span class="green">.</span></h2>
-            <div class="comparison animate-in-delay-1">
-                <div class="comparison-card before">
-                    <div class="comparison-header">
-                        Aujourd'hui
-                    </div>
-                    <ul class="comparison-list">
-                        <li>Développements longs et coûteux (semaines)</li>
-                        <li>Compétences techniques rares (devs Sage)</li>
-                        <li>Migration SPC complexe à vendre</li>
-                        <li>Concurrence croissante (Odoo, Pennylane)</li>
-                        <li>Interface vieillissante</li>
-                    </ul>
-                </div>
-                <div class="comparison-card after">
-                    <div class="comparison-header">
-                        Avec Sage Xperience
-                    </div>
-                    <ul class="comparison-list">
-                        <li>Développements en heures, pas en semaines</li>
-                        <li>Vos consultants deviennent autonomes</li>
-                        <li>Full web = migration SPC naturelle</li>
-                        <li>Avantage concurrentiel avec l'IA native</li>
-                        <li>Interface moderne et séduisante</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 22: Security -->
-        <div class="slide" data-slide="22">
-            <h2 class="slide-title animate-in">Données protégées<span class="green">.</span></h2>
-            <div class="security-grid animate-in-delay-1">
-                <div class="security-badge">
-                    <div class="security-icon">🇫🇷</div>
-                    <div class="security-title">Hébergement France</div>
-                    <div class="security-text">100 % France/Europe. Données souveraines.</div>
-                </div>
-                <div class="security-badge">
-                    <div class="security-icon">🛡️</div>
-                    <div class="security-title">RGPD compliant</div>
-                    <div class="security-text">Conformité totale. DPO désigné.</div>
-                </div>
-                <div class="security-badge">
-                    <div class="security-icon">🔐</div>
-                    <div class="security-title">Chiffrement AES-256</div>
-                    <div class="security-text">Données chiffrées au repos et en transit.</div>
-                </div>
-                <div class="security-badge">
-                    <div class="security-icon">🚫</div>
-                    <div class="security-title">Zero Data Retention</div>
-                    <div class="security-text">Aucune donnée Sage stockée par l'IA.</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 23: The Stakes -->
-        <div class="slide" data-slide="23">
-            <h2 class="slide-title animate-in">Les enjeux pour Sage 100<span class="green">.</span></h2>
-            <div class="cards-grid animate-in-delay-1">
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div class="card-title" style="color: var(--sage-green); font-size: 1.9rem;">Plus de clients</div>
-                    <div class="card-text">Avec des interfaces intuitives qui séduisent les nouvelles générations</div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                    </div>
-                    <div class="card-title" style="color: var(--sage-green); font-size: 1.9rem;">Plus d'usage</div>
-                    <div class="card-text">Avec des services additionnels pour le cross-sell et l'upsell</div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <div class="card-title" style="color: var(--sage-green); font-size: 1.9rem;">Moins de churn</div>
-                    <div class="card-text">Avec une expérience moderne qui répond aux attentes de 2026</div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                    </div>
-                    <div class="card-title" style="color: var(--sage-green); font-size: 1.9rem;">Plus ouvert</div>
-                    <div class="card-text">API, marketplace, intégrations tierces</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 25: 100% SPC -->
-        <div class="slide" data-slide="24">
-            <div class="fullscreen-message">
-                <h1 class="mega-title animate-in text-glow">
-                    100 % aligné<br>
-                    <span class="highlight">Sage 100 SPC</span>
-                </h1>
-                <p class="slide-subtitle animate-in-delay-1" style="margin-top: 30px;">
-                    La migration cloud devient une évidence, pas une contrainte.
-                </p>
-            </div>
-        </div>
-
-        <!-- SLIDE 25: What we're asking -->
-        <div class="slide" data-slide="25">
-            <div class="fullscreen-message">
-                <p class="slide-subtitle animate-in" style="font-size: 1.5rem; margin-bottom: 30px;">
-                    On ne vous demande pas de signer aujourd'hui.
-                </p>
-                <h1 class="mega-title animate-in-delay-1" style="font-size: clamp(2.5rem, 5vw, 4rem);">
-                    On vous demande de<br>
-                    <span class="highlight">construire ça avec nous.</span>
-                </h1>
-            </div>
-        </div>
-
-        <!-- SLIDE 26: Next Steps -->
+        <!-- SLIDE 21: Before/After - SUPPRIMÉ -->
+        <!-- SLIDE 26: Value Summary - THE OPPORTUNITY -->
         <div class="slide" data-slide="26">
-            <h2 class="slide-title animate-in">La suite<span class="green">.</span></h2>
-
-            <!-- Dual Roadmap Swimlanes -->
-            <div class="dual-roadmap animate-in-delay-1">
-                <!-- Nouvelle Ergonomie Web -->
-                <div class="swimlane swimlane-green">
-                    <div class="swimlane-header">
-                        <div class="swimlane-title" style="color: var(--sage-green);">Nouvelle Ergonomie Web</div>
-                        <div class="swimlane-subtitle">Dataven Platform</div>
+            <h2 class="slide-title animate-in" style="margin-bottom: 50px;">The <span class="highlight">Opportunity</span></h2>
+            <div class="cards-grid animate-in-delay-1" style="grid-template-columns: repeat(2, 1fr); max-width: 1000px; gap: 30px;">
+                <div class="card" style="border-left: 4px solid #FF6B6B; padding: 35px;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1));">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <div class="swimlane-track">
-                        <div class="track-line"></div>
-                        <div class="milestone" style="left: 5%;">
-                            <div class="milestone-dot green"></div>
-                            <div class="milestone-label">
-                                <span class="milestone-date">Février</span>
-                                <span class="milestone-text">V0 Gesco</span>
-                            </div>
-                        </div>
-                        <div class="milestone" style="left: 22%;">
-                            <div class="milestone-dot green"></div>
-                            <div class="milestone-label">
-                                <span class="milestone-date">Fin Fév</span>
-                                <span class="milestone-text">Formation</span>
-                            </div>
-                        </div>
-                        <div class="milestone" style="left: 38%;">
-                            <span class="milestone-badge green">Launch</span>
-                            <div class="milestone-dot green"></div>
-                            <div class="milestone-label">
-                                <span class="milestone-date">Mars</span>
-                                <span class="milestone-text">V0 Compta + EAP</span>
-                            </div>
-                        </div>
-                        <div class="milestone" style="left: 72%;">
-                            <div class="milestone-dot green"></div>
-                            <div class="milestone-label">
-                                <span class="milestone-date">T2 2026</span>
-                                <span class="milestone-text">Déploiement</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="card-title" style="color: #FF6B6B; font-size: 1.8rem;">PROTECT</div>
+                    <div class="card-text" style="font-size: 1.1rem;">€110M ARR at risk from churn.<br>Modern UX = customer retention.</div>
                 </div>
-
-                <!-- Sage AI Studio -->
-                <div class="swimlane swimlane-ai">
-                    <div class="swimlane-header">
-                        <div class="swimlane-title highlight-ai">Sage AI Studio</div>
-                        <div class="swimlane-subtitle">Intelligence Artificielle</div>
+                <div class="card" style="border-left: 4px solid var(--sage-green); padding: 35px;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(0,214,57,0.2), rgba(0,214,57,0.1));">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D639" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <div class="swimlane-track">
-                        <div class="track-line"></div>
-                        <div class="milestone" style="left: 22%;">
-                            <span class="milestone-badge ai">New</span>
-                            <div class="milestone-dot ai"></div>
-                            <div class="milestone-label">
-                                <span class="milestone-date">Fin Fév</span>
-                                <span class="milestone-text">Sage Copilot</span>
-                                <span class="milestone-sub">SaaS & Mobile</span>
-                            </div>
-                        </div>
-                        <div class="milestone" style="left: 38%;">
-                            <div class="milestone-dot ai"></div>
-                            <div class="milestone-label">
-                                <span class="milestone-date">Mars</span>
-                                <span class="milestone-text">Builder.AI</span>
-                            </div>
-                        </div>
-                        <div class="milestone" style="left: 55%;">
-                            <div class="milestone-dot ai"></div>
-                            <div class="milestone-label">
-                                <span class="milestone-date">Avril</span>
-                                <span class="milestone-text">Distribution</span>
-                            </div>
-                        </div>
-                        <div class="milestone" style="left: 88%;">
-                            <div class="milestone-dot ai"></div>
-                            <div class="milestone-label">
-                                <span class="milestone-date">Juin</span>
-                                <span class="milestone-text">Workflow.AI</span>
-                            </div>
-                        </div>
+                    <div class="card-title" style="color: var(--sage-green); font-size: 1.8rem;">TRANSFORM</div>
+                    <div class="card-text" style="font-size: 1.1rem;">88,000 client experiences.<br>From legacy to modern platform.</div>
+                </div>
+                <div class="card" style="border-left: 4px solid #0891B2; padding: 35px;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(8,145,178,0.2), rgba(8,145,178,0.1));">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                     </div>
+                    <div class="card-title" style="color: #0891B2; font-size: 1.8rem;">DIFFERENTIATE</div>
+                    <div class="card-text" style="font-size: 1.1rem;">Lead vs Odoo, Pennylane, Cegid.<br>First ERP with native AI integration.</div>
+                </div>
+                <div class="card" style="border-left: 4px solid #D4AF37; padding: 35px;">
+                    <div class="card-icon" style="background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.1));">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="card-title" style="color: #D4AF37; font-size: 1.8rem;">ACCELERATE</div>
+                    <div class="card-text" style="font-size: 1.1rem;">7 months to Sept 2026 deadline.<br>E-invoicing reform = window of action.</div>
                 </div>
             </div>
-
-            <!-- Legend -->
-            <div class="roadmap-legend animate-in-delay-2">
-                <div class="legend-item"><span class="legend-dot green"></span> Nouvelle Ergonomie Web</div>
-                <div class="legend-item"><span class="legend-dot ai"></span> Sage AI Studio</div>
-            </div>
-        </div>
-
-        <!-- SLIDE 27: CTA -->
-        <div class="slide" data-slide="27">
-            <h2 class="slide-title animate-in">Rejoignez l'aventure<span class="green">.</span></h2>
-            <div class="cta-box animate-in-delay-1">
-                <div class="cta-title">Intéressé(e) par l'Early Access ?</div>
-                <div class="cta-text">
-                    Participez à la co-construction de Sage Xperience.<br>
-                    Vos feedbacks façonneront le produit final.
-                </div>
-                <a href="#" class="cta-button">
-                    <span>Je veux participer</span>
-                    <span>→</span>
-                </a>
-            </div>
-            <p class="slide-subtitle animate-in-delay-2" style="margin-top: 40px; font-size: 1rem;">
-                Formation incluse &bull; Support dédié &bull; Accès prioritaire
+            <p class="slide-subtitle animate-in-delay-2" style="margin-top: 50px; font-size: 1.4rem; font-weight: 500; color: white;">
+                "The technology is ready. The window is now."
             </p>
-        </div>
-
-        <!-- SLIDE 28: Final -->
-        <div class="slide slide-hero" data-slide="28">
-            <svg class="wave-bg" viewBox="0 0 1920 400" preserveAspectRatio="none">
-                <defs>
-                    <linearGradient id="waveGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#00D4AA"/>
-                        <stop offset="50%" style="stop-color:#00D639"/>
-                        <stop offset="100%" style="stop-color:#C8E600"/>
-                    </linearGradient>
-                </defs>
-                <path class="wave-path" style="stroke: url(#waveGradient2)" d="M0,200 Q400,50 800,200 T1600,200 T2400,200" />
-                <path class="wave-path" style="opacity:0.5;transform:translateY(30px);stroke: url(#waveGradient2)" d="M0,200 Q400,350 800,200 T1600,200 T2400,200" />
-            </svg>
-            <div class="hero-content">
-                <h1 class="mega-title animate-in">Sage <span class="highlight-ai">Xperience</span></h1>
-                <p class="slide-subtitle animate-in-delay-1" style="margin-top: 30px;">
-                    L'avenir de Sage 100 commence aujourd'hui.
-                </p>
-                <p class="animate-in-delay-2" style="margin-top: 50px; font-size: 1.2rem; color: var(--text-secondary);">
-                    Merci.
-                </p>
-                <div class="animate-in-delay-3" style="margin-top: 60px; display: flex; gap: 40px; justify-content: center; color: var(--text-muted); font-size: 0.95rem;">
-                    <span>David Klecel</span>
-                    <span>•</span>
-                    <span>Valentin Barthel</span>
-                    <span>•</span>
-                    <span>Nicolas Jacques</span>
-                </div>
-            </div>
         </div>
     </div>
 
-    <!-- Progress Bar -->
-    <div class="progress-container">
+    <!-- Progress Bar - Clickable Navigation -->
+    <div class="progress-container" id="progressContainer">
         <div class="progress-bar" id="progressBar"></div>
+        <div class="progress-markers" id="progressMarkers"></div>
     </div>
 
     <!-- Navigation -->
     <div class="slide-counter">
-        <span id="currentSlide">1</span> / <span id="totalSlides">28</span>
+        <span id="currentSlide">1</span> / <span id="totalSlides">26</span>
     </div>
 
     <div class="nav-controls">
@@ -2772,6 +2899,12 @@
     </div>
 
     <script>
+        // =============================================
+        // Executive Presentation - English Only
+        // =============================================
+        let presentation = null;
+
+        // =============================================
         // Presentation Controller
         class Presentation {
             constructor() {
@@ -2804,7 +2937,7 @@
                 });
 
                 document.addEventListener('click', (e) => {
-                    if (e.target.closest('.nav-controls') || e.target.closest('.cta-button') || e.target.closest('.carousel')) return;
+                    if (e.target.closest('.nav-controls') || e.target.closest('.cta-button') || e.target.closest('.carousel') || e.target.closest('.progress-container')) return;
 
                     const clickX = e.clientX;
                     const windowWidth = window.innerWidth;
@@ -2816,8 +2949,64 @@
                     }
                 });
 
+                this.initProgressBar();
                 this.goToSlide(0);
                 this.initCarousels();
+            }
+
+            initProgressBar() {
+                const markersContainer = document.getElementById('progressMarkers');
+                const progressContainer = document.getElementById('progressContainer');
+
+                // Slide labels for tooltip
+                const slideLabels = [
+                    'Hero', 'Speakers', 'Genysia Group', 'E-invoicing', 'Client Quote',
+                    'Challenges', 'AI Urgency', 'Transform', 'Introducing', 'Two Pillars',
+                    'Web Interface', 'Dataven Features', 'Business Impact', 'Usage Analytics',
+                    'AI Studio Intro', '3 Modules', 'Ask.AI', 'Ask.AI Web', 'Builder.AI',
+                    'Builder Cases', 'Workflow.AI', 'Workflow Cases', 'Partner Library',
+                    'Architecture', 'Why Integrate', 'The Opportunity'
+                ];
+
+                // Generate markers
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const marker = document.createElement('div');
+                    marker.className = 'progress-marker';
+                    marker.dataset.slide = i;
+
+                    const dot = document.createElement('div');
+                    dot.className = 'progress-marker-dot';
+
+                    const label = document.createElement('div');
+                    label.className = 'progress-marker-label';
+                    label.textContent = `${i + 1}. ${slideLabels[i] || 'Slide ' + (i + 1)}`;
+
+                    marker.appendChild(dot);
+                    marker.appendChild(label);
+                    markersContainer.appendChild(marker);
+                }
+
+                // Click handler for progress bar navigation
+                progressContainer.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const rect = progressContainer.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const percentage = clickX / rect.width;
+                    const targetSlide = Math.floor(percentage * this.totalSlides);
+                    this.goToSlide(Math.min(Math.max(targetSlide, 0), this.totalSlides - 1));
+                });
+            }
+
+            updateProgressMarkers() {
+                const markers = document.querySelectorAll('.progress-marker');
+                markers.forEach((marker, index) => {
+                    marker.classList.remove('active', 'visited');
+                    if (index === this.currentSlide) {
+                        marker.classList.add('active');
+                    } else if (index < this.currentSlide) {
+                        marker.classList.add('visited');
+                    }
+                });
             }
 
             initCarousels() {
@@ -2937,11 +3126,62 @@
 
                 document.getElementById('prevBtn').style.opacity = this.currentSlide === 0 ? 0.3 : 1;
                 document.getElementById('nextBtn').style.opacity = this.currentSlide === this.totalSlides - 1 ? 0.3 : 1;
+
+                this.updateProgressMarkers();
             }
         }
 
+        // Sage Ask.AI Slider
+        function initAskaiSlider() {
+            const slider = document.getElementById('askaiSlider');
+            if (!slider) return;
+
+            const slides = slider.querySelectorAll('.askai-slide');
+            const dots = slider.querySelectorAll('.askai-dot');
+            let currentSlide = 0;
+            let autoSlideInterval;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                const next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }
+
+            // Click on dots
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const slideIndex = parseInt(dot.dataset.slide);
+                    showSlide(slideIndex);
+                    resetAutoSlide();
+                });
+            });
+
+            // Auto-slide every 4 seconds
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 4000);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+
+            startAutoSlide();
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            new Presentation();
+            presentation = new Presentation();
+            initAskaiSlider();
         });
 
         document.addEventListener('dblclick', (e) => {

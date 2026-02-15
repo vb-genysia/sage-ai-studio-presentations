@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <title>Feedback Partenaires - BPAC 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage-green: #00D639;
+            --sage-cyan: #00D6DE;
+            --gradient-main: linear-gradient(135deg, #00D639 0%, #00D6DE 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1a1a2e 50%, #0A0A0A 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .content {
+            text-align: left;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--gradient-main);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        h1 span {
+            color: var(--sage-green);
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 1.15rem;
+        }
+
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 214, 57, 0.25);
+        }
+
+        .qr-container img {
+            width: 280px;
+            height: 280px;
+            display: block;
+        }
+
+        .scan-text {
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #444;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 900px) {
+            .banner {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .qr-container img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-height: 700px) {
+            .logo {
+                font-size: 2.5rem;
+                margin-bottom: 8px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 10px;
+            }
+
+            .badge {
+                margin-bottom: 14px;
+                padding: 5px 12px;
+                font-size: 0.7rem;
+            }
+
+            .qr-container {
+                padding: 16px;
+            }
+
+            .qr-container img {
+                width: 220px;
+                height: 220px;
+            }
+
+            .banner {
+                gap: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="content">
+            <div class="logo">Sage</div>
+            <span class="badge">BPAC 2026</span>
+            <h1>Feedback<br><span>Partenaires</span></h1>
+            <p class="subtitle">Votre avis compte pour construire l'avenir ensemble</p>
+        </div>
+
+        <div class="qr-section">
+            <div class="qr-container">
+                <img src="qrcode-feedback.png" alt="QR Code Feedback">
+            </div>
+            <p class="scan-text">Scannez pour accéder au formulaire</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Document confidentiel - © 2026 Sage & Genysia Technologies
+    </div>
+<script src="/_auth.js"></script>
+</body>
+</html>

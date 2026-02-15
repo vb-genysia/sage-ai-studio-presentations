@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Protection contre l'indexation - Document confidentiel -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <title>Sage Workflow.AI - Nouveau Workflow</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/workflow.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <div class="logo">
+                    <!-- Sage Logo SVG -->
+                    <svg viewBox="0 0 250 141" class="logo-sage-svg" role="img" aria-label="Logo Sage" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <title>Sage</title>
+                        <path d="M27.6269 0C43.2682 0 55.9863 10.8171 56.2793 25.8724C56.4258 30.1107 53.3561 32.4512 49.9935 32.4512C46.7773 32.4512 44.0006 30.1139 43.8542 26.1654C43.7077 17.6855 36.5462 11.3997 27.4805 11.3997C19.0006 11.3997 12.5716 17.3926 12.5716 25.5794C12.5716 34.4954 18.5645 38.444 30.9896 42.9753C44.2904 47.7995 56.4258 53.4993 56.4258 70.4557C56.4258 85.2213 44.8763 97.0605 28.7988 97.0605C13.0111 97.0605 0 85.9505 0 70.8952C0 61.5397 4.53125 54.9609 8.91602 54.9609C12.7181 54.9609 15.0553 57.4447 15.0553 60.8073C15.0553 63.7305 12.5716 65.0456 12.5716 70.3092C12.5716 79.6647 20.1725 85.6576 28.7988 85.6576C37.8613 85.6576 43.8542 79.3717 43.8542 71.7708C43.8542 62.4154 37.8613 58.4701 25.4362 54.082C11.5495 49.1178 0 43.1217 0 26.6048C0 11.696 11.9857 0 27.6269 0Z" fill="#00D639"></path>
+                        <path d="M91.4225 97.0636C75.6348 97.0636 62.4805 84.3455 62.4805 68.2648C62.4805 51.6014 75.7813 39.1763 91.862 39.1763C109.111 39.1763 121.243 52.0409 121.243 69.5832V90.9243C121.243 94.5799 118.32 97.0636 114.958 97.0636C111.449 97.0636 108.525 94.5799 108.525 90.9243V70.0194C108.525 58.4699 101.947 50.576 91.569 50.576C82.36 50.576 75.0521 58.3234 75.0521 68.2648C75.0521 77.4738 82.2135 85.3677 91.2793 85.3677C94.6419 85.3677 96.1035 84.492 98.151 84.492C100.928 84.492 103.851 86.8293 103.851 90.1919C103.848 94.7231 98.4375 97.0636 91.4225 97.0636Z" fill="#00D639"></path>
+                        <path d="M157.262 140.625C140.889 140.625 127.295 128.929 127.295 113.727C127.295 108.61 130.218 106.273 133.581 106.273C136.943 106.273 139.72 108.467 139.867 112.705C140.013 122.207 147.614 129.222 157.116 129.222C167.204 129.222 173.779 122.79 173.779 114.456C173.779 104.954 166.471 101.009 154.046 97.0604C139.574 92.3826 127.295 85.9504 127.295 68.1183C127.295 51.7446 139.867 39.1763 156.237 39.1763C172.754 39.1763 186.351 51.1619 186.351 66.9497C186.351 76.5981 182.406 84.0526 176.995 84.0526C173.34 84.0526 170.856 81.4224 170.856 78.2062C170.856 74.8436 173.779 73.382 173.779 67.3892C173.779 57.3013 165.885 50.5793 156.383 50.5793C147.174 50.5793 139.867 57.5975 139.867 66.8065C139.867 77.1841 147.321 81.5721 159.6 85.6639C173.779 90.3416 186.351 96.188 186.351 113.291C186.351 128.639 174.219 140.625 157.262 140.625Z" fill="#00D639"></path>
+                        <path d="M222.227 97.0638C205.853 97.0638 192.406 84.1992 192.406 68.1218C192.406 52.041 205.417 39.1797 221.494 39.1797C237.722 39.1797 250 50.4362 250 64.7624C250 70.3158 246.055 73.6784 239.623 73.6784H222.813C219.45 73.6784 216.966 71.3411 216.966 68.2682C216.966 65.345 219.45 63.0046 222.813 63.0046H235.384C236.553 63.0046 237.432 62.4186 237.432 61.25C237.432 57.0117 232.022 50.4329 221.937 50.4329C212.582 50.4329 204.981 58.4733 204.981 68.1218C204.981 77.9167 212.728 85.6641 222.376 85.6641C233.487 85.6641 237.142 79.0853 241.673 79.0853C245.475 79.0853 247.52 81.569 247.52 84.349C247.52 86.9792 245.765 89.3197 241.38 92.0964C236.989 94.8698 230.414 97.0638 222.227 97.0638Z" fill="#00D639"></path>
+                    </svg>
+                    <span class="logo-ai"><span class="ai-gradient">AI Studio</span></span>
+                </div>
+                <button class="collapse-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="header-center">
+                <div class="builder-dropdown" id="appSwitcher">
+                    <!-- Workflow icon (Lucide) -->
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="8" height="8" x="3" y="3" rx="2"/>
+                        <path d="M7 11v4a2 2 0 0 0 2 2h4"/>
+                        <rect width="8" height="8" x="13" y="13" rx="2"/>
+                    </svg>
+                    <span class="builder-text">Sage <span class="ai-gradient">Workflow.AI</span></span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m7 15 5 5 5-5"/>
+                        <path d="m7 9 5-5 5 5"/>
+                    </svg>
+
+                    <!-- Dropdown Menu -->
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="../index.html" class="dropdown-item">
+                            <div class="dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect width="7" height="7" x="3" y="3" rx="1"/>
+                                    <rect width="7" height="7" x="14" y="3" rx="1"/>
+                                    <rect width="7" height="7" x="14" y="14" rx="1"/>
+                                    <rect width="7" height="7" x="3" y="14" rx="1"/>
+                                </svg>
+                            </div>
+                            <div class="dropdown-content">
+                                <span class="dropdown-title">Accueil</span>
+                                <span class="dropdown-desc">Toutes les vues utiles pour la bonne gestion de votre entreprise</span>
+                            </div>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <div class="dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect width="18" height="18" x="3" y="3" rx="2"/>
+                                    <path d="M9 9h6v6H9z"/>
+                                </svg>
+                            </div>
+                            <div class="dropdown-content">
+                                <span class="dropdown-title">Sage <span class="ai-gradient">Ask.AI</span></span>
+                                <span class="dropdown-desc">L'agent Web ou Mobile conversationnel du quotidien branché à SAGE</span>
+                            </div>
+                        </a>
+                        <a href="builder.html" class="dropdown-item">
+                            <div class="dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/>
+                                </svg>
+                            </div>
+                            <div class="dropdown-content">
+                                <span class="dropdown-title">Sage <span class="ai-gradient">Builder.AI</span></span>
+                                <span class="dropdown-desc">Construire par l'IA des vues web sur-mesure connectées à SAGE</span>
+                            </div>
+                        </a>
+                        <a href="workflow-start.html" class="dropdown-item active">
+                            <div class="dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect width="8" height="8" x="3" y="3" rx="2"/>
+                                    <path d="M7 11v4a2 2 0 0 0 2 2h4"/>
+                                    <rect width="8" height="8" x="13" y="13" rx="2"/>
+                                </svg>
+                            </div>
+                            <div class="dropdown-content">
+                                <span class="dropdown-title">Sage <span class="ai-gradient">Workflow.AI</span></span>
+                                <span class="dropdown-desc">Construire par l'IA des processus automatisés dans et avec SAGE</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="lang-selector">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m5 8 6 6"/>
+                        <path d="m4 14 6-6 2-3"/>
+                        <path d="M2 5h12"/>
+                        <path d="M7 2h1"/>
+                        <path d="m22 22-5-10-5 10"/>
+                        <path d="M14 18h6"/>
+                    </svg>
+                    <span class="flag-fr">🇫🇷</span>
+                    <span>FR</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </div>
+                <div class="user-menu-wrapper" id="userMenuWrapper">
+                    <div class="user-menu" id="userMenuToggle">
+                        <div class="user-avatar">AD</div>
+                        <span class="user-name">Admin</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </div>
+                    <div class="user-menu-dropdown">
+                        <div class="user-menu-header">
+                            <div class="user-avatar">AD</div>
+                            <div class="user-menu-info">
+                                <span class="user-fullname">Admin</span>
+                                <span class="user-email">admin@webexpr.dev</span>
+                            </div>
+                        </div>
+                        <div class="user-menu-list">
+                            <a href="#" class="user-menu-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Paramètres du compte
+                            </a>
+                            <button class="user-menu-item" id="themeToggle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="themeIcon">
+                                    <circle cx="12" cy="12" r="4"/>
+                                    <path d="M12 2v2"/>
+                                    <path d="M12 20v2"/>
+                                    <path d="m4.93 4.93 1.41 1.41"/>
+                                    <path d="m17.66 17.66 1.41 1.41"/>
+                                    <path d="M2 12h2"/>
+                                    <path d="M20 12h2"/>
+                                    <path d="m6.34 17.66-1.41 1.41"/>
+                                    <path d="m19.07 4.93-1.41 1.41"/>
+                                </svg>
+                                <span id="themeLabel">Mode sombre</span>
+                            </button>
+                            <a href="#" class="user-menu-item logout">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                    <polyline points="16 17 21 12 16 7"/>
+                                    <line x1="21" x2="9" y1="12" y2="12"/>
+                                </svg>
+                                Déconnexion
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-wrapper">
+            <!-- Left Sidebar - Workflows List -->
+            <aside class="sidebar workflow-sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-section">
+                        <span class="section-label">Workflows</span>
+                        <nav class="nav-menu">
+                            <a href="#" class="nav-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="8" height="8" x="3" y="3" rx="2"/>
+                                    <path d="M7 11v4a2 2 0 0 0 2 2h4"/>
+                                    <rect width="8" height="8" x="13" y="13" rx="2"/>
+                                </svg>
+                                Relance factures impayées
+                            </a>
+                            <a href="#" class="nav-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="8" height="8" x="3" y="3" rx="2"/>
+                                    <path d="M7 11v4a2 2 0 0 0 2 2h4"/>
+                                    <rect width="8" height="8" x="13" y="13" rx="2"/>
+                                </svg>
+                                Validation devis > 5000€
+                            </a>
+                            <a href="#" class="nav-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="8" height="8" x="3" y="3" rx="2"/>
+                                    <path d="M7 11v4a2 2 0 0 0 2 2h4"/>
+                                    <rect width="8" height="8" x="13" y="13" rx="2"/>
+                                </svg>
+                                Alerte stock minimum
+                            </a>
+                            <a href="#" class="nav-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="8" height="8" x="3" y="3" rx="2"/>
+                                    <path d="M7 11v4a2 2 0 0 0 2 2h4"/>
+                                    <rect width="8" height="8" x="13" y="13" rx="2"/>
+                                </svg>
+                                Approbation commandes
+                            </a>
+                        </nav>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <span class="section-label muted">Récents</span>
+                        <nav class="nav-menu">
+                            <a href="#" class="nav-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                Rapport ventes hebdo
+                            </a>
+                            <a href="#" class="nav-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                Nouveau client notif.
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="sidebar-footer">
+                    <a href="#" class="nav-item settings-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        Paramètres
+                        <svg class="chevron-down" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content workflow-main">
+                <!-- Sub Header / Breadcrumb -->
+                <div class="sub-header workflow-subheader">
+                    <div class="sub-header-left">
+                        <button class="back-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m12 19-7-7 7-7"/>
+                                <path d="M19 12H5"/>
+                            </svg>
+                        </button>
+                        <div class="breadcrumb">
+                            <a href="#" class="breadcrumb-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/>
+                                    <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                </svg>
+                                Home
+                            </a>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                            <span class="breadcrumb-current">Nouveau workflow</span>
+                        </div>
+                    </div>
+                    <div class="sub-header-right">
+                        <div class="workflow-actions">
+                            <button class="action-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="4" x2="20" y1="12" y2="12"/>
+                                    <line x1="4" x2="20" y1="6" y2="6"/>
+                                    <line x1="4" x2="20" y1="18" y2="18"/>
+                                </svg>
+                                Actions
+                            </button>
+                            <button class="action-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                Affichage
+                            </button>
+                            <button class="action-btn primary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="18" cy="5" r="3"/>
+                                    <circle cx="6" cy="12" r="3"/>
+                                    <circle cx="18" cy="19" r="3"/>
+                                    <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+                                    <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+                                </svg>
+                                Partager
+                            </button>
+                            <button class="action-btn primary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="6 3 20 12 6 21 6 3"/>
+                                </svg>
+                                Exécuter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="content-area workflow-content">
+                    <!-- AI Chat Panel - Empty State -->
+                    <div class="chat-panel workflow-chat">
+                        <div class="workflow-empty-state">
+                            <div class="ai-robot-icon">
+                                <!-- Robot Icon matching the screenshot -->
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Robot head/body -->
+                                    <rect x="12" y="24" width="40" height="28" rx="6" fill="#E8F5E9" stroke="#4CAF93" stroke-width="2"/>
+                                    <!-- Antenna -->
+                                    <circle cx="32" cy="14" r="5" fill="#E8F5E9" stroke="#4CAF93" stroke-width="2"/>
+                                    <line x1="32" y1="19" x2="32" y2="24" stroke="#4CAF93" stroke-width="2"/>
+                                    <!-- Eyes -->
+                                    <rect x="22" y="34" width="8" height="8" rx="2" fill="#4CAF93"/>
+                                    <rect x="34" y="34" width="8" height="8" rx="2" fill="#4CAF93"/>
+                                </svg>
+                            </div>
+                            <h2>Décrivez, l'IA construit</h2>
+                            <p>Expliquez ce que vous voulez automatiser. Posez des questions, ajustez, perfectionnez.</p>
+                        </div>
+
+                        <!-- Chat Input -->
+                        <div class="chat-input-area">
+                            <div class="chat-input-container">
+                                <button class="attach-btn">
+                                    <!-- Image Plus (Lucide) -->
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 5h6"/>
+                                        <path d="M19 2v6"/>
+                                        <path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/>
+                                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                                        <circle cx="9" cy="9" r="2"/>
+                                    </svg>
+                                </button>
+                                <div class="chat-input-wrapper">
+                                    <input type="text" placeholder="Décrivez le workflow souhaité..." class="chat-input" id="workflowInput">
+                                </div>
+                                <button class="send-btn" id="sendBtn">
+                                    <!-- Send (Lucide) -->
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/>
+                                        <path d="m21.854 2.147-10.94 10.939"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <span class="input-hint">Glissez-déposez des images ou cliquez sur l'icône image</span>
+                        </div>
+                    </div>
+
+                    <!-- Workflow Canvas - Empty State -->
+                    <div class="preview-panel workflow-canvas-panel">
+                        <div class="workflow-canvas workflow-canvas-empty">
+                            <div class="canvas-empty-state">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" stroke-width="1.5">
+                                    <rect width="8" height="8" x="3" y="3" rx="2"/>
+                                    <path d="M7 11v4a2 2 0 0 0 2 2h4"/>
+                                    <rect width="8" height="8" x="13" y="13" rx="2"/>
+                                </svg>
+                                <p>Votre workflow apparaîtra ici</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Dropdown toggle
+        document.getElementById('appSwitcher').addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('open');
+            document.getElementById('userMenuWrapper').classList.remove('open');
+        });
+
+        // User menu dropdown toggle
+        document.getElementById('userMenuToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('userMenuWrapper').classList.toggle('open');
+            document.getElementById('appSwitcher').classList.remove('open');
+        });
+
+        document.addEventListener('click', function() {
+            document.getElementById('appSwitcher').classList.remove('open');
+            document.getElementById('userMenuWrapper').classList.remove('open');
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeLabel = document.getElementById('themeLabel');
+        const themeIcon = document.getElementById('themeIcon');
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeUI(savedTheme);
+
+        themeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeUI(newTheme);
+        });
+
+        function updateThemeUI(theme) {
+            if (theme === 'dark') {
+                themeLabel.textContent = 'Mode clair';
+                themeIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+            } else {
+                themeLabel.textContent = 'Mode sombre';
+                themeIcon.innerHTML = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>';
+            }
+        }
+
+        // Send button - redirect to workflow.html
+        document.getElementById('sendBtn').addEventListener('click', function() {
+            window.location.href = 'workflow.html';
+        });
+
+        // Also redirect on Enter key
+        document.getElementById('workflowInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                window.location.href = 'workflow.html';
+            }
+        });
+    </script>
+<script src="/_auth.js"></script>
+</body>
+</html>

@@ -1,11 +1,11 @@
-# robots.txt - Sage AI Studio Business Model
-# Document confidentiel - Indexation interdite
+# robots.txt - Sage AI Studio | Genysia Technologies
+# Confidential document - Indexing strictly forbidden
 
-# Bloquer tous les robots
+# Block all robots
 User-agent: *
 Disallow: /
 
-# Bloquer specifiquement les principaux moteurs
+# Search engines
 User-agent: Googlebot
 Disallow: /
 
@@ -24,6 +24,10 @@ Disallow: /
 User-agent: YandexBot
 Disallow: /
 
+User-agent: Yandex
+Disallow: /
+
+# Social media crawlers
 User-agent: facebookexternalhit
 Disallow: /
 
@@ -33,5 +37,49 @@ Disallow: /
 User-agent: LinkedInBot
 Disallow: /
 
-# Pas de sitemap - contenu prive
-# Sitemap: none
+# AI crawlers / LLM training bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+# SEO bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+# Archive bots
+User-agent: ia_archiver
+Disallow: /
+
+# No sitemap - private content

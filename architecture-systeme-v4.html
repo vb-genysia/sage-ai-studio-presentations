@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Architecture - Sage AI Studio (v2)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 20px 30px 140px;
+    }
+
+    /* ══════════════════════════════════ */
+    /* ── STEPPER BAR                  ── */
+    /* ══════════════════════════════════ */
+    .stepper-wrapper {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 0 20px;
+    }
+    .stepper-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      max-width: 700px;
+      margin: 0 auto 6px;
+    }
+    .step-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    .step-btn .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      border: 2px solid #333;
+      color: #666;
+      background: #0a0a0a;
+      transition: all 0.3s ease;
+    }
+    .step-btn .step-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #555;
+      text-align: center;
+      white-space: nowrap;
+      transition: color 0.3s ease;
+    }
+    .step-btn.active .step-num {
+      background: #22c55e;
+      border-color: #22c55e;
+      color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+    }
+    .step-btn.active .step-title { color: #22c55e; }
+    .step-btn.done .step-num {
+      background: transparent;
+      border-color: #22c55e;
+      color: #22c55e;
+    }
+    .step-btn.done .step-title { color: #4ade80; }
+    .step-btn:hover .step-num { border-color: #22c55e88; }
+
+    .step-line {
+      width: 100px;
+      height: 2px;
+      background: #333;
+      margin: 0 6px;
+      margin-bottom: 22px;
+      border-radius: 1px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.5s ease;
+    }
+    .step-line.filled { background: #22c55e; }
+
+    .step-subtitle {
+      text-align: center;
+      font-size: 15px;
+      color: #888;
+      letter-spacing: 0.3px;
+      transition: opacity 0.3s ease;
+    }
+    .step-subtitle strong { color: #4ade80; }
+
+    /* ══════════════════════════════════ */
+    /* ── HEADER                       ── */
+    /* ══════════════════════════════════ */
+    .header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+    .header p {
+      font-size: 14px;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    /* ══════════════════════════════════ */
+    /* ── LAYOUT SABLIER               ── */
+    /* ══════════════════════════════════ */
+    .hourglass {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 0;
+      overflow: visible;
+    }
+
+    /* ── Cartes ── */
+    .card {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 14px;
+      padding: 16px 20px;
+      width: 100%;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .card-header .icon {
+      width: 30px; height: 30px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0;
+    }
+    .card-header .icon svg { width: 16px; height: 16px; }
+    .icon-tiers    { background: #1a1a2a; color: #8b8bde; border: 1px solid #2d2d4a; }
+    .icon-studio   { background: #1a2a1a; color: #4ade80; border: 1px solid #2d4a2d; }
+    .icon-sources  { background: #1a2020; color: #f0a050; border: 1px solid #3a2a1a; }
+    .card-header h2 {
+      font-size: 14px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #fff;
+    }
+    .card-subtitle {
+      font-size: 11px; color: #666; margin-bottom: 10px; padding-left: 40px;
+    }
+
+    /* ── Sous-cartes ── */
+    .sub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .sub-card {
+      background: #1a1a1a; border: 1px solid #2a2a2a;
+      border-radius: 10px; padding: 10px 12px;
+    }
+    .sub-card-header {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+    }
+    .sub-card-header .sub-icon { display: flex; align-items: center; }
+    .sub-card-header .sub-icon svg { width: 16px; height: 16px; }
+    .sub-card-header h3 {
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: #ddd;
+    }
+
+    /* ── Tags ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+    .tag {
+      background: #252525; border: 1px solid #3a3a3a; border-radius: 5px;
+      padding: 3px 8px; font-size: 10px; color: #bbb; white-space: nowrap;
+    }
+    .tag-green {
+      background: transparent; border: 1.5px solid #22c55e;
+      color: #4ade80; font-weight: 500;
+    }
+    .tag-more { background: #252525; border: 1px solid #3a3a3a; color: #666; }
+    .ai-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    /* ── Items (Studio) ── */
+    .item {
+      background: #1e1e1e; border: 1px solid #333; border-radius: 8px;
+      padding: 7px 12px; text-align: center; font-size: 12px;
+      color: #ccc; margin-bottom: 6px;
+    }
+    .item:last-child { margin-bottom: 0; }
+    .item-green {
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      border: none; color: #fff; font-weight: 600;
+    }
+    .item-green-outline {
+      background: transparent; border: 1.5px solid #22c55e;
+      color: #4ade80; font-weight: 500;
+    }
+
+    /* ── Studio section (glow) ── */
+    .studio-section {
+      width: 100%; max-width: 600px;
+      border-color: #22c55e44;
+      box-shadow: 0 0 40px rgba(34, 197, 94, 0.07), 0 0 100px rgba(34, 197, 94, 0.03);
+      position: relative;
+      transition: max-width 0.6s ease;
+    }
+    .studio-section::before {
+      content: ''; position: absolute; inset: -1px; border-radius: 15px; padding: 1px;
+      background: linear-gradient(135deg, #22c55e33, #22c55e11, transparent, #22c55e11, #22c55e33);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+    }
+    .studio-modules {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 6px;
+    }
+    .studio-modules .item { margin-bottom: 0; }
+    .studio-infra {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;
+    }
+    .studio-infra .item { margin-bottom: 0; font-size: 11px; padding: 6px 10px; }
+
+    .middle-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      margin: 10px 0;
+      transition: min-height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .show-step-3 .middle-wrapper {
+      min-height: 320px;
+    }
+    .middle-wrapper .studio-section {
+      max-width: none;
+      flex: 1;
+    }
+    /* Data Intelligence positionnée en absolu à droite du Studio */
+    .middle-wrapper .step-3-only.intel-arrow {
+      position: absolute;
+      left: calc(100% + 20px);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .middle-wrapper .step-3-only.data-intel-card {
+      position: absolute;
+      left: calc(100% + 80px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 300px;
+    }
+
+    /* ── Pipeline ── */
+    .data-pipeline {
+      display: flex; align-items: stretch; margin: 14px 0 6px;
+      border-radius: 8px; overflow: hidden; border: 1px solid #22c55e22;
+    }
+    .pipeline-step {
+      flex: 1; text-align: center; padding: 10px 6px 8px;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+    .pipeline-step .step-icon { display: flex; align-items: center; justify-content: center; }
+    .pipeline-step .step-icon svg { width: 20px; height: 20px; }
+    .pipeline-step .step-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+    }
+    .pipeline-step .step-detail {
+      font-size: 8.5px; font-weight: 400; color: #666;
+      text-transform: none; letter-spacing: 0;
+    }
+    .pipe-1 { background: #0f1f14; color: #4ade80; }
+    .pipe-2 { background: #0f1a20; color: #38bdf8; }
+    .pipe-3 { background: #1a0f20; color: #c084fc; }
+    .pipe-4 { background: #1f1a0f; color: #fbbf24; }
+    .pipe-sep { width: 1px; background: #1a1a1a; flex-shrink: 0; }
+
+    /* ══════════════════════════════════ */
+    /* ── CONNECTEUR SABLIER ANIMÉ     ── */
+    /* ══════════════════════════════════ */
+    .funnel-connector {
+      position: relative; width: 100%; height: 70px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .funnel-connector svg.funnel-svg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
+    .funnel-label {
+      position: relative; z-index: 2; font-size: 11px; color: #22c55e;
+      background: #0a0a0a; padding: 3px 16px; border-radius: 10px;
+      border: 1px solid #22c55e33; letter-spacing: 0.5px; font-weight: 500;
+    }
+
+    /* ── Descripteurs de flux ── */
+    .flow-descriptors {
+      position: absolute; inset: 0; display: flex; justify-content: space-between;
+      align-items: center; padding: 0 20px; z-index: 1; pointer-events: none;
+    }
+    .flow-desc-side {
+      display: flex; flex-direction: column; gap: 3px; max-width: 280px;
+    }
+    .flow-desc-side.right { text-align: right; align-items: flex-end; }
+    .flow-desc-label {
+      font-size: 8px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; color: #444;
+    }
+    .flow-chips { display: flex; flex-wrap: wrap; gap: 3px; }
+    .flow-chips.right { justify-content: flex-end; }
+    .flow-chip {
+      font-size: 8.5px; color: #555; background: #0e0e0e;
+      border: 1px solid #1e1e1e; border-radius: 3px;
+      padding: 1px 6px; white-space: nowrap;
+    }
+
+    /* ── AUTRES card ── */
+    .autres-card {
+      display: flex; align-items: center; gap: 8px;
+      background: #1a1a1a; border: 1px solid #2a2a2a;
+      border-radius: 10px; padding: 10px 14px; grid-column: 1 / -1;
+    }
+    .autres-card .sub-icon { display: flex; align-items: center; }
+    .autres-card .sub-icon svg { width: 16px; height: 16px; }
+    .autres-card h3 { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #aaa; }
+
+    /* ══════════════════════════════════ */
+    /* ── SOURCES DE DONNÉES           ── */
+    /* ══════════════════════════════════ */
+    .source-inner-grid {
+      display: grid; gap: 14px;
+      grid-template-columns: 1fr;
+    }
+    .show-step-2 .source-inner-grid,
+    .show-step-3 .source-inner-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    /* Cacher complètement la colonne tiers aux étapes 1 (pas de place fantôme dans le grid) */
+    .source-inner-grid .step-2-only {
+      display: none;
+    }
+    .show-step-2 .source-inner-grid .step-2-only,
+    .show-step-3 .source-inner-grid .step-2-only {
+      display: block;
+      animation: slideInRight 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes slideInRight {
+      0% { opacity: 0; transform: translateX(60px) scale(0.95); filter: blur(6px); }
+      100% { opacity: 1; transform: translateX(0) scale(1); filter: blur(0); }
+    }
+    .source-sub {
+      background: #1a1a1a; border: 1px solid #2a2a2a;
+      border-radius: 10px; padding: 12px 14px;
+    }
+    .source-sub-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .source-sub-header .s-icon {
+      width: 28px; height: 28px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; flex-shrink: 0;
+    }
+    .source-sub-header .s-icon svg { width: 14px; height: 14px; }
+    .s-icon-sage { background: #1a2a1a; color: #4ade80; border: 1px solid #2d4a2d; }
+    .s-icon-tiers { background: #1a1a2a; color: #818cf8; border: 1px solid #2d2d4a; }
+    .source-sub-header h3 {
+      font-size: 13px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: #ddd;
+    }
+    .source-sub-header .badge {
+      margin-left: auto; font-size: 10px; font-weight: 600;
+      color: #818cf8; background: #1a1a2a; border: 1px solid #2d2d4a;
+      border-radius: 20px; padding: 3px 10px; white-space: nowrap;
+    }
+    .source-sub-header .badge-sage {
+      color: #4ade80; background: #1a2a1a; border-color: #2d4a2d;
+    }
+    .product-line {
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      border-radius: 8px; padding: 6px 12px; text-align: center;
+      font-size: 11px; color: #fff; font-weight: 600; margin-bottom: 8px;
+    }
+
+    /* ── Catégories outils tiers ── */
+    .tool-category { margin-bottom: 6px; }
+    .tool-category:last-child { margin-bottom: 0; }
+    .tool-category-label {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; color: #666; margin-bottom: 5px; padding-left: 2px;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .tool-category-label svg { width: 12px; height: 12px; flex-shrink: 0; }
+    .tool-category .tags { margin-bottom: 0; }
+
+    .cat-crm .tool-category-label { color: #f97316; }
+    .cat-paiements .tool-category-label { color: #a78bfa; }
+    .cat-compta .tool-category-label { color: #38bdf8; }
+    .cat-rh .tool-category-label { color: #f472b6; }
+    .cat-projet .tool-category-label { color: #34d399; }
+    .cat-ecom .tool-category-label { color: #fbbf24; }
+    .cat-marketing .tool-category-label { color: #fb7185; }
+
+    .cat-crm .tag { border-color: #5a3210; color: #f9a366; }
+    .cat-paiements .tag { border-color: #3a2a5a; color: #c4b5fd; }
+    .cat-compta .tag { border-color: #1a3040; color: #7dd3fc; }
+    .cat-rh .tag { border-color: #4a1a3a; color: #f9a8d4; }
+    .cat-projet .tag { border-color: #1a3a2a; color: #6ee7b7; }
+    .cat-ecom .tag { border-color: #4a3a10; color: #fde68a; }
+    .cat-marketing .tag { border-color: #4a1a2a; color: #fda4af; }
+
+    /* ══════════════════════════════════ */
+    /* ── DATA INTELLIGENCE (Step 3)   ── */
+    /* ══════════════════════════════════ */
+    .data-intel-card {
+      background: #141418;
+      border: 1px solid #4338ca44;
+      border-radius: 14px;
+      padding: 14px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .data-intel-card::before {
+      content: ''; position: absolute; inset: -1px; border-radius: 15px; padding: 1px;
+      background: linear-gradient(135deg, #6366f133, #a855f733, transparent, #a855f733, #6366f133);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+    }
+    .data-intel-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .data-intel-header .di-icon {
+      width: 30px; height: 30px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      background: #1a1a2e; border: 1px solid #4338ca44;
+    }
+    .data-intel-header .di-icon svg { width: 16px; height: 16px; }
+    .data-intel-header h2 {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: #c4b5fd;
+    }
+    .intel-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    }
+    .intel-item {
+      background: rgba(99, 102, 241, 0.06);
+      border: 1px solid #4338ca33;
+      border-radius: 8px;
+      padding: 8px 6px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .intel-item svg { width: 18px; height: 18px; }
+    .intel-item .intel-label {
+      font-size: 9px; font-weight: 600; color: #c4b5fd;
+      letter-spacing: 0.3px; line-height: 1.2;
+    }
+
+    /* ── Flèche horizontale Studio → Intel ── */
+    .intel-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .intel-arrow svg { width: 40px; height: 80px; }
+
+    /* ══════════════════════════════════ */
+    /* ── TRANSITIONS STEP              ── */
+    /* ══════════════════════════════════ */
+    .step-2-only,
+    .step-3-only {
+      opacity: 0;
+      transform: translateX(60px) scale(0.95);
+      filter: blur(6px);
+      pointer-events: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+                  max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                  flex 0.5s ease, width 0.5s ease, padding 0.5s ease, border-width 0.5s ease;
+    }
+    /* Step-3 items inside middle-wrapper are absolutely positioned */
+    .middle-wrapper .step-3-only {
+      max-height: none;
+    }
+    .show-step-2 .step-2-only,
+    .show-step-3 .step-2-only {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      filter: blur(0);
+      pointer-events: auto;
+      max-height: 2000px;
+    }
+    .show-step-3 .step-3-only {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      filter: blur(0);
+      pointer-events: auto;
+      max-height: 2000px;
+    }
+
+    /* Badge intégrations (step 2+) */
+    .badge-integrations {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #22c55e;
+      background: #0a0a0a;
+      border: 1.5px solid #22c55e;
+      border-radius: 20px;
+      padding: 4px 14px;
+      letter-spacing: 0.5px;
+      z-index: 5;
+    }
+
+    /* ── Baseline ── */
+    .baseline {
+      text-align: center; margin-top: 16px; padding: 10px 24px;
+      max-width: 1100px; margin-left: auto; margin-right: auto;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .show-step-2 .baseline,
+    .show-step-3 .baseline {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .baseline p { font-size: 13px; color: #555; letter-spacing: 0.3px; }
+    .baseline strong { color: #4ade80; font-weight: 600; }
+
+    /* ── SVG Icon global style ── */
+    .svg-icon { display: inline-flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ STEPPER ═══ -->
+  <div class="stepper-wrapper">
+    <div class="stepper-bar">
+      <div class="step-btn active" data-step="1" onclick="goToStep(1)">
+        <div class="step-num">1</div>
+        <div class="step-title">Sage Connection</div>
+      </div>
+      <div class="step-line" id="line-1-2"></div>
+      <div class="step-btn" data-step="2" onclick="goToStep(2)">
+        <div class="step-num">2</div>
+        <div class="step-title">Third-Party Ecosystem</div>
+      </div>
+      <div class="step-line" id="line-2-3"></div>
+      <div class="step-btn" data-step="3" onclick="goToStep(3)">
+        <div class="step-num">3</div>
+        <div class="step-title">Data Intelligence</div>
+      </div>
+    </div>
+    <div class="step-subtitle" id="stepSubtitle">
+      <strong>Sage AI Studio</strong> &mdash; Connect your Sage data
+    </div>
+  </div>
+
+  <!-- ═══ HEADER ═══ -->
+  <div class="header">
+    <h1>System Architecture</h1>
+    <p>Overview of the Sage AI Studio infrastructure</p>
+  </div>
+
+  <!-- ═══ HOURGLASS CONTAINER ═══ -->
+  <div class="hourglass" id="hourglassContainer">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HAUT : INTERFACES & APPLICATIONS (large)   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="card" style="width:100%;">
+      <div class="card-header">
+        <div class="icon icon-tiers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8b8bde" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h2>Interfaces &amp; Applications</h2>
+      </div>
+      <div class="card-subtitle">Applications consuming the intelligence generated by Sage AI Studio</div>
+
+      <div class="sub-grid">
+        <div class="sub-card">
+          <div class="sub-card-header">
+            <span class="sub-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+            <h3>SENSAAS</h3>
+          </div>
+          <div class="tags">
+            <span class="tag">Sales</span><span class="tag">Purchasing</span>
+            <span class="tag">Inventory</span><span class="tag">Marketing</span>
+          </div>
+          <div class="ai-tags">
+            <span class="tag tag-green">Builder AI Views</span>
+            <span class="tag tag-green">Ask AI</span>
+            <span class="tag tag-green">Workflow AI</span>
+          </div>
+        </div>
+
+        <div class="sub-card">
+          <div class="sub-card-header">
+            <span class="sub-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+            <h3>DATAVEN</h3>
+          </div>
+          <div class="tags">
+            <span class="tag">Accounting</span>
+            <span class="tag">Sales Management</span>
+            <span class="tag">Inventory</span>
+            <span class="tag tag-more">&hellip;</span>
+          </div>
+          <div class="ai-tags">
+            <span class="tag tag-green">Builder AI Views</span>
+            <span class="tag tag-green">Ask AI</span>
+            <span class="tag tag-green">Workflow AI</span>
+          </div>
+        </div>
+
+        <div class="sub-card">
+          <div class="sub-card-header">
+            <span class="sub-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+            <h3>SmartFrame &ndash; Webexpr</h3>
+          </div>
+          <div class="tags">
+            <span class="tag">E-Commerce</span><span class="tag">Support</span>
+            <span class="tag tag-more">&hellip;</span>
+          </div>
+          <div class="ai-tags">
+            <span class="tag tag-green">Builder AI Views</span>
+            <span class="tag tag-green">Ask AI</span>
+            <span class="tag tag-green">Workflow AI</span>
+          </div>
+        </div>
+
+        <div class="sub-card">
+          <div class="sub-card-header">
+            <span class="sub-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></span>
+            <h3>Ask Mobile &ndash; Webexpr</h3>
+          </div>
+          <div class="ai-tags">
+            <span class="tag tag-green">Ask AI</span>
+          </div>
+        </div>
+
+        <div class="autres-card">
+          <span class="sub-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+          <h3>Your own applications, client portals, internal tools&hellip;</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CONNECTEUR HAUT (animé) ═══ -->
+    <div class="funnel-connector">
+      <svg class="funnel-svg" viewBox="0 0 1100 80" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100,0 Q240,40 400,80" stroke="#22c55e" stroke-width="1" stroke-dasharray="6 4" opacity="0.3" fill="none"/>
+        <path d="M1000,0 Q860,40 700,80" stroke="#22c55e" stroke-width="1" stroke-dasharray="6 4" opacity="0.3" fill="none"/>
+        <path d="M550,0 L550,80" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4" fill="none"/>
+
+        <circle r="3" fill="#4ade80" opacity="0.9" filter="url(#glow)">
+          <animateMotion dur="2s" repeatCount="indefinite" path="M550,80 L550,0" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle r="3" fill="#4ade80" opacity="0.9" filter="url(#glow)">
+          <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.8s" path="M550,80 L550,0" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2.4s" repeatCount="indefinite" begin="0.8s"/>
+        </circle>
+        <circle r="2.5" fill="#38bdf8" opacity="0.7">
+          <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.5s" path="M550,0 L550,80" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.1;0.9;1" dur="2.2s" repeatCount="indefinite" begin="0.5s"/>
+        </circle>
+        <circle r="2.5" fill="#4ade80" opacity="0.7">
+          <animateMotion dur="2.6s" repeatCount="indefinite" begin="0.3s" path="M400,80 Q240,40 100,0" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.1;0.9;1" dur="2.6s" repeatCount="indefinite" begin="0.3s"/>
+        </circle>
+        <circle r="2.5" fill="#4ade80" opacity="0.7">
+          <animateMotion dur="2.6s" repeatCount="indefinite" begin="1.2s" path="M700,80 Q860,40 1000,0" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.1;0.9;1" dur="2.6s" repeatCount="indefinite" begin="1.2s"/>
+        </circle>
+
+        <defs>
+          <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+      </svg>
+
+      <div class="flow-descriptors">
+        <div class="flow-desc-side">
+          <div class="flow-desc-label" style="color:#4ade8088;">&uarr; Output to interfaces</div>
+          <div class="flow-chips">
+            <span class="flow-chip">AI Responses</span>
+            <span class="flow-chip">Dashboards</span>
+            <span class="flow-chip">Custom Views</span>
+          </div>
+        </div>
+        <div class="flow-desc-side right">
+          <div class="flow-desc-label" style="color:#38bdf888;">&darr; Incoming requests</div>
+          <div class="flow-chips right">
+            <span class="flow-chip">User questions</span>
+            <span class="flow-chip">Interface requests</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="funnel-label">Auto-generated APIs</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- MILIEU : SAGE AI STUDIO + DATA INTEL       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="middle-wrapper">
+
+      <div class="card studio-section">
+        <!-- Badge step 2+ -->
+        <div class="step-2-only badge-integrations">20+ integrations</div>
+
+        <div class="card-header">
+          <div class="icon icon-studio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <h2>Sage AI Studio</h2>
+        </div>
+        <div class="card-subtitle" style="color:#4ade80aa;">Unified intelligence hub &mdash; connects to your existing tools</div>
+
+        <div class="item" style="margin-bottom:10px;">Custom Navigation</div>
+
+        <div class="studio-modules">
+          <div class="item item-green">
+            <span style="display:flex;align-items:center;justify-content:center;gap:4px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              Sage Builder AI
+            </span>
+          </div>
+          <div class="item item-green">
+            <span style="display:flex;align-items:center;justify-content:center;gap:4px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Sage Ask AI
+            </span>
+          </div>
+          <div class="item item-green">
+            <span style="display:flex;align-items:center;justify-content:center;gap:4px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+              Sage Workflow AI
+            </span>
+          </div>
+        </div>
+
+        <div class="item item-green-outline" style="margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Partner Library
+        </div>
+
+
+        <div class="studio-infra">
+          <div class="item" style="display:flex;align-items:center;justify-content:center;gap:5px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            BASE MongoDB
+          </div>
+          <div class="item" style="display:flex;align-items:center;justify-content:center;gap:5px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><path d="M12 2v6M12 18v4"/><circle cx="12" cy="12" r="4"/><path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            MCP
+          </div>
+          <div class="item" style="display:flex;align-items:center;justify-content:center;gap:5px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            BRIDGE API
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Flèche horizontale (step 3) ── -->
+      <div class="step-3-only intel-arrow" style="overflow:visible;">
+        <svg viewBox="0 0 40 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="40" x2="32" y2="40" stroke="#6366f1" stroke-width="2" stroke-dasharray="4 3" opacity="0.5"/>
+          <polygon points="32,35 40,40 32,45" fill="#6366f1" opacity="0.6"/>
+          <!-- Particule animée -->
+          <circle r="2.5" fill="#a855f7" opacity="0.8">
+            <animateMotion dur="1.5s" repeatCount="indefinite" path="M0,40 L36,40"/>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.8;1" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+
+      <!-- ── Data Intelligence (step 3) ── -->
+      <div class="step-3-only data-intel-card">
+        <div class="data-intel-header">
+          <div class="di-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h2>Data Intelligence</h2>
+        </div>
+
+        <div class="intel-grid">
+          <!-- Prédictions & tendances -->
+          <div class="intel-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span class="intel-label">Predictions &amp; Trends</span>
+
+          </div>
+          <!-- Détection d'anomalies -->
+          <div class="intel-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="11" y1="16" x2="11.01" y2="16"/></svg>
+            <span class="intel-label">Anomaly Detection</span>
+
+          </div>
+          <!-- Alertes intelligentes -->
+          <div class="intel-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/><path d="M17 3l2-2M7 3L5 1"/></svg>
+            <span class="intel-label">Smart Alerts</span>
+
+          </div>
+          <!-- Rapports automatisés -->
+          <div class="intel-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>
+            <span class="intel-label">Automated Reports</span>
+
+          </div>
+          <!-- Benchmarks sectoriels -->
+          <div class="intel-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span class="intel-label">Industry Benchmarks</span>
+
+          </div>
+          <!-- Scoring & segmentation -->
+          <div class="intel-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span class="intel-label">Scoring &amp; segmentation</span>
+
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /middle-wrapper -->
+
+    <!-- ═══ CONNECTEUR BAS (animé) ═══ -->
+    <div class="funnel-connector">
+      <svg class="funnel-svg" viewBox="0 0 1100 80" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M400,0 Q240,40 100,80" stroke="#22c55e" stroke-width="1" stroke-dasharray="6 4" opacity="0.3" fill="none"/>
+        <path d="M700,0 Q860,40 1000,80" stroke="#22c55e" stroke-width="1" stroke-dasharray="6 4" opacity="0.3" fill="none"/>
+        <path d="M550,0 L550,80" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4" fill="none"/>
+
+        <circle r="3" fill="#f0a050" opacity="0.8" filter="url(#glow2)">
+          <animateMotion dur="2.2s" repeatCount="indefinite" path="M550,80 L550,0" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.1;0.9;1" dur="2.2s" repeatCount="indefinite"/>
+        </circle>
+        <circle r="3" fill="#f0a050" opacity="0.8" filter="url(#glow2)">
+          <animateMotion dur="2.5s" repeatCount="indefinite" begin="1s" path="M550,80 L550,0" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.1;0.9;1" dur="2.5s" repeatCount="indefinite" begin="1s"/>
+        </circle>
+        <circle r="2.5" fill="#22c55e" opacity="0.6">
+          <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s" path="M550,0 L550,80" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.1;0.9;1" dur="2.4s" repeatCount="indefinite" begin="0.6s"/>
+        </circle>
+        <circle r="2.5" fill="#f0a050" opacity="0.6">
+          <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.2s" path="M100,80 Q240,40 400,0" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.1;0.9;1" dur="2.8s" repeatCount="indefinite" begin="0.2s"/>
+        </circle>
+        <circle r="2.5" fill="#f0a050" opacity="0.6">
+          <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.4s" path="M1000,80 Q860,40 700,0" keyPoints="0;1" keyTimes="0;1"/>
+          <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.1;0.9;1" dur="2.8s" repeatCount="indefinite" begin="1.4s"/>
+        </circle>
+
+        <defs>
+          <filter id="glow2"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+      </svg>
+
+      <div class="flow-descriptors">
+        <div class="flow-desc-side">
+          <div class="flow-desc-label" style="color:#f0a05088;">&uarr; Collected data</div>
+          <div class="flow-chips">
+            <span class="flow-chip">Journal entries</span>
+            <span class="flow-chip">Invoices</span>
+            <span class="flow-chip">Contacts</span>
+            <span class="flow-chip">Orders</span>
+            <span class="flow-chip">Payments</span>
+          </div>
+        </div>
+        <div class="flow-desc-side right">
+          <div class="flow-desc-label" style="color:#22c55e66;">&darr; Actions &amp; write-backs</div>
+          <div class="flow-chips right">
+            <span class="flow-chip">Automated workflows</span>
+            <span class="flow-chip">Sync</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="funnel-label">Connectors &amp; BRIDGE API</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- BAS : ÉCOSYSTÈME EXISTANT DU CLIENT        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="card" style="width:100%;">
+      <div class="card-header">
+        <div class="icon icon-sources">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f0a050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 18v4"/><circle cx="12" cy="12" r="4"/><path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <h2>Client's Existing Ecosystem</h2>
+      </div>
+      <div class="card-subtitle">Sage AI Studio plugs into your tools &mdash; it doesn't replace them</div>
+
+      <div class="source-inner-grid">
+        <!-- Produits Sage -->
+        <div class="source-sub">
+          <div class="source-sub-header">
+            <div class="s-icon s-icon-sage">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </div>
+            <h3>Sage Products</h3>
+            <span class="badge badge-sage">ERP &amp; Payroll</span>
+          </div>
+          <div class="product-line">OnPrem &amp; SPC Product Lines</div>
+          <div class="tags" style="margin-bottom:10px;">
+            <span class="tag">Sage 50</span>
+            <span class="tag">Sage 100</span>
+            <span class="tag">Sage X3</span>
+            <span class="tag">Sage FRP1000</span>
+            <span class="tag">Sage XRT</span>
+            <span class="tag">Sage 100 Paie</span>
+            <span class="tag">Sage Copilot</span>
+            <span class="tag">SBCP</span>
+            <span class="tag">SSP</span>
+            <span class="tag tag-more">&hellip;</span>
+          </div>
+          <div class="item" style="font-size:12px;display:flex;align-items:center;justify-content:center;gap:5px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            BASE SQL CLIENT
+          </div>
+        </div>
+
+        <!-- Outils & Services Tiers (step 2+) -->
+        <div class="source-sub step-2-only">
+          <div class="source-sub-header">
+            <div class="s-icon s-icon-tiers">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 18v4"/><circle cx="12" cy="12" r="4"/><path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <h3>Third-Party Tools &amp; Services</h3>
+            <span class="badge">20+ integrations</span>
+          </div>
+
+          <div class="tool-category cat-crm">
+            <div class="tool-category-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              CRM &amp; Sales
+            </div>
+            <div class="tags"><span class="tag">HubSpot</span><span class="tag">Pipedrive</span><span class="tag">Salesforce</span></div>
+          </div>
+          <div class="tool-category cat-paiements">
+            <div class="tool-category-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Payments &amp; Billing
+            </div>
+            <div class="tags"><span class="tag">Stripe</span><span class="tag">GoCardless</span><span class="tag">Pennylane</span></div>
+          </div>
+          <div class="tool-category cat-compta">
+            <div class="tool-category-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/></svg>
+              Accounting
+            </div>
+            <div class="tags"><span class="tag">Pennylane</span><span class="tag">Dext</span><span class="tag">Inqom</span></div>
+          </div>
+          <div class="tool-category cat-rh">
+            <div class="tool-category-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M12 8v4l2 2"/><circle cx="12" cy="8" r="2"/></svg>
+              HR &amp; Payroll
+            </div>
+            <div class="tags"><span class="tag">Lucca</span><span class="tag">PayFit</span><span class="tag">Silae</span></div>
+          </div>
+          <div class="tool-category cat-projet">
+            <div class="tool-category-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              Project Management
+            </div>
+            <div class="tags"><span class="tag">Linear</span><span class="tag">Monday</span><span class="tag">Jira</span></div>
+          </div>
+          <div class="tool-category cat-ecom">
+            <div class="tool-category-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              E-Commerce
+            </div>
+            <div class="tags"><span class="tag">Shopify</span><span class="tag">PrestaShop</span><span class="tag">WooCommerce</span></div>
+          </div>
+          <div class="tool-category cat-marketing">
+            <div class="tool-category-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Marketing
+            </div>
+            <div class="tags"><span class="tag">Brevo</span><span class="tag">Mailchimp</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /hourglass -->
+
+  <!-- Baseline (step 2+) -->
+  <div class="baseline">
+    <p><strong>Sage AI Studio</strong> is an intelligence layer that integrates with your existing tools. It doesn't replace any software &mdash; it connects and augments them.</p>
+  </div>
+
+  <!-- ═══ JAVASCRIPT ═══ -->
+  <script>
+    let currentStep = 1;
+    const container = document.getElementById('hourglassContainer');
+    const subtitle = document.getElementById('stepSubtitle');
+
+    const subtitles = {
+      1: '<strong>Sage AI Studio</strong> &mdash; Connect your Sage data',
+      2: '<strong>Sage AI Studio</strong> &mdash; Connect your entire ecosystem',
+      3: '<strong>Sage AI Studio</strong> &mdash; Turn your data into decisions'
+    };
+
+    function updateStepper(n) {
+      document.querySelectorAll('.step-btn').forEach(function(btn) {
+        var s = parseInt(btn.getAttribute('data-step'));
+        btn.classList.remove('active', 'done');
+        if (s === n) btn.classList.add('active');
+        else if (s < n) btn.classList.add('done');
+      });
+      document.getElementById('line-1-2').classList.toggle('filled', n >= 2);
+      document.getElementById('line-2-3').classList.toggle('filled', n >= 3);
+      subtitle.style.opacity = '0';
+      setTimeout(function() {
+        subtitle.innerHTML = subtitles[n];
+        subtitle.style.opacity = '1';
+      }, 200);
+    }
+
+    function smoothScrollTo(el, block) {
+      return new Promise(function(resolve) {
+        el.scrollIntoView({ behavior: 'smooth', block: block || 'center' });
+        var lastY = window.scrollY;
+        var settled = 0;
+        var check = setInterval(function() {
+          if (Math.abs(window.scrollY - lastY) < 1) {
+            settled++;
+            if (settled >= 3) { clearInterval(check); resolve(); }
+          } else {
+            settled = 0;
+          }
+          lastY = window.scrollY;
+        }, 50);
+        setTimeout(function() { clearInterval(check); resolve(); }, 1200);
+      });
+    }
+
+    function goToStep(n) {
+      if (n === currentStep) return;
+      var prev = currentStep;
+      currentStep = n;
+      updateStepper(n);
+
+      if (n < prev) {
+        // Going backward — hide immediately
+        container.classList.remove('show-step-2', 'show-step-3');
+        if (n >= 2) container.classList.add('show-step-2');
+        return;
+      }
+
+      if (n === 2) {
+        // Reveal third-party tools first, then scroll to absolute bottom
+        container.classList.add('show-step-2');
+        setTimeout(function() {
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }, 80);
+      } else if (n === 3) {
+        // Ensure step 2 content is visible
+        if (!container.classList.contains('show-step-2')) {
+          container.classList.add('show-step-2');
+        }
+        // Scroll to middle (Studio), then reveal Data Intelligence
+        smoothScrollTo(document.querySelector('.middle-wrapper'), 'center').then(function() {
+          container.classList.add('show-step-3');
+        });
+      }
+    }
+  </script>
+
+<script src="/_auth.js"></script>
+</body>
+</html>
